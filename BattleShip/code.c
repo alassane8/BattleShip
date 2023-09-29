@@ -1,3 +1,13 @@
+
+
+Aller au contenu
+Utiliser Gmail avec un lecteur d'écran
+Conversations
+3,11 Go utilisés sur 15 Go
+Conditions d'utilisation · Confidentialité · Règlement du programme
+Dernière activité sur le compte : il y a 0 minute
+Ce compte est ouvert depuis 2 autres emplacements. · Détails
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -4171,3 +4181,6 @@ int vainqueur_ia(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *p
  */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////4173
+
+bataille_navale_code.txt
+Affichage de bataille_navale_code.txt en cours...
