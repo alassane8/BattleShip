@@ -3,6 +3,8 @@
                                                    o
                                       Allsel.23  --|--
                                                   / \
+                                                  
+                                       "⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿. "
 
 I created the famous game of Battleship in C Language.
 This game can be played by using the terminal of your computer.
