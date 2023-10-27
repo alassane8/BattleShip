@@ -42,7 +42,7 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - 3 Destroyers with the letter D take 3 spaces.
 - 4 Submarines with the letter S take up 1 space.
 
-# Point d'ameliortion
+# Area for improvement
 
 - Comment the code more:
 Make sure to add descriptive comments for each function, method, and code section. Explain the purpose of each line of code, the algorithms used, and any complex logic. This will facilitate the understanding of your code by both yourself and other developers.
