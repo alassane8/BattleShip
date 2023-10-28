@@ -1,4 +1,4 @@
-## Battleship
+# Battleship
 
 <h1 align="center">
   Alassane WADE Battleship Game
@@ -14,13 +14,13 @@ boats.
 
 <img width="1306" alt="Screen Shot 2021-03-15 at 8 29 18 PM" src="https://github.com/alassane8/BattleShip/blob/main/BattleShip/Capture.PNG">
 
-## Instructions
+# Instructions
 To play the Battleship follow the following instructions :
 
-# 1. Install Visual Studio Code:
+## 1. Install Visual Studio Code:
 If you haven't already installed Visual Studio Code, you can download it from the official website: https://code.visualstudio.com/.
 
-# 2. Download and Install GCC (GNU Compiler Collection) :
+## 2. Download and Install GCC (GNU Compiler Collection) :
 The process may vary depending on your operating system. Here are instructions for some common operating systems:
 
 - Installing GCC on Linux (Ubuntu/Debian):
@@ -57,7 +57,7 @@ brew install gcc
 On Windows, you can use the MinGW (Minimalist GNU for Windows) distribution to get GCC. 
 You can follow these steps: https://dev.to/gamegods3/how-to-install-gcc-in-windows-10-the-easier-way-422j
 
-# 3. Compile code :
+## 3. Compile code :
 - Clone this github repository on the path of your choice: 
 ```bash
 git clone https://github.com/alassane8/BattleShip.git
@@ -83,10 +83,10 @@ gcc -o BattleshipColor.exe main1.c
 ./BattleshipColor.exe
 ```
 
-# Have fun !
+## Have fun !
 You are now ready to play !
 
-# Rules
+## Rules
 Here are the rules of the game:
 
 At the start of the game, Player 1 randomly or manually places all the ships on
@@ -108,7 +108,7 @@ order to see enemy's shipsor launch a flare.
 Player 1 is able to save the current game and return to the main menu.
 A battleship game ends when one of the players has no ships remaining.
 
-# Informations about the ships
+## Informations about the ships
 Here are the boats you can place:
 Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - The unique Aircraft Carrier with the letter P takes up 7 spaces.
@@ -116,7 +116,7 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - 3 Destroyers with the letter D take 3 spaces.
 - 4 Submarines with the letter S take up 1 space.
 
-# Area for improvement
+## Area for improvement
 - Comment the code more:
 Make sure to add descriptive comments for each function, method, and code section. Explain the purpose of each line of code, the algorithms used, and any complex logic. This will facilitate the understanding of your code by both yourself and other developers.
 
