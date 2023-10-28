@@ -60,9 +60,13 @@ You can follow these steps: https://dev.to/gamegods3/how-to-install-gcc-in-windo
 # 3. Compile code :
 - Clone this github repository on the path of your choice: 
 ```bash
-https://github.com/alassane8/BattleShip.git
+git clone https://github.com/alassane8/BattleShip.git
 ```
-- Go to the BattleShip file :
+- Go to the BattleShip repository :
+```bash
+cd BattleShip/
+```
+- Go to the BattleShip folder :
 ```bash
 cd BattleShip/
 ```
@@ -70,7 +74,7 @@ cd BattleShip/
 ```bash
 code .
 ```
-- Run the following commands on the Visual Studio Code terminal :
+- Run the following commands on the Visual Studio Code terminal : (Open the terminal in full screen.)
 ```bash
 gcc -o BattleshipColor.exe main1.c
 ```
