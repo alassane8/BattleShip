@@ -58,11 +58,23 @@ On Windows, you can use the MinGW (Minimalist GNU for Windows) distribution to g
 You can follow these steps: https://dev.to/gamegods3/how-to-install-gcc-in-windows-10-the-easier-way-422j
 
 # 3. Compile code :
-Run the following commands on the Visual Studio Code terminal :
+- Clone this github repository on the path of your choice: 
+```bash
+https://github.com/alassane8/BattleShip.git
+```
+- Go to the BattleShip file :
+```bash
+cd BattleShip/
+```
+- Open Visual Code Studio :
+```bash
+code .
+```
+- Run the following commands on the Visual Studio Code terminal :
 ```bash
 gcc -o BattleshipColor.exe main1.c
 ```
-Run the Executable: 
+- Run the Executable: 
 ```bash
 ./BattleshipColor.exe
 ```
