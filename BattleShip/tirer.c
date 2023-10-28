@@ -1,3 +1,13 @@
+#include "prototypes.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <windows.h>
+#include <time.h>
+#include <unistd.h>
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void tirer (unsigned char ** mat_ia1, char *pseudo){
 

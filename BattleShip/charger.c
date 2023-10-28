@@ -1,4 +1,4 @@
-#include "prototype.h"
+#include "prototypes.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
