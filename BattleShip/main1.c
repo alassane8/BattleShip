@@ -460,27 +460,17 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         system("cls");
 
         //Affichage des regles
-        printf("Before playing, here are some explanations about the rules of the game:"
-               "\n\nAt the start of the game, player 1 randomly or manually places all his ships \n"
-               "on its grid.\nThe goal being to complicate the task of the AI as much as possible,\n"
-               "that is to say\n"
-               "destroy all your ships. Of course, the player does not see the AI grid.\n"
-               "Once all the boats are in play, the game can begin... One by one, player 1 and the AI shoot\n"
-               "to destroy enemy ships.\n"
-               "\n"
-               "Example:\nPlayer 1 shoots at (h,7), corresponding to the square of the enemy grid at the crossing of the letter h\n"
-               "and of number 7.\n"
-               "If player 1 or the AI fires at an enemy ship, the letter 'T' will appear on the hit space.\n"
-               "The shooter can play twice in a row to attempt to hit the enemy once more.\n"
-               "If player 1 or the AI does not hit a ship, the message 'E' will appear on the failed space.\n\n"
-               "The 'T' and 'E' marks are used to remember missed shots ('E') and hits ('T').\n"
-               "It is essential to use them so as not to shoot twice at the same place and therefore\n"
-               "don't lose turns unnecessarily.\n"
-               "A naval battle game ends when one of the players has no more ships.\n\n"
-               "Each turn, Player 1 can either fire into the enemy's grid, activate air support"
-               "\nwhich fire 5 shots in the enemy's grid or launch a flare.\n"
-               "He has the possibility in one turn to save the game, activate satellite view\n"
-               "in order to see enemy's ships and return to the main menu.\n");
+        printf("At the start of the game, Player 1 randomly or manually places all the ships on the grid.\n" 
+                "Player 1 does not see the AI grid. Player 1 shoots at (h,7), corresponding to the square\n"
+                "of the enemy grid at the crossing of the letter h and of number 7. If Player 1 or the AI\n"
+                "fires at an enemy ship, the letter 'X' will appear on the hit space.The shooter can play\n"
+                "twice in a row to attempt to hit the enemy once more. If player 1 or the AI does not hit\n"
+                "a ship, the message 'O' will appear on the failed space. The 'X' and 'O' marks are used\n"
+                "to remember missed shots ('O') and hits ('X').\n\n"
+                "Each turn, Player 1 can either fire into the enemy's grid, activate air support which\n"
+                "fires 5 shots in the enemy's grid, activate satellite view in order to see enemy's ships or\n"
+                "launch a flare. Player 1 is able to save the current game and return to the main menu.\n"
+                "A battleship game ends when one of the players has no ships remaining.\n");
         printf("\n\nHere are the ships you can place:\n\n"
                "Aircraft Carrier, Cruiser, Destroyer and Submarine.\n"
                "- The unique Aircraft Carrier with symbol P takes up 7 spaces.\n"
@@ -1672,7 +1662,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
     //Tant que les tours ne sont inférieurs a 200 et que La matrice de l'ordinateur pleine on boucle
     for (int d = 0; d < 15; d++){
         for (int c = 0; c < 15; c++){
-            while ((mat_ia1[d][c] != 'T' && mat_ia1[d][c] != 'E' && mat_ia1[d][c] == B) || (mat[d][c] != 'T' && mat[d][c] != 'E' && mat[d][c] != B)){
+            while ((mat_ia1[d][c] != 'X' && mat_ia1[d][c] != 'O' && mat_ia1[d][c] == B) || (mat[d][c] != 'X' && mat[d][c] != 'O' && mat[d][c] != B)){
                 gotoligcol(16, 70);
                 fflush(stdin);
                 SetConsoleTextAttribute(hConsole, 11);
@@ -1862,10 +1852,10 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                     }
                 }
             }
-            if (mat_ia1[d][c] == 'T' || mat_ia1[d][c] == 'E' || mat_ia1[d][c] == B){
+            if (mat_ia1[d][c] == 'X' || mat_ia1[d][c] == 'O' || mat_ia1[d][c] == B){
                 vainqueur_joueur(mat,mat_ia1, a, pseudo, choix , mat_bis, mat_ia1_bis);
             }
-            else if (mat[d][c] == 'T' || mat[d][c] == 'E' || mat[d][c] == B){
+            else if (mat[d][c] == 'X' || mat[d][c] == 'O' || mat[d][c] == B){
                 vainqueur_ia(mat,mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
             }
         }
@@ -1928,10 +1918,10 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
     //Si le tir n'est pas réussi
     if (mat_ia1[lig - 'a' + 1][col] == B){
         // 1.1 Afficher E dans la case
-        mat_ia1[lig - 'a' + 1][col] = 'E';
+        mat_ia1[lig - 'a' + 1][col] = 'O';
         gotoligcol(lig - 'a' + 1, (col * 4) + 70);
         SetConsoleTextAttribute(hConsole, 9);//12 Rouge 9 Bleu 10 Vert
-        printf("%2c", 'E');
+        printf("%2c", 'O');
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(23, 0);
         printf("                                                   ");
@@ -1943,10 +1933,10 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
     if (mat_ia1[lig - 'a' + 1][col] == 'P' || mat_ia1[lig - 'a' + 1][col] == 'C' || mat_ia1[lig - 'a' + 1][col] == 'D' || mat_ia1[lig - 'a' + 1][col] == 'S'){
         // 2.1 Afficher T
         do {
-            mat_ia1[lig - 'a' + 1][col] = 'T';
+            mat_ia1[lig - 'a' + 1][col] = 'X';
             gotoligcol(lig - 'a' + 1, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'T');
+            printf("%2c", 'X');
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(24, 0);
             printf("                                                   ");
@@ -1983,10 +1973,10 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
             //Si le tir n'est pas réussi
             if (mat_ia1[lig - 'a' + 1][col] == B){
                 // 1.1 Afficher E dans la case
-                mat_ia1[lig - 'a' + 1][col] = 'E';
+                mat_ia1[lig - 'a' + 1][col] = 'O';
                 gotoligcol(lig - 'a' + 1, (col * 4) + 70);
                 SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'E');
+                printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(23, 0);
                 printf("                                                   ");
@@ -2037,10 +2027,10 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
     //Si le tir n'est pas réussi
     if (mat[lig][col] == B) {
         // 1.1 Afficher E dans la case
-        mat[lig][col] = 'E';
+        mat[lig][col] = 'O';
         gotoligcol(lig, (col * 4));
         SetConsoleTextAttribute(hConsole, 9);
-        printf("%2c", 'E');
+        printf("%2c", 'O');
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(20, 0);
         printf("                                                   ");
@@ -2052,10 +2042,10 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
 
         //2.1 Afficher T
         do{
-            mat[lig][col] = 'T';
+            mat[lig][col] = 'X';
             gotoligcol(lig, (col * 4));
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'T');
+            printf("%2c", 'X');
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(21, 0);
             printf("                                                   ");
@@ -2069,10 +2059,10 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
 
             if (mat[lig][col] == B) {
                 // 1.1 Afficher E dans la case
-                mat[lig][col] = 'E';
+                mat[lig][col] = 'O';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'E');
+                printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(20, 0);
                 printf("                                                   ");
@@ -2124,10 +2114,10 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
     //Si le tir n'est pas réussi
     if (mat[lig][col] == B) {
         // 1.1 Afficher E dans la case
-        mat[lig][col] = 'E';
+        mat[lig][col] = 'O';
         gotoligcol(lig, (col * 4));
         SetConsoleTextAttribute(hConsole, 9);
-        printf("%2c", 'E');
+        printf("%2c", 'O');
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(20, 0);
         printf("                                                   ");
@@ -2139,10 +2129,10 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
 
         //2.1 Afficher T
         do{
-            mat[lig][col] = 'T';
+            mat[lig][col] = 'X';
             gotoligcol(lig, (col * 4));
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'T');
+            printf("%2c", 'X');
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(21, 0);
             printf("                                                   ");
@@ -2168,10 +2158,10 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
             //Si le tir n'est pas réussi
             if (mat[lig][col] == B) {
                 // 1.1 Afficher E dans la case
-                mat[lig][col] = 'E';
+                mat[lig][col] = 'O';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'E');
+                printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(20, 0);
                 printf("                                                   ");
@@ -2229,10 +2219,10 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
         //Si le tir n'est pas réussi
         if (mat[lig][col] == B) {
             // 1.1 Afficher E dans la case
-            mat[lig][col] = 'E';
+            mat[lig][col] = 'O';
             gotoligcol(lig, (col * 4));
             SetConsoleTextAttribute(hConsole, 9);
-            printf("%2c", 'E');
+            printf("%2c", 'O');
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(20, 0);
             printf("                                                   ");
@@ -2244,10 +2234,10 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
 
             //2.1 Afficher T
             do{
-                mat[lig][col] = 'T';
+                mat[lig][col] = 'X';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 12);
-                printf("%2c", 'T');
+                printf("%2c", 'X');
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(21, 0);
                 printf("                                                   ");
@@ -2273,10 +2263,10 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
                 //Si le tir n'est pas réussi
                 if (mat[lig][col] == B) {
                     // 1.1 Afficher E dans la case
-                    mat[lig][col] = 'E';
+                    mat[lig][col] = 'O';
                     gotoligcol(lig, (col * 4));
                     SetConsoleTextAttribute(hConsole, 9);
-                    printf("%2c", 'E');
+                    printf("%2c", 'O');
                     SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(20, 0);
                     printf("                                                   ");
@@ -2306,18 +2296,18 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
             //Si le tir n'est pas réussi
             if (mat[lig][col] == B) {
                 // 1.1 Afficher E dans la case
-                mat[lig][col] = 'E';
+                mat[lig][col] = 'O';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'E');
+                printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
             }
             //Sinon, un navire est touché
             if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
-                mat[lig][col] = 'T';
+                mat[lig][col] = 'X';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 12);
-                printf("%2c", 'T');
+                printf("%2c", 'X');
                 SetConsoleTextAttribute(hConsole, 15);
             }
         }
@@ -2535,18 +2525,18 @@ void tir_aerien(unsigned char ** mat_ia1){
         //Si le tir n'est pas réussi
         if (mat_ia1[lig][col] == B) {
             // 1.1 Afficher E dans la case
-            mat_ia1[lig][col] = 'E';
+            mat_ia1[lig][col] = 'O';
             gotoligcol(lig, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 9);
-            printf("%2c", 'E');
+            printf("%2c", 'O');
             SetConsoleTextAttribute(hConsole, 15);
         }
         //Sinon, un navire est touché
         if (mat_ia1[lig][col] == 'P' || mat_ia1[lig][col] == 'C' || mat_ia1[lig][col] == 'D' || mat_ia1[lig][col] == 'S'){
-            mat_ia1[lig][col] = 'T';
+            mat_ia1[lig][col] = 'X';
             gotoligcol(lig, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'T');
+            printf("%2c", 'X');
             SetConsoleTextAttribute(hConsole, 15);
         }
     }
@@ -2564,13 +2554,13 @@ void mode_visible_desactive(unsigned char ** mat_ia1){
 
     for (i = 1 ; i < 16 ; i++){
         for (j = 1 ;j < 16 ; j++){
-            if (mat_ia1[i][j] == 'T'){
+            if (mat_ia1[i][j] == 'X'){
                 gotoligcol(i, (j * 4)+ 70);
                 SetConsoleTextAttribute(hConsole, 12);
                 printf("%2c", mat_ia1[i][j]);
                 SetConsoleTextAttribute(hConsole, 15);
             }
-            if (mat_ia1[i][j] == 'E'){
+            if (mat_ia1[i][j] == 'O'){
                 gotoligcol(i, (j * 4 )+ 70);
                 SetConsoleTextAttribute(hConsole, 9);
                 printf("%2c", mat_ia1[i][j]);
@@ -2636,13 +2626,13 @@ void mode_visible(unsigned char ** mat_ia1){
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ) + 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ) + 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -2850,7 +2840,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             gotoligcol(i,35);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp1, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
                     printf("%2c", mat_ia1[i][j]);
                 }
                 else {
@@ -2903,12 +2893,12 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
         SetConsoleTextAttribute(hConsole, 15);
     }
     else{
-        //On scan la matrice et on l'affiche si T ou E
+        //On scan la matrice et on l'affiche si T ou O
         for (int i = 1 ; i < 16 ; i++){
             gotoligcol(i,115);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp3, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
                     printf("%2c", mat_ia1[i][j]);
                 }
                 else {
@@ -2965,7 +2955,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             gotoligcol(i,195);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp5, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
                     printf("%2c", mat_ia1[i][j]);
                 }
                 else {
@@ -3153,13 +3143,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         //Matrice IA
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -3178,13 +3168,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'E'){
+                if (mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -3209,13 +3199,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         //Matrice IA
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -3233,13 +3223,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if ( mat[i][j] == 'E'){
+                if ( mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -3263,13 +3253,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         //Matrice IA
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -3287,13 +3277,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if ( mat[i][j] == 'E'){
+                if ( mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -3316,13 +3306,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         //Matrice IA
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -3340,13 +3330,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'E'){
+                if (mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -3581,13 +3571,13 @@ void charger_partie(unsigned char ** mat){
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if ( mat[i][j] == 'E'){
+                if ( mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -3635,13 +3625,13 @@ void charger_partie1(unsigned char ** mat_ia1){
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
                 fscanf(fp1, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -3686,13 +3676,13 @@ void charger_partie1_0(unsigned char ** mat){
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if ( mat[i][j] == 'E'){
+                if ( mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -3740,13 +3730,13 @@ void charger_partie2(unsigned char ** mat_ia1){
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
                 fscanf(fp1, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -3792,13 +3782,13 @@ void charger_partie2_0(unsigned char ** mat){
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if ( mat[i][j] == 'E'){
+                if ( mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -3847,13 +3837,13 @@ void charger_partie3(unsigned char ** mat_ia1){
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
                 fscanf(fp1, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
