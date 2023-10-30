@@ -1,5 +1,3 @@
-# Battleship
-
 <h1 align="center">
   Alassane WADE Battleship Game
 </h1>                                         
