@@ -74,7 +74,7 @@ code .
 ```
 - Run the following commands on the Visual Studio Code terminal : (Open the terminal in full screen.)
 ```bash
-gcc -o BattleshipColor.exe main1.c
+gcc -o BattleshipColor.exe main.c
 ```
 - Run the Executable: 
 ```bash
