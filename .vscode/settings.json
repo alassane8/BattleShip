@@ -55,5 +55,12 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "files.associations": {
+    "menu.h": "c",
+    "gotoligcol.h": "c",
+    "initialisation_matrices.h": "c",
+    "charger_matrices.h": "c",
+    "windows.h": "c"
+  }
 }
