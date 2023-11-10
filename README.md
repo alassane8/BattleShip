@@ -123,6 +123,3 @@ Add logic to handle shots and the destruction of ships. When a shot hits a ship,
 
 - End of the game:
 Implement logic to detect the end of the game. The game can end when all of a player's ships have been sunk. Announce the winner and conclude the game appropriately.
-
-- Optimize game window: 
-Optimizing the game window refers to the process of enhancing and improving the visual and functional aspects of the in-game display. This involves maximizing the efficient use of screen space, prioritizing important game elements, minimizing clutter, and ensuring a responsive and visually pleasing gaming experience. 
