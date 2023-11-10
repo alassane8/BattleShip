@@ -10,7 +10,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void mode_visible_desactive(unsigned char ** mat_ia1){
-    //DDV
+
+    //Variables definition
     int i;
     int j;
     int B = 95;
@@ -42,17 +43,17 @@ void mode_visible_desactive(unsigned char ** mat_ia1){
 
 void mode_visible(unsigned char ** mat_ia1){
 
-    //Définition des variables
+    //Variables definition
     int i;
     int j;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    //Ouverture du fichier
+    //Open file
     FILE *fp1 = NULL;
     fp1 = fopen("bataille_navale.txt", "w");
 
-    //Gestions des erreurs d'ouverture du fichier
+    //Mistakes management
     if (fp1 == NULL) {
         gotoligcol(48,70);
         SetConsoleTextAttribute(hConsole, 12);
@@ -60,20 +61,18 @@ void mode_visible(unsigned char ** mat_ia1){
         SetConsoleTextAttribute(hConsole, 15);
     }
     else {
-        //Ecriture de la matrice dans le fichier
+        //Write matrice in file
         for (i = 1; i < 16; i++){
             for (j = 1; j < 16; j++){
-                //On sauvegarde la matrice dans le fichier
                 fprintf(fp1,"%2c", mat_ia1[i][j]);
             }
             fprintf(fp1, "\n");
         }
-        //Fermeture fichier
+        //Close file
         fclose(fp1);
     }
     fp1 = fopen("bataille_navale.txt", "r");
 
-    //Gestions des erreurs d'ouverture du fichier
     if (fp1 == NULL) {
         gotoligcol(48,70);
         SetConsoleTextAttribute(hConsole, 12);
@@ -83,7 +82,6 @@ void mode_visible(unsigned char ** mat_ia1){
     else{
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                //On scan le fichier et on l'affiche dans le decor de l'IA
                 fscanf(fp1, "%2s", &mat_ia1[i][j]);
                 if (mat_ia1[i][j] == 'P' || mat_ia1[i][j] == 'C' || mat_ia1[i][j] == 'D' || mat_ia1[i][j] == 'S'){
                     gotoligcol(i, (j * 4 ) + 70);
@@ -105,7 +103,6 @@ void mode_visible(unsigned char ** mat_ia1){
                 }
             }
         }
-        //Fermeture fichier
         fclose(fp1);
     }
 }

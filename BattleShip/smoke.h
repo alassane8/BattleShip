@@ -9,21 +9,17 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void fumigene(unsigned char ** mat_ia1, int compteur_tour){
+void fumigene(unsigned char ** mat_ia1){
 
-    //Définitions des variables
+    //Variables definition
     int i;
     int j;
-    int l;
-    char a;
     int col;
     char lig;
-    int const compte = compteur_tour;
+    int newLig;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    //Fumigene
-    //On demande à l'utilisateur les coordonnées de la case à éclairer
     gotoligcol(30, 70);
     printf("                                                        ");
     gotoligcol(30, 70);
@@ -60,143 +56,141 @@ void fumigene(unsigned char ** mat_ia1, int compteur_tour){
         scanf("%d", &col);
     }
 
-    l = lig - 'a' + 1;
+    newLig = lig - 'a' + 1;
 
-    if (l == 1 && col == 1){
+    if (newLig == 1 && col == 1){
         SetConsoleTextAttribute(hConsole, 10);
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l][col + 1]);
-        gotoligcol(l + 1,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l + 1][col + 1]);
-        gotoligcol(l + 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l + 1][col]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig][col + 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig + 1][col + 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig + 1][col]);
         SetConsoleTextAttribute(hConsole, 15);
     }
-    else if (l == 1 && col == 15){
+    else if (newLig == 1 && col == 15){
         SetConsoleTextAttribute(hConsole, 10);
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l][col - 1]);
-        gotoligcol(l - 1,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l - 1][col - 1]);
-        gotoligcol(l - 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l - 1][col]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig][col - 1]);
+        gotoligcol(newLig - 1,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig - 1][col - 1]);
+        gotoligcol(newLig - 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig - 1][col]);
         SetConsoleTextAttribute(hConsole, 15);
     }
-    else if (l == 15 && col == 1){
+    else if (newLig == 15 && col == 1){
         SetConsoleTextAttribute(hConsole, 10);
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l][col + 1]);
-        gotoligcol(l - 1,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l - 1][col + 1]);
-        gotoligcol(l - 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l - 1][col]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig][col + 1]);
+        gotoligcol(newLig - 1,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig - 1][col + 1]);
+        gotoligcol(newLig - 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig - 1][col]);
         SetConsoleTextAttribute(hConsole, 15);
     }
-    else if (l == 15 && col == 15){
+    else if (newLig == 15 && col == 15){
         SetConsoleTextAttribute(hConsole, 10);
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l - 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l - 1][col]);
-        gotoligcol(l,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l][col - 1]);
-        gotoligcol(l - 1,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l - 1][col - 1]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig - 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig - 1][col]);
+        gotoligcol(newLig,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig][col - 1]);
+        gotoligcol(newLig - 1,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig - 1][col - 1]);
         SetConsoleTextAttribute(hConsole, 15);
     }
-    else if (l == 15 && col != 1 && col != 15){
+    else if (newLig == 15 && col != 1 && col != 15){
         SetConsoleTextAttribute(hConsole, 10);
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l - 1,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l - 1][col - 1]);
-        gotoligcol(l - 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l - 1][col]);
-        gotoligcol(l - 1,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l - 1][col + 1]);
-        gotoligcol(l,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l][col - 1]);
-        gotoligcol(l,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l][col + 1]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig - 1,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig - 1][col - 1]);
+        gotoligcol(newLig - 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig - 1][col]);
+        gotoligcol(newLig - 1,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig - 1][col + 1]);
+        gotoligcol(newLig,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig][col - 1]);
+        gotoligcol(newLig,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig][col + 1]);
         SetConsoleTextAttribute(hConsole, 15);
     }
-    else if (l == 1 && col != 1 && col != 15){
+    else if (newLig == 1 && col != 1 && col != 15){
         SetConsoleTextAttribute(hConsole, 10);
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l][col - 1]);
-        gotoligcol(l,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l][col + 1]);
-        gotoligcol(l + 1,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l + 1][col - 1]);
-        gotoligcol(l + 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l + 1][col]);
-        gotoligcol(l + 1,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l + 1][col + 1]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig][col - 1]);
+        gotoligcol(newLig,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig][col + 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig + 1][col - 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig + 1][col]);
+        gotoligcol(newLig + 1,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig + 1][col + 1]);
         SetConsoleTextAttribute(hConsole, 15);
     }
     else if (col == 15 && lig != 1 && lig != 15){
         SetConsoleTextAttribute(hConsole, 10);
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l - 1,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l- 1][col - 1]);
-        gotoligcol(l - 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l - 1][col]);
-        gotoligcol(l,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l][col - 1]);
-        gotoligcol(l + 1,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l + 1][col - 1]);
-        gotoligcol(l + 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l + 1][col]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig - 1,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig- 1][col - 1]);
+        gotoligcol(newLig - 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig - 1][col]);
+        gotoligcol(newLig,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig][col - 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig + 1][col - 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig + 1][col]);
         SetConsoleTextAttribute(hConsole, 15);
     }
     else if (col == 1 && lig != 1 && lig != 15){
         SetConsoleTextAttribute(hConsole, 10);
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l - 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l - 1][col]);
-        gotoligcol(l - 1,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l- 1][col + 1]);
-        gotoligcol(l,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l][col + 1]);
-        gotoligcol(l + 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l + 1][col]);
-        gotoligcol(l + 1,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l + 1][col + 1]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig - 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig - 1][col]);
+        gotoligcol(newLig - 1,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig- 1][col + 1]);
+        gotoligcol(newLig,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig][col + 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig + 1][col]);
+        gotoligcol(newLig + 1,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig + 1][col + 1]);
         SetConsoleTextAttribute(hConsole, 15);
     }
     else {
         SetConsoleTextAttribute(hConsole, 10);
-        // Affichage de la zone eclaire. On éclaire les cases autour de la case sélèctionneée par le joueur.
-        gotoligcol(l,(col * 4) + 70);
-        printf("%2c", mat_ia1[l][col]);
-        gotoligcol(l - 1,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l- 1][col - 1]);
-        gotoligcol(l - 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l - 1][col]);
-        gotoligcol(l - 1,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l- 1][col + 1]);
-        gotoligcol(l,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l][col - 1]);
-        gotoligcol(l,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l][col + 1]);
-        gotoligcol(l + 1,(col * 4) + 70 - 4);
-        printf("%2c", mat_ia1[l + 1][col - 1]);
-        gotoligcol(l + 1,(col * 4) + 70);
-        printf("%2c", mat_ia1[l + 1][col]);
-        gotoligcol(l + 1,(col * 4) + 70 + 4);
-        printf("%2c", mat_ia1[l + 1][col + 1]);
+        gotoligcol(newLig,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig][col]);
+        gotoligcol(newLig - 1,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig- 1][col - 1]);
+        gotoligcol(newLig - 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig - 1][col]);
+        gotoligcol(newLig - 1,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig- 1][col + 1]);
+        gotoligcol(newLig,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig][col - 1]);
+        gotoligcol(newLig,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig][col + 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70 - 4);
+        printf("%2c", mat_ia1[newLig + 1][col - 1]);
+        gotoligcol(newLig + 1,(col * 4) + 70);
+        printf("%2c", mat_ia1[newLig + 1][col]);
+        gotoligcol(newLig + 1,(col * 4) + 70 + 4);
+        printf("%2c", mat_ia1[newLig + 1][col + 1]);
         SetConsoleTextAttribute(hConsole, 15);
-        compteur_tour++;
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

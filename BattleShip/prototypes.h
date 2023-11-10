@@ -24,7 +24,7 @@ void tirer_aleatoirement_matelot(unsigned char **  mat ,int compteur_tour);
 void tirer_aleatoirement_caporal_chef(unsigned char **  mat ,int compteur_tour);
 void tirer_aleatoirement_amiral(unsigned char **  mat ,int compteur_tour);
 
-void fumigene(unsigned char ** mat_ia1, int compteur_tour);
+void fumigene(unsigned char ** mat_ia1);
 
 void tir_aerien(unsigned char ** mat_ia1);
 

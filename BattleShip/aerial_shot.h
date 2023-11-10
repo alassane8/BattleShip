@@ -12,10 +12,10 @@
 void tir_aerien(unsigned char ** mat_ia1){
 
     //Variables Definitions
+    int i;
     int lig;
     int col;
     int B = 95;
-    int i;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 

@@ -9,11 +9,12 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void sauvegarde_matrices(unsigned char ** mat, unsigned char ** mat_ia1,unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
-    //DDV
+    
+    //Variables definition
     int i;
     int j;
 
-    //Sauvegarde des matrices dans les matrices bis
+    //Save matrices in transition matrices
     for (i = 1; i < 16; i++){
         for (j = 1; j < 16; j++){
             mat_bis[i][j] = mat[i][j];

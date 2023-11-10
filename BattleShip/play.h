@@ -102,7 +102,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                         //Si il nous reste des fumigènes on rentre dans le else
                     else {
                         nombre_fumigene --;
-                        fumigene(mat_ia1, compteur_tour);
+                        fumigene(mat_ia1);
                         gotoligcol(21, 140);
                         printf("                                       ");
                         gotoligcol(21, 140);

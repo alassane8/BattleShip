@@ -10,8 +10,7 @@
 
 void tirer (unsigned char ** mat_ia1, char *pseudo){
 
-    //sous-p tirer sur une case
-    //declaration des variables
+    //Variables definitions
     int col = 0;
     char lig = 0;
     int B = 95;
@@ -23,7 +22,6 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
     printf("%s's shooting's traces :", pseudo);
     SetConsoleTextAttribute(hConsole, 15);
 
-    //On demande a l'utilisateur de saisir les coordonnées d'une case
     gotoligcol(30, 70);
     printf("                                                   ");
     gotoligcol(30, 70);
@@ -35,6 +33,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
     gotoligcol(32, 70);
     fflush(stdin);
     scanf("%c", &lig);
+
     while (lig - 'a' + 1 > 15 || lig - 'a' + 1 < 1){
         gotoligcol(25,140);
         SetConsoleTextAttribute(hConsole, 12);
@@ -49,6 +48,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
     gotoligcol(34, 70);
     fflush(stdin);
     scanf("%d", &col);
+
     while (col > 15 || col < 1){
         gotoligcol(25,140);
         SetConsoleTextAttribute(hConsole, 12);
@@ -59,12 +59,11 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
         scanf("%d", &col);
     }
 
-    //Si le tir n'est pas réussi
+    //Failed shot
     if (mat_ia1[lig - 'a' + 1][col] == B){
-        // 1.1 Afficher E dans la case
         mat_ia1[lig - 'a' + 1][col] = 'O';
         gotoligcol(lig - 'a' + 1, (col * 4) + 70);
-        SetConsoleTextAttribute(hConsole, 9);//12 Rouge 9 Bleu 10 Vert
+        SetConsoleTextAttribute(hConsole, 9);
         printf("%2c", 'O');
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(23, 0);
@@ -73,9 +72,8 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
         printf("%s fire in water (%c,%d)", pseudo,  lig, col);
     }
 
-    //Sinon, un navire est touché
+    //Success shot
     if (mat_ia1[lig - 'a' + 1][col] == 'P' || mat_ia1[lig - 'a' + 1][col] == 'C' || mat_ia1[lig - 'a' + 1][col] == 'D' || mat_ia1[lig - 'a' + 1][col] == 'S'){
-        // 2.1 Afficher T
         do {
             mat_ia1[lig - 'a' + 1][col] = 'X';
             gotoligcol(lig - 'a' + 1, (col * 4) + 70);
@@ -91,6 +89,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
             gotoligcol(32, 70);
             fflush(stdin);
             scanf("%c", &lig);
+
             while (lig - 'a' + 1 > 15 || lig - 'a' + 1 < 1){
                 gotoligcol(25,140);
                 SetConsoleTextAttribute(hConsole, 12);
@@ -105,6 +104,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
             gotoligcol(34, 70);
             fflush(stdin);
             scanf("%d", &col);
+
             while (col > 15 || col < 1){
                 gotoligcol(25,140);
                 SetConsoleTextAttribute(hConsole, 12);
@@ -114,9 +114,8 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
                 fflush(stdin);
                 scanf("%d", &col);
             }
-            //Si le tir n'est pas réussi
+            //Failed shot
             if (mat_ia1[lig - 'a' + 1][col] == B){
-                // 1.1 Afficher E dans la case
                 mat_ia1[lig - 'a' + 1][col] = 'O';
                 gotoligcol(lig - 'a' + 1, (col * 4) + 70);
                 SetConsoleTextAttribute(hConsole, 9);
@@ -136,7 +135,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
 
 void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
 
-    //Définitions des variables
+    //Variables definition
     int i;
     int j;
     int B = 95;
@@ -163,14 +162,14 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
     sleep(3);
     gotoligcol(18, 0);
     printf("                                  ");
-    //Choix aleatoire des colonnes et lignes de tirs
+
+    //Choose random coordonate
     srand(time(NULL));
     lig = rand() % (15) + 1;
     col = rand() % (15) + 1;
 
-    //Si le tir n'est pas réussi
+    //Failed shot
     if (mat[lig][col] == B) {
-        // 1.1 Afficher E dans la case
         mat[lig][col] = 'O';
         gotoligcol(lig, (col * 4));
         SetConsoleTextAttribute(hConsole, 9);
@@ -181,10 +180,9 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
         gotoligcol(20, 0);
         printf("Enemy fire in water (%c,%d)",lig + 64, col);
     }
-    //Sinon, un navire est touché
+    //Success shot
     if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
 
-        //2.1 Afficher T
         do{
             mat[lig][col] = 'X';
             gotoligcol(lig, (col * 4));
@@ -195,14 +193,13 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
             printf("                                                   ");
             gotoligcol(21, 0);
             printf("Enemy fire on ship (%c,%d)",lig + 64, col);
-            //Si le tir n'est pas réussi
 
+            //2nd shot
             srand(time(NULL));
             lig = rand() % (15) + 1;
             col = rand() % (15) + 1;
 
             if (mat[lig][col] == B) {
-                // 1.1 Afficher E dans la case
                 mat[lig][col] = 'O';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 9);
@@ -220,7 +217,7 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
 
-    //Définitions des variables
+    //Variables definition
     int i;
     int j;
     int l;
@@ -250,14 +247,14 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
     sleep(3);
     gotoligcol(18, 0);
     printf("                                  ");
-    //Choix aleatoire des colonnes et lignes de tirs
+
     srand(time(NULL));
     lig = rand() % (15) + 1;
     col = rand() % (15) + 1;
 
-    //Si le tir n'est pas réussi
+
     if (mat[lig][col] == B) {
-        // 1.1 Afficher E dans la case
+        
         mat[lig][col] = 'O';
         gotoligcol(lig, (col * 4));
         SetConsoleTextAttribute(hConsole, 9);
@@ -268,10 +265,8 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
         gotoligcol(20, 0);
         printf("Enemy fire in water (%c,%d)",lig + 64, col);
     }
-    //Sinon, un navire est touché
-    if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
 
-        //2.1 Afficher T
+    if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
         do{
             mat[lig][col] = 'X';
             gotoligcol(lig, (col * 4));
@@ -298,8 +293,6 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
             if (choix == 4){
                 col = col + 1;
             }
-
-            //Si le tir n'est pas réussi
             if (mat[lig][col] == B) {
                 // 1.1 Afficher E dans la case
                 mat[lig][col] = 'O';
@@ -319,7 +312,7 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
 
-    //Définitions des variables
+    //Variables definition
     int i;
     int j;
     int l;
@@ -334,7 +327,6 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
     int compte_bateau_touche;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
 
     gotoligcol(28, 0);
     SetConsoleTextAttribute(hConsole, 11);
@@ -355,14 +347,11 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
         sleep(3);
         gotoligcol(18, 0);
         printf("                                  ");
-        //Choix aleatoire des colonnes et lignes de tirs
         srand(time(NULL));
         lig = rand() % (15) + 1;
         col = rand() % (15) + 1;
 
-        //Si le tir n'est pas réussi
         if (mat[lig][col] == B) {
-            // 1.1 Afficher E dans la case
             mat[lig][col] = 'O';
             gotoligcol(lig, (col * 4));
             SetConsoleTextAttribute(hConsole, 9);
@@ -373,10 +362,8 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
             gotoligcol(20, 0);
             printf("Enemy fire in water (%c,%d)",lig + 64, col);
         }
-        //Sinon, un navire est touché
         if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
 
-            //2.1 Afficher T
             do{
                 mat[lig][col] = 'X';
                 gotoligcol(lig, (col * 4));
@@ -404,9 +391,7 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
                     col = col + 1;
                 }
 
-                //Si le tir n'est pas réussi
                 if (mat[lig][col] == B) {
-                    // 1.1 Afficher E dans la case
                     mat[lig][col] = 'O';
                     gotoligcol(lig, (col * 4));
                     SetConsoleTextAttribute(hConsole, 9);
@@ -431,22 +416,18 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
         gotoligcol(18, 0);
         printf("                                  ");
 
-        //5 tirs aérien par passage
         for (i = 0; i < 5; i ++){
-            //Choix aleatoire des colonnes et lignes de tirs
+
             lig = rand() % (15) + 1;
             col = rand() % (15) + 1;
 
-            //Si le tir n'est pas réussi
             if (mat[lig][col] == B) {
-                // 1.1 Afficher E dans la case
                 mat[lig][col] = 'O';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 9);
                 printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
             }
-            //Sinon, un navire est touché
             if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
                 mat[lig][col] = 'X';
                 gotoligcol(lig, (col * 4));
