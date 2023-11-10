@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/professeur/OneDrive/Documents/GitHub/BattleShip/BattleShip/test",
-      "program": "c:/Users/professeur/OneDrive/Documents/GitHub/BattleShip/BattleShip/test/build/Debug/outDebug",
+      "cwd": "c:/Users/professeur/OneDrive/Documents/GitHub/BattleShip/BattleShip",
+      "program": "c:/Users/professeur/OneDrive/Documents/GitHub/BattleShip/BattleShip/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
