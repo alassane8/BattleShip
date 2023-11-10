@@ -150,13 +150,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         //Matrice IA
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == '0'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -175,13 +175,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'E'){
+                if (mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -206,13 +206,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         //Matrice IA
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -230,13 +230,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if ( mat[i][j] == 'E'){
+                if ( mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -260,13 +260,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         //Matrice IA
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -284,13 +284,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if ( mat[i][j] == 'E'){
+                if ( mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);
@@ -313,13 +313,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         //Matrice IA
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
@@ -337,13 +337,13 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'T'){
+                if (mat[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat[i][j] == 'E'){
+                if (mat[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ));
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat[i][j]);

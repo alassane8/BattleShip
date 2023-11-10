@@ -48,7 +48,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
     gotoligcol(18, 125);
     printf("     ______________________________________________________________\n");
     gotoligcol(19, 125);
-    printf("    |___  __   |________________  USS WADE _____________|   __  ___|\n");
+    printf("    |___  __   |________________  USS WADE _____________|   __ ___|\n");
     gotoligcol(20, 125);
     printf("        l        '-,               -   -             ,-'        /\n");
     gotoligcol(21, 125);

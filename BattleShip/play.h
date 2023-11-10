@@ -197,12 +197,12 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                         gotoligcol(21, 140);
                         printf("                                                             ");
                         gotoligcol(21, 140);
-                        printf("Satellite view enabled. Enemy fleet revealed for    seconds !");
+                        printf("Satellite view enabled for   seconds !");
                         for(int k = 10; k >= 0; k --){
-                            gotoligcol(21, 189);
+                            gotoligcol(21, 166);
                             printf("%2d", k);
                             if (k == 1 || k == 0){
-                                gotoligcol(21, 198);
+                                gotoligcol(21, 175);
                                 printf(" ");
                             }
                             sleep(1);
@@ -227,10 +227,10 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                     }
                 }
             }
-            if (mat_ia1[d][c] == 'T' || mat_ia1[d][c] == 'E' || mat_ia1[d][c] == B){
+            if (mat_ia1[d][c] == 'X' || mat_ia1[d][c] == 'O' || mat_ia1[d][c] == B){
                 vainqueur_joueur(mat,mat_ia1, a, pseudo, choix , mat_bis, mat_ia1_bis);
             }
-            else if (mat[d][c] == 'T' || mat[d][c] == 'E' || mat[d][c] == B){
+            else if (mat[d][c] == 'X' || mat[d][c] == 'O' || mat[d][c] == B){
                 vainqueur_ia(mat,mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
             }
         }

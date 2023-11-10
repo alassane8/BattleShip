@@ -258,10 +258,10 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
     //Si le tir n'est pas réussi
     if (mat[lig][col] == B) {
         // 1.1 Afficher E dans la case
-        mat[lig][col] = 'E';
+        mat[lig][col] = 'O';
         gotoligcol(lig, (col * 4));
         SetConsoleTextAttribute(hConsole, 9);
-        printf("%2c", 'E');
+        printf("%2c", 'O');
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(20, 0);
         printf("                                                   ");
@@ -273,10 +273,10 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
 
         //2.1 Afficher T
         do{
-            mat[lig][col] = 'T';
+            mat[lig][col] = 'X';
             gotoligcol(lig, (col * 4));
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'T');
+            printf("%2c", 'X');
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(21, 0);
             printf("                                                   ");
@@ -302,10 +302,10 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
             //Si le tir n'est pas réussi
             if (mat[lig][col] == B) {
                 // 1.1 Afficher E dans la case
-                mat[lig][col] = 'E';
+                mat[lig][col] = 'O';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'E');
+                printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(20, 0);
                 printf("                                                   ");
@@ -363,10 +363,10 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
         //Si le tir n'est pas réussi
         if (mat[lig][col] == B) {
             // 1.1 Afficher E dans la case
-            mat[lig][col] = 'E';
+            mat[lig][col] = 'O';
             gotoligcol(lig, (col * 4));
             SetConsoleTextAttribute(hConsole, 9);
-            printf("%2c", 'E');
+            printf("%2c", 'O');
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(20, 0);
             printf("                                                   ");
@@ -378,10 +378,10 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
 
             //2.1 Afficher T
             do{
-                mat[lig][col] = 'T';
+                mat[lig][col] = 'X';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 12);
-                printf("%2c", 'T');
+                printf("%2c", 'X');
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(21, 0);
                 printf("                                                   ");
@@ -407,10 +407,10 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
                 //Si le tir n'est pas réussi
                 if (mat[lig][col] == B) {
                     // 1.1 Afficher E dans la case
-                    mat[lig][col] = 'E';
+                    mat[lig][col] = 'O';
                     gotoligcol(lig, (col * 4));
                     SetConsoleTextAttribute(hConsole, 9);
-                    printf("%2c", 'E');
+                    printf("%2c", 'O');
                     SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(20, 0);
                     printf("                                                   ");
@@ -440,18 +440,18 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
             //Si le tir n'est pas réussi
             if (mat[lig][col] == B) {
                 // 1.1 Afficher E dans la case
-                mat[lig][col] = 'E';
+                mat[lig][col] = 'O';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'E');
+                printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
             }
             //Sinon, un navire est touché
             if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
-                mat[lig][col] = 'T';
+                mat[lig][col] = 'X';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 12);
-                printf("%2c", 'T');
+                printf("%2c", 'X');
                 SetConsoleTextAttribute(hConsole, 15);
             }
         }

@@ -19,13 +19,13 @@ void mode_visible_desactive(unsigned char ** mat_ia1){
 
     for (i = 1 ; i < 16 ; i++){
         for (j = 1 ;j < 16 ; j++){
-            if (mat_ia1[i][j] == 'T'){
+            if (mat_ia1[i][j] == 'X'){
                 gotoligcol(i, (j * 4)+ 70);
                 SetConsoleTextAttribute(hConsole, 12);
                 printf("%2c", mat_ia1[i][j]);
                 SetConsoleTextAttribute(hConsole, 15);
             }
-            if (mat_ia1[i][j] == 'E'){
+            if (mat_ia1[i][j] == 'O'){
                 gotoligcol(i, (j * 4 )+ 70);
                 SetConsoleTextAttribute(hConsole, 9);
                 printf("%2c", mat_ia1[i][j]);
@@ -91,13 +91,13 @@ void mode_visible(unsigned char ** mat_ia1){
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'T'){
+                if (mat_ia1[i][j] == 'X'){
                     gotoligcol(i, (j * 4 ) + 70);
                     SetConsoleTextAttribute(hConsole, 12);
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 ) + 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);
