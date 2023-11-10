@@ -110,6 +110,46 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
             scanf("%d", &w);
         }
 
+        gotoligcol(20, 70);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf("How do you want to place your boats");
+        SetConsoleTextAttribute(hConsole, 15);
+        gotoligcol(21, 70);
+        printf("1. Manually");
+        gotoligcol(22, 70);
+        printf("2. Randomly");
+        gotoligcol(23, 70);
+        fflush(stdin);
+        scanf("%d",&w);
+
+        while (w != 1 && w != 2) {
+            gotoligcol(25,140);
+            SetConsoleTextAttribute(hConsole, 12);
+            printf("Error.");
+            SetConsoleTextAttribute(hConsole, 15);
+            gotoligcol(23, 70);
+            fflush(stdin);
+            scanf("%d", &w);
+        }
+        if (w == 1){
+            //On efface la page
+            system("cls");
+
+            //Affichage des matrices de décors
+            decors();
+            decors1();
+
+            //Initialisation de la matrice 1
+            initialisation_matrice(mat,  mat_ia1);
+
+            //Placement aléatoire des bateaux
+            placement_bateaux(mat,mat_ia1, a, pseudo);
+            placement_bateaux_aleatoire1(mat_ia1);
+            
+            //Appel de la fonction de jeux
+            jouer(mat,  mat_ia1, a, pseudo,w, choix, mat_bis, mat_ia1_bis);
+            }
+        else if (w == 2){
             //On efface la page
             system("cls");
 
@@ -165,8 +205,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
 
             //Appel de la fonction de jeux
             jouer(mat,  mat_ia1, a, pseudo,w, choix, mat_bis, mat_ia1_bis);
-
-        
+        }
     }
         //Chargement d'une partie
     else if (*a == 2){
