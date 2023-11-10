@@ -12,7 +12,7 @@
 
 void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
 
-    //DDV
+    //Variables Definitions
     int i;
     int j;
     int s;
@@ -20,11 +20,13 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    //On efface l'ecran
+    //Clean page
     system("cls");
+
+    //Display files matrices
     affichage_matrices_fichiers(mat,mat_ia1);
+
     SetConsoleTextAttribute(hConsole, 11);
-    //Chaque couple de grille se voit attribuer un numéro (1,2,3)
     gotoligcol(28, 125);
     printf("                                 __..||..__\n");
     gotoligcol(29, 125);
@@ -91,56 +93,56 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         scanf("%d", &s);
     }
     if (s == 1){
-        //Affichage des decors
+        //Display decorations
         system("cls");
         decors();
         decors1();
 
-        //Message du debut du chargement
+        //begin loading
         gotoligcol(17,0);
         printf("Game loading in progress, please wait...\n");
         sleep(1);
 
-        //Appel de la fonction de chargement chaque matrice à son fichier de chargement
+        //Load matrices
         charger_partie1(mat_ia1);
         charger_partie(mat);
     }
 
     if (s == 2){
-        //Affichage des decors
+        //Display decorations
         system("cls");
         decors();
         decors1();
 
-        //Message du debut du chargement
+        //Begin loading
         gotoligcol(17,0);
         printf("Game loading in progress, please wait...\n");
         sleep(1);
 
-        //Appel de la fonction de chargement chaque matrice à son fichier de chargement
+        //Load matrices
         charger_partie2(mat_ia1);
         charger_partie1_0(mat);
     }
 
     if (s == 3){
-        //Affichage des decors
+        //Display decorations
         system("cls");
         decors();
         decors1();
 
-        //Message du debut du chargement
+        //Begin loading
         gotoligcol(17,0);
         printf("Game loading in progress, please wait...\n");
         sleep(1);
 
-        //Appel de la fonction de chargement chaque matrice à son fichier de chargement
+        //Load matrices
         charger_partie3(mat_ia1);
         charger_partie2_0(mat);
     }
     if (s == 4){
-        //On efface l'écran
+        //Clean page
         system("cls");
-        //On appel le menu principal
+        //Back menu page
         menu(mat, mat_ia1, a , pseudo, choix, mat_bis,mat_ia1_bis);
     }
 }

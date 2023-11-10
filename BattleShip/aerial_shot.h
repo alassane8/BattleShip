@@ -11,7 +11,7 @@
 
 void tir_aerien(unsigned char ** mat_ia1){
 
-    //DDV
+    //Variables Definitions
     int lig;
     int col;
     int B = 95;
@@ -20,23 +20,24 @@ void tir_aerien(unsigned char ** mat_ia1){
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
     srand(time(NULL));
-    //5 tirs aérien par passage
+    //5 random shots are made
     for (i = 0; i < 5; i ++){
-        //Choix aleatoire des colonnes et lignes de tirs
+        //Random choice of lig and col values
         lig = rand() % (15) + 1;
         col = rand() % (15) + 1;
 
-        //Si le tir n'est pas réussi
+        //If shot missed
         if (mat_ia1[lig][col] == B) {
-            // 1.1 Afficher E dans la case
+            //Display 'O' in the (lig,col)
             mat_ia1[lig][col] = 'E';
             gotoligcol(lig, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 9);
             printf("%2c", 'E');
             SetConsoleTextAttribute(hConsole, 15);
         }
-        //Sinon, un navire est touché
+        //Else shot touched a ship
         if (mat_ia1[lig][col] == 'P' || mat_ia1[lig][col] == 'C' || mat_ia1[lig][col] == 'D' || mat_ia1[lig][col] == 'S'){
+            //Display 'X' in the (lig,col)
             mat_ia1[lig][col] = 'T';
             gotoligcol(lig, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 12);
