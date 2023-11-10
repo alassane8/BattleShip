@@ -46,6 +46,7 @@ int main(){
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
     //Bataille navale
+    system("cls");
     gotoligcol(0, 30);
     SetConsoleTextAttribute(hConsole, 11);
     printf("/////////////////////////////////////// B A T T L E S H I P ///////////////////////////////////////\n");
@@ -63,7 +64,7 @@ int main(){
     gotoligcol(6, 70);
     printf("Welcome %s !\n\n", pseudo);
 
-    gotoligcol(44, 95);
+    gotoligcol(44, 70);
     printf("Copyright 2023 Battleship Alassane Wade");
 
     srand(time(NULL));

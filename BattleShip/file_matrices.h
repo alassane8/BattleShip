@@ -60,7 +60,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
     else{
         //On scan la matrice et on l'affiche si T ou E
         for (int i = 1 ; i < 16 ; i++){
-            gotoligcol(i,35);
+            gotoligcol(i,32);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp1, "%2s", &mat_ia1[i][j]);
                 if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){
@@ -87,13 +87,13 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
         SetConsoleTextAttribute(hConsole, 15);
     }
     else{
-        gotoligcol(0, 80);
+        gotoligcol(0, 66);
         SetConsoleTextAttribute(hConsole, 11);
         printf("Game 2 :");
         SetConsoleTextAttribute(hConsole, 15);
-        gotoligcol (1, 80);
+        gotoligcol (1, 66);
         for (int i = 1 ; i < 16 ; i++){
-            gotoligcol(i, 80);
+            gotoligcol(i, 67);
             for (int j = 1 ;j < 16 ; j++){
                 //On scan la matrice
                 fscanf(fp2, "%2s", &mat[i][j]);
@@ -118,7 +118,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
     else{
         //On scan la matrice et on l'affiche si T ou E
         for (int i = 1 ; i < 16 ; i++){
-            gotoligcol(i,115);
+            gotoligcol(i,98);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp3, "%2s", &mat_ia1[i][j]);
                 if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){
@@ -145,13 +145,13 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
         SetConsoleTextAttribute(hConsole, 15);
     }
     else{
-        gotoligcol(0, 160);
+        gotoligcol(0, 133);
         SetConsoleTextAttribute(hConsole, 11);
         printf("Game 3 :");
         SetConsoleTextAttribute(hConsole, 15);
-        gotoligcol (1, 160);
+        gotoligcol (1, 133);
         for (int i = 1 ; i < 16 ; i++){
-            gotoligcol(i, 160);
+            gotoligcol(i, 133);
             for (int j = 1 ;j < 16 ; j++){
                 //On scan la matrice
                 fscanf(fp4, "%2s", &mat[i][j]);
@@ -175,7 +175,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
     else{
         //On scan la matrice et on l'affiche si T ou E
         for (int i = 1 ; i < 16 ; i++){
-            gotoligcol(i,195);
+            gotoligcol(i,165);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp5, "%2s", &mat_ia1[i][j]);
                 if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){

@@ -31,7 +31,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
     SetConsoleTextAttribute(hConsole, 11);
     printf("////////////////////// Last shots recorded /////////////////////");
     SetConsoleTextAttribute(hConsole, 15);
-    gotoligcol(44, 95);
+    gotoligcol(44, 70);
     printf("Copyright 2023 Battleship Alassane Wade");
 
     //Tant que les tours ne sont inférieurs a 200 et que La matrice de l'ordinateur pleine on boucle
