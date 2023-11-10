@@ -66,10 +66,6 @@ cd BattleShip/
 ```bash
 cd BattleShip/
 ```
-- Open Visual Code Studio :
-```bash
-code .
-```
 - Run the following commands: 
 ```bash
 gcc -o BattleshipColor.exe main.c
