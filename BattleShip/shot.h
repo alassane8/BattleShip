@@ -62,10 +62,10 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
     //Si le tir n'est pas réussi
     if (mat_ia1[lig - 'a' + 1][col] == B){
         // 1.1 Afficher E dans la case
-        mat_ia1[lig - 'a' + 1][col] = 'E';
+        mat_ia1[lig - 'a' + 1][col] = 'O';
         gotoligcol(lig - 'a' + 1, (col * 4) + 70);
         SetConsoleTextAttribute(hConsole, 9);//12 Rouge 9 Bleu 10 Vert
-        printf("%2c", 'E');
+        printf("%2c", 'O');
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(23, 0);
         printf("                                                   ");
@@ -77,10 +77,10 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
     if (mat_ia1[lig - 'a' + 1][col] == 'P' || mat_ia1[lig - 'a' + 1][col] == 'C' || mat_ia1[lig - 'a' + 1][col] == 'D' || mat_ia1[lig - 'a' + 1][col] == 'S'){
         // 2.1 Afficher T
         do {
-            mat_ia1[lig - 'a' + 1][col] = 'T';
+            mat_ia1[lig - 'a' + 1][col] = 'X';
             gotoligcol(lig - 'a' + 1, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'T');
+            printf("%2c", 'X');
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(24, 0);
             printf("                                                   ");
@@ -117,10 +117,10 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
             //Si le tir n'est pas réussi
             if (mat_ia1[lig - 'a' + 1][col] == B){
                 // 1.1 Afficher E dans la case
-                mat_ia1[lig - 'a' + 1][col] = 'E';
+                mat_ia1[lig - 'a' + 1][col] = 'O';
                 gotoligcol(lig - 'a' + 1, (col * 4) + 70);
                 SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'E');
+                printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(23, 0);
                 printf("                                                   ");
@@ -171,10 +171,10 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
     //Si le tir n'est pas réussi
     if (mat[lig][col] == B) {
         // 1.1 Afficher E dans la case
-        mat[lig][col] = 'E';
+        mat[lig][col] = 'O';
         gotoligcol(lig, (col * 4));
         SetConsoleTextAttribute(hConsole, 9);
-        printf("%2c", 'E');
+        printf("%2c", 'O');
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(20, 0);
         printf("                                                   ");
@@ -186,10 +186,10 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
 
         //2.1 Afficher T
         do{
-            mat[lig][col] = 'T';
+            mat[lig][col] = 'X';
             gotoligcol(lig, (col * 4));
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'T');
+            printf("%2c", 'X');
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(21, 0);
             printf("                                                   ");
@@ -203,10 +203,10 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
 
             if (mat[lig][col] == B) {
                 // 1.1 Afficher E dans la case
-                mat[lig][col] = 'E';
+                mat[lig][col] = 'O';
                 gotoligcol(lig, (col * 4));
                 SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'E');
+                printf("%2c", 'O');
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(20, 0);
                 printf("                                                   ");

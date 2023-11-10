@@ -92,7 +92,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                     //Si on a plus de fumigene on en peux plus en tirer
                     if (nombre_fumigene == 0) {
                         gotoligcol(21, 140);
-                        printf("                                   ");
+                        printf("                                       ");
                         gotoligcol(21, 140);
                         printf("Total number of flares exhausted !");
                         gotoligcol(25, 70);
@@ -104,7 +104,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                         nombre_fumigene --;
                         fumigene(mat_ia1, compteur_tour);
                         gotoligcol(21, 140);
-                        printf("                                                ");
+                        printf("                                       ");
                         gotoligcol(21, 140);
                         printf("Flare lit for    seconds !");
                         for(int k = 6; k >= 0; k --){
@@ -117,7 +117,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                             sleep(1);
                         }
                         gotoligcol(21, 140);
-                        printf("                                               ");
+                        printf("                                       ");
                         gotoligcol(21, 140);
                         printf("Number of flare remaining: %d", nombre_fumigene);
                         mode_visible_desactive(mat_ia1);
@@ -146,7 +146,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 if (g == 4){
                     if (tir_air == 0){
                         gotoligcol(21, 140);
-                        printf("                                 ");
+                        printf("                                       ");
                         gotoligcol(21, 140);
                         printf("Air support not available !");
                         gotoligcol(25, 70);
@@ -156,7 +156,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                     else {
                         tir_air --;
                         gotoligcol(21, 140);
-                        printf("                                 ");
+                        printf("                                       ");
                         gotoligcol(21, 140);
                         printf("Aerial bombardment remaining: %d", tir_air);
                         tir_aerien(mat_ia1);
@@ -184,7 +184,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 else if (g == 3){
                     if (satellite == 0){
                         gotoligcol(21, 140);
-                        printf("                                 ");
+                        printf("                                       ");
                         gotoligcol(21, 140);
                         printf("Satellite view not available !");
                         gotoligcol(25, 70);
@@ -195,10 +195,10 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                         satellite --;
                         mode_visible(mat_ia1);
                         gotoligcol(21, 140);
-                        printf("                                                             ");
+                        printf("                                       ");
                         gotoligcol(21, 140);
                         printf("Satellite view enabled for   seconds !");
-                        for(int k = 10; k >= 0; k --){
+                        for(int k = 9; k >= 0; k --){
                             gotoligcol(21, 166);
                             printf("%2d", k);
                             if (k == 1 || k == 0){
@@ -208,7 +208,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                             sleep(1);
                         }
                         gotoligcol(21, 140);
-                        printf("                                                                     ");
+                        printf("                                       ");
                         gotoligcol(21, 140);
                         printf("Satellite view remaining : %d", satellite);
                         mode_visible_desactive(mat_ia1);

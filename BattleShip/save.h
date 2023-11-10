@@ -51,7 +51,7 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
     gotoligcol(37, 125);
     printf("     ______________________________________________________________\n");
     gotoligcol(38, 125);
-    printf("    |___  __   |________________  USS WADE _____________|   __  ___|\n");
+    printf("    |___  __   |________________  USS WADE _____________|  __  ___|\n");
     gotoligcol(39, 125);
     printf("        l        '-,               -   -             ,-'        /\n");
     gotoligcol(40, 125);
