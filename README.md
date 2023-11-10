@@ -15,10 +15,7 @@ boats.
 # Instructions
 To play the Battleship follow the following instructions :
 
-## 1. Install Visual Studio Code:
-If you haven't already installed Visual Studio Code, you can download it from the official website: https://code.visualstudio.com/.
-
-## 2. Download and Install GCC (GNU Compiler Collection) :
+## 1. Download and Install GCC (GNU Compiler Collection) :
 The process may vary depending on your operating system. Here are instructions for some common operating systems:
 
 - Installing GCC on Linux (Ubuntu/Debian):
@@ -55,7 +52,8 @@ brew install gcc
 On Windows, you can use the MinGW (Minimalist GNU for Windows) distribution to get GCC. 
 You can follow these steps: https://dev.to/gamegods3/how-to-install-gcc-in-windows-10-the-easier-way-422j
 
-## 3. Compile code :
+## 2. Compile code :
+### Open a terminal in full screen.
 - Clone this github repository on the path of your choice: 
 ```bash
 git clone https://github.com/alassane8/BattleShip.git
@@ -72,7 +70,7 @@ cd BattleShip/
 ```bash
 code .
 ```
-- Run the following commands on the Visual Studio Code terminal : (Open the terminal in full screen.)
+- Run the following commands: 
 ```bash
 gcc -o BattleshipColor.exe main.c
 ```
@@ -129,3 +127,6 @@ Add logic to handle shots and the destruction of ships. When a shot hits a ship,
 
 - End of the game:
 Implement logic to detect the end of the game. The game can end when all of a player's ships have been sunk. Announce the winner and conclude the game appropriately.
+
+- Optimize game window: 
+Optimizing the game window refers to the process of enhancing and improving the visual and functional aspects of the in-game display. This involves maximizing the efficient use of screen space, prioritizing important game elements, minimizing clutter, and ensuring a responsive and visually pleasing gaming experience. 
