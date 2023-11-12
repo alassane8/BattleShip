@@ -49,10 +49,18 @@ int main(){
     system("cls");
     gotoligcol(0, 30);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("/////////////////////////////////////// B A T T L E S H I P ///////////////////////////////////////\n");
+    printf("/////////////////////////////////////// ");
     SetConsoleTextAttribute(hConsole, 15);
+    printf("B A T T L E S H I P");
+    SetConsoleTextAttribute(hConsole, 11);
+    printf(" ///////////////////////////////////////\n");
     gotoligcol(3, 30);
-    printf("////////////////////////////////// Please, open the game page wide ////////////////////////////////");
+    printf("////////////////////////////////// ");
+    SetConsoleTextAttribute(hConsole, 15);
+    printf("Please, open the game page wide");
+    SetConsoleTextAttribute(hConsole, 11);
+    printf(" ////////////////////////////////");
+    SetConsoleTextAttribute(hConsole, 15);
 
 
     //3. Saisie du pseudo de l'utilisateur

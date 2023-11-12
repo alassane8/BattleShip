@@ -20,8 +20,11 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
     //Acceuil du joueur 1
     gotoligcol(8, 30);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("/////////////////////////////////////// M A I N  M E N U ////////////////////////////////////////");
+    printf("/////////////////////////////////////// ");
     SetConsoleTextAttribute(hConsole, 15);
+    printf("M A I N  M E N U");
+    SetConsoleTextAttribute(hConsole, 11);
+    printf(" ////////////////////////////////////////");
 
 
     gotoligcol(44, 70);
