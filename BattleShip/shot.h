@@ -19,7 +19,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
 
     gotoligcol(22, 0);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("%s's shooting's traces :", pseudo);
+    printf("Traces of shots from %s:", pseudo);
     SetConsoleTextAttribute(hConsole, 15);
 
     gotoligcol(30, 70);

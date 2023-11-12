@@ -29,7 +29,11 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
 
     gotoligcol(16, 0);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("////////////////////// Last shots recorded /////////////////////");
+    printf("///////////////////// ");
+    SetConsoleTextAttribute(hConsole, 15);
+    printf("Last shots recorded ");
+    SetConsoleTextAttribute(hConsole, 11);
+    printf("//////////////////////");
     SetConsoleTextAttribute(hConsole, 15);
     gotoligcol(44, 70);
     printf("Copyright 2023 Battleship Alassane Wade");
@@ -41,7 +45,11 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 gotoligcol(16, 70);
                 fflush(stdin);
                 SetConsoleTextAttribute(hConsole, 11);
-                printf("///////////////////////// R O U N D  %d /////////////////////////", compteur_tour);
+                printf("///////////////////////// ");
+                SetConsoleTextAttribute(hConsole, 15);
+                printf("R O U N D  %d ", compteur_tour);
+                SetConsoleTextAttribute(hConsole, 11);
+                printf("/////////////////////////");
                 gotoligcol(17, 70);
                 printf("Would you like to :");
                 SetConsoleTextAttribute(hConsole, 15);

@@ -26,19 +26,35 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
     int compteur_general = 1;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+    
+    gotoligcol(16, 70);
+    SetConsoleTextAttribute(hConsole, 10);
+    printf("Here are the boats you can place: Aircraft Carrier, Cruiser, Destroyer and Submarine.\n");
+    SetConsoleTextAttribute(hConsole, 15);
+    gotoligcol(18, 70);
+    printf("The unique Aircraft Carrier with the letter P takes up 7 spaces.\n");
+    gotoligcol(19, 70);
+    printf("2 Cruisers with the letter C take up 5 spaces.\n");
+    gotoligcol(20, 70);
+    printf("3 Destroyers with the letter D take 3 spaces.\n");
+    gotoligcol(21, 70);
+    printf("4 Submarines with the letter S take up 1 space.\n");
+
     //Choix du bateau par l'utilisateur
     while (compteur_general <= 10) {
         while (P <= 1) {
+            gotoligcol(15, 0);
             SetConsoleTextAttribute(hConsole, 11);
-            printf("\nChoose the position of the"
-                   " boat n %d out of 10 to place:\n", compteur_general);
-            printf("Column:\n");
+            printf("\nChoose the position of the boat n %d out of 10 to place:\n", compteur_general);
             SetConsoleTextAttribute(hConsole, 15);
+            printf("Column:\n");
             fflush(stdin);
             scanf("%d", &col);
             while (col > 15 || col < 1){
                 gotoligcol(25,140);
+                SetConsoleTextAttribute(hConsole, 12);
                 printf("Error.");
+                SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(18, 0);
                 fflush(stdin);
                 scanf("%d", &col);
@@ -50,25 +66,33 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
             scanf("%c", &lig);
             while (lig - 'A' + 1  > 15 || lig - 'A' + 1  < 1){
                 gotoligcol(25,140);
+                SetConsoleTextAttribute(hConsole, 12);
                 printf("Error.");
+                SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(20, 0);
                 fflush(stdin);
                 scanf("%c", &lig);
             }
             mat[lig - 'A' + 1 ][col] = 'P';
             gotoligcol(lig - 'A' + 1 , col * 4);
+            SetConsoleTextAttribute(hConsole, 10);
             printf("%2c", 'P');
+            SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(21, 0);
             SetConsoleTextAttribute(hConsole, 11);
-            printf("How would you like to place your boat n%d ?:\n1. Row\n2. Column\n", compteur_general);
+            printf("How would you like to place your boat n%d ?:\n", compteur_general);
             SetConsoleTextAttribute(hConsole, 15);
+            printf("1. Row\n");
+            printf("2. Column\n");
             fflush(stdin);
             scanf("%d", &r);
 
             //Gestion des erreurs de saisie
             while (r != 1 && r != 2) {
                 gotoligcol(25,140);
+                SetConsoleTextAttribute(hConsole, 12);
                 printf("Error.");
+                SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(24, 0);
                 fflush(stdin);
                 scanf("%d", &r);
@@ -77,19 +101,25 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
             if (r == 1) {
                 gotoligcol(29, 0);
                 SetConsoleTextAttribute(hConsole, 11);
-                printf("In which way ?\n1. Towards the left.\n2. Towards the right.\n");
+                printf("In which way ?:\n");
                 SetConsoleTextAttribute(hConsole, 15);
+                printf("1. Towards the left.\n");
+                printf("2. Towards the right.\n");
                 scanf("%d", &x);
                 while (x != 1 && x != 2) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(32, 0);
                     fflush(stdin);
                     scanf("%d", &x);
                 }
                 while (x == 1 && col - 6 < 1 || x == 2 && col + 6 > 15) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(32, 0);
                     fflush(stdin);
                     scanf("%d", &x);
@@ -99,7 +129,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for(z = 1; z < 7; z++) {
                         mat[lig][col - z] = 'P';
                         gotoligcol(lig, (col * 4) - (z * 4));
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'P');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
                 //Si vers la droite
@@ -107,15 +139,19 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 7; z++) {
                         mat[lig - 'A' + 1 ][col + z] = 'P';
                         gotoligcol(lig - 'A' + 1 , (col * 4) + (z * 4));
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'P');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
             }
                 //Si en colonne
             else {
                 SetConsoleTextAttribute(hConsole, 11);
-                printf("In which way ?\n1. Upwards\n2. Downwards\n");
+                printf("In which way ?:\n");
                 SetConsoleTextAttribute(hConsole, 15);
+                printf("1. Upwards.\n");
+                printf("2. Downwards.\n");
                 scanf("%d", &x);
                 //Gestion des erreurs de saisie
                 while (x != 1 && x != 2) {
@@ -128,7 +164,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 //Si vers le haut
                 while(x == 1 && lig - 'A' + 1  - 6 < 1 || x == 2 && lig - 'A' + 1  + 6 > 15){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(28, 0);
                     fflush(stdin);
                     scanf("%d", &x);
@@ -138,7 +176,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 7; z++) {
                         mat[lig - 'A' + 1  - z][col] = 'P';
                         gotoligcol(lig - 'A' + 1  - z, col * 4);
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'P');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
                 //Si vers le bas
@@ -146,7 +186,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 7; z++){
                         mat[lig - 'A' + 1  + z][col] = 'P';
                         gotoligcol(lig - 'A' + 1  + z, col * 4);
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'P');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
             }
@@ -168,7 +210,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 scanf("%d", &col);
                 while (col > 15 || col < 1) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(18, 0);
                     fflush(stdin);
                     scanf("%d", &col);
@@ -181,7 +225,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 scanf("%c", &lig);
                 while (lig - 'A' + 1  > 15 || lig - 'A' + 1  < 1) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(20, 0);
                     fflush(stdin);
                     scanf("%c", &lig);
@@ -190,18 +236,24 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
             while (mat[lig - 'A' + 1 ][col] != B);
             mat[lig - 'A' + 1 ][col] = 'C';
             gotoligcol(lig - 'A' + 1 , col * 4);
+            SetConsoleTextAttribute(hConsole, 10);
             printf("%2c", 'C');
+            SetConsoleTextAttribute(hConsole, 15);
             //Gestion des erreurs de saisie
             gotoligcol(21, 0);
             SetConsoleTextAttribute(hConsole, 11);
-            printf("How would you like to place your boat n%d ?:\n1. Row\n2. Column\n", compteur_general);
+            printf("How would you like to place your boat n%d ?:\n", compteur_general);
             SetConsoleTextAttribute(hConsole, 15);
+            printf("1. Row\n");
+            printf("2. Column\n");
             fflush(stdin);
             scanf("%d", &r);
             //Gestion des erreurs de saisie
             while (r != 1 && r != 2) {
                 gotoligcol(25,140);
+                SetConsoleTextAttribute(hConsole, 12);
                 printf("Error.");
+                SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(24, 0);
                 fflush(stdin);
                 scanf("%d", &r);
@@ -209,14 +261,18 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
             for (int j = 1; j < 5; j ++){
                 while (r == 1 && mat[lig - 'A' + 1][col + j] != B && mat[lig - 'A' + 1][col - j] != B){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(24, 0);
                     fflush(stdin);
                     scanf("%d", &r);
                 }
                 while (r == 2 && mat[lig - 'A' + 1 + j][col] != B && mat[lig - 'A' + 1 - j][col] != B){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(24, 0);
                     fflush(stdin);
                     scanf("%d", &r);
@@ -225,21 +281,27 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
             if (r == 1){
                 gotoligcol(29, 0);
                 SetConsoleTextAttribute(hConsole, 11);
-                printf("In which way ?\n1. Towards the left.\n2. Towards the right.\n");
+                printf("In which way ?:\n");
                 SetConsoleTextAttribute(hConsole, 15);
+                printf("1. Towards the left.\n");
+                printf("2. Towards the right.\n");
                 fflush(stdin);
                 scanf("%d", &x);
                 //Gestion des erreurs de saisie
                 while (x != 1 && x != 2) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(32, 0);
                     fflush(stdin);
                     scanf("%d", &x);
                 }
                 while (x == 1 && col - 4 < 1 || x == 2 && col + 4 > 15){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(32, 0);
                     fflush(stdin);
                     scanf("%d", &x);
@@ -247,7 +309,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 for (int j = 1; j < 5; j ++){
                     while (x == 1 && mat[lig - 'A' + 1 ][col - j] != B) {
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(32, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -257,13 +321,17 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 5; z++){
                         mat[lig - 'A' + 1 ][col - z] = 'C';
                         gotoligcol(lig - 'A' + 1 , (col * 4) - (z * 4));
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'C');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
                 for (int j = 1; j < 5; j ++){
                     while (x == 2 && mat[lig - 'A' + 1 ][col + j] != B) {
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(32, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -273,27 +341,35 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 5; z++) {
                         mat[lig - 'A' + 1 ][col + z] = 'C';
                         gotoligcol(lig - 'A' + 1 , (col * 4) + (z * 4));
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'C');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
             }
             else {
                 SetConsoleTextAttribute(hConsole, 11);
-                printf("In which way ?\n1. Upwards\n2. Downwards\n");
+                printf("In which way ?:\n");
                 SetConsoleTextAttribute(hConsole, 15);
+                printf("1. Upwards.\n");
+                printf("2. Downwards.\n");
                 fflush(stdin);
                 scanf("%d", &x);
                 //Gestion des erreurs de saisie
                 while (x != 1 && x != 2) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(28, 0);
                     fflush(stdin);
                     scanf("%d", &x);
                 }
                 while(x == 1 && lig - 'A' + 1  - 4 < 1 || x == 2 && lig - 'A' + 1  + 4 > 15){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(28, 0);
                     fflush(stdin);
                     scanf("%d", &x);
@@ -301,14 +377,18 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 for (int j = 1; j < 5; j ++){
                     while (r == 1 && mat[lig - 'A' + 1 - j][col + j] != B && mat[lig - 'A' + 1 ][col - j] != B){
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(24, 0);
                         fflush(stdin);
                         scanf("%d", &r);
                     }
                     while (r == 2 && mat[lig - 'A' + 1 + j][col] != B && mat[lig - 'A' + 1 - j][col] != B){
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(24, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -317,7 +397,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 for (int i = 1; i < 5; i ++){
                     while (x == 1 && mat[lig - 'A' + 1  - i][col] != B) {
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(32, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -327,13 +409,17 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 5; z++) {
                         mat[lig - 'A' + 1  - z][col] = 'C';
                         gotoligcol(lig - 'A' + 1  - z, col * 4);
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'C');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
                 for (int i = 1; i < 5; i ++){
                     while (x == 2 && mat[lig - 'A' + 1  + i][col] != B) {
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(32, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -343,7 +429,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 5; z++) {
                         mat[lig - 'A' + 1  + z][col] = 'C';
                         gotoligcol(lig - 'A' + 1  + z, col * 4);
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'C');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
             }
@@ -361,7 +449,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 scanf("%d", &col);
                 while (col > 15 || col < 1){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(18, 0);
                     fflush(stdin);
                     scanf("%d", &col);
@@ -372,7 +462,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 scanf("%c", &lig);
                 while (lig - 'A' + 1  > 15 || lig - 'A' + 1  < 1){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(20, 0);
                     fflush(stdin);
                     scanf("%c", &lig);
@@ -381,17 +473,23 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
             while (mat[lig - 'A' + 1 ][col] != B);
             mat[lig - 'A' + 1 ][col] = 'D';
             gotoligcol(lig - 'A' + 1 , col * 4);
+            SetConsoleTextAttribute(hConsole, 10);
             printf("%2c", 'D');
+            SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(21, 0);
             SetConsoleTextAttribute(hConsole, 11);
-            printf("How would you like to place your boat n%d ?:\n1. Row\n2. Column\n", compteur_general);
+            printf("How would you like to place your boat n%d ?:\n", compteur_general);
             SetConsoleTextAttribute(hConsole, 15);
+            printf("1. Row\n");
+            printf("2. Column\n");
             fflush(stdin);
             scanf("%d", &r);
             //Gestion des erreurs de saisie
             while (r != 1 && r != 2) {
                 gotoligcol(25,140);
+                SetConsoleTextAttribute(hConsole, 12);
                 printf("Error.");
+                SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(24, 0);
                 fflush(stdin);
                 scanf("%d", &r);
@@ -399,14 +497,18 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
             for (int j = 1; j < 3; j ++){
                 while (r == 1 && mat[lig - 'A' + 1 ][col + j] != B && mat[lig - 'A' + 1 ][col - j] != B){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(24, 0);
                     fflush(stdin);
                     scanf("%d", &r);
                 }
                 while (r == 2 && mat[lig - 'A' + 1  + j][col] != B && mat[lig - 'A' + 1  - j][col] != B){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(24, 0);
                     fflush(stdin);
                     scanf("%d", &r);
@@ -415,29 +517,37 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
             if (r == 1) {
                 gotoligcol(29, 0);
                 SetConsoleTextAttribute(hConsole, 11);
-                printf("In which way ?\n1. Towards the left.\n2. Towards the right.\n");
+                printf("In which way ?:\n");
                 SetConsoleTextAttribute(hConsole, 15);
+                printf("1. Towards the left.\n");
+                printf("2. Towards the right.\n");
                 fflush(stdin);
                 scanf("%d", &x);
-                //Gestion des erreurs de saisie
+
                 while (x != 1 && x != 2) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(32, 0);
                     fflush(stdin);
                     scanf("%d", &x);
                 }
                 while (x == 1 && col - 2 < 1 || x == 2 && col + 2 > 15) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(32, 0);
                     fflush(stdin);
-                    scanf("%d", &col);
+                    scanf("%d", &x);
                 }
                 for (int j = 1; j < 3; j ++){
                     while (x == 1 && mat[lig - 'A' + 1 ][col - j] != B) {
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(32, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -447,13 +557,17 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 3; z++) {
                         mat[lig - 'A' + 1 ][col - z] = 'D';
                         gotoligcol(lig - 'A' + 1 , (col - z)* 4);
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'D');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
                 for (int j = 1; j < 3; j ++){
                     while (x == 2 && mat[lig - 'A' + 1 ][col + j] != B) {
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(32, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -463,27 +577,35 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 3; z++){
                         mat[lig - 'A' + 1 ][col + z] = 'D';
                         gotoligcol(lig - 'A' + 1 , (col + z) * 4);
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'D');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
             }
             else {
                 SetConsoleTextAttribute(hConsole, 11);
-                printf("In which way ?\n1. Upwards\n2. Downwards\n");
+                printf("In which way ?:\n");
                 SetConsoleTextAttribute(hConsole, 15);
+                printf("1. Upwards.\n");
+                printf("2. Downwards.\n");
                 fflush(stdin);
                 scanf("%d", &x);
                 //Gestion des erreurs de saisie
                 while (x != 1 && x != 2) {
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(28, 0);
                     fflush(stdin);
                     scanf("%d", &x);
                 }
                 while(x == 1 && lig - 'A' + 1  - 2 < 1 || x == 2 && lig - 'A' + 1  + 2 > 15){
                     gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
                     printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(28, 0);
                     fflush(stdin);
                     scanf("%d", &x);
@@ -491,7 +613,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 for (int i = 1; i < 3; i ++){
                     while (x == 1 && mat[lig - 'A' + 1  - i][col] != B) {
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(32, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -501,13 +625,17 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 3; z++) {
                         mat[lig - 'A' + 1  - z][col * 4] = 'D';
                         gotoligcol(lig - 'A' + 1  - z, col * 4);
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'D');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
                 for (int i = 1; i < 3; i ++){
                     while (x == 2 && mat[lig - 'A' + 1  + i][col] != B) {
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(32, 0);
                         fflush(stdin);
                         scanf("%d", &r);
@@ -517,7 +645,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     for (z = 1; z < 3; z++) {
                         mat[lig - 'A' + 1  + z][col * 4] = 'D';
                         gotoligcol(lig - 'A' + 1  + z, col * 4);
+                        SetConsoleTextAttribute(hConsole, 10);
                         printf("%2c", 'D');
+                        SetConsoleTextAttribute(hConsole, 15);
                     }
                 }
             }
@@ -535,7 +665,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     scanf("%d", &col);
                     while (col > 15 || col < 1){
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(18, 0);
                         fflush(stdin);
                         scanf("%d", &col);
@@ -545,7 +677,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                     scanf("%c", &lig);
                     while (lig - 'A' + 1  > 15 || lig - 'A' + 1  < 1){
                         gotoligcol(25,140);
+                        SetConsoleTextAttribute(hConsole, 12);
                         printf("Error.");
+                        SetConsoleTextAttribute(hConsole, 15);
                         gotoligcol(20, 0);
                         fflush(stdin);
                         scanf("%c", &lig);
@@ -553,7 +687,9 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
                 }while (mat[lig - 'A' + 1 ][col] != B);
                 mat[lig - 'A' + 1 ][col] = 'S';
                 gotoligcol(lig - 'A' + 1 , col * 4);
+                SetConsoleTextAttribute(hConsole, 10);
                 printf("%2c", 'S');
+                SetConsoleTextAttribute(hConsole, 15);
             }
             S++;
             compteur_general++;
