@@ -17,7 +17,7 @@ void decors1();
 void placement_bateaux(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo);
 void placement_bateaux_aleatoire(unsigned char ** mat);
 void placement_bateaux_aleatoire1(unsigned char ** mat_ia1);
-
+    
 void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo, int w, int choix,unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 
 void tirer(unsigned char ** mat_ia1, char *pseudo);
