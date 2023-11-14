@@ -115,9 +115,6 @@ Make sure to add descriptive comments for each function, method, and code sectio
 - Manual placement of ships:
 Add a feature that allows players to manually place their ships on the grid. You can ask players to specify the starting and ending coordinates for each ship, and ensure that the placement is valid.
 
-- Player 1 vs. Player 2:
-Divide the game into two separate parts for each player. Each player should have their own grid and their own ships to place. Make sure that players do not see the opponent's grid.
-
 - Sinking ships:
 Add logic to handle shots and the destruction of ships. When a shot hits a ship, mark the square as hit. When all squares of a ship have been hit, the ship is sunk.
 
