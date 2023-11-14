@@ -29,6 +29,14 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
 
     gotoligcol(16, 0);
     SetConsoleTextAttribute(hConsole, 11);
+    printf("/////////////////////// ");
+    SetConsoleTextAttribute(hConsole, 15);
+    printf("%s's grid ", pseudo);
+    SetConsoleTextAttribute(hConsole, 11);
+    printf("//////////////////////");
+    SetConsoleTextAttribute(hConsole, 15);
+    gotoligcol(17, 0);
+    SetConsoleTextAttribute(hConsole, 11);
     printf("///////////////////// ");
     SetConsoleTextAttribute(hConsole, 15);
     printf("Last shots recorded ");
@@ -43,6 +51,13 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
         for (int c = 0; c < 15; c++){
             while ((mat_ia1[d][c] != 'T' && mat_ia1[d][c] != 'E' && mat_ia1[d][c] == B) || (mat[d][c] != 'T' && mat[d][c] != 'E' && mat[d][c] != B)){
                 gotoligcol(16, 70);
+                SetConsoleTextAttribute(hConsole, 11);
+                printf("/////////////////////////// ");
+                SetConsoleTextAttribute(hConsole, 15);
+                printf("AI's grid", pseudo);
+                SetConsoleTextAttribute(hConsole, 11);
+                printf(" //////////////////////////");
+                gotoligcol(17, 70);
                 fflush(stdin);
                 SetConsoleTextAttribute(hConsole, 11);
                 printf("///////////////////////// ");
@@ -50,8 +65,6 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 printf("R O U N D  %d ", compteur_tour);
                 SetConsoleTextAttribute(hConsole, 11);
                 printf("/////////////////////////");
-                gotoligcol(17, 70);
-                printf("Would you like to :");
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(19, 70);
                 printf("1. Shoot");
