@@ -290,6 +290,13 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         system("cls");
 
         //Affichage des regles
+        gotoligcol(1, 60);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf("///////////////////////////// ");
+        SetConsoleTextAttribute(hConsole, 15);
+        printf("R U L E S");
+        SetConsoleTextAttribute(hConsole, 11);
+        printf(" /////////////////////////////");
         SetConsoleTextAttribute(hConsole, 10);
         printf("\n\nBefore playing, here are some explanations about the rules of the game:");
         SetConsoleTextAttribute(hConsole, 15);
@@ -395,7 +402,11 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         system("cls");
         gotoligcol(4, 60);
         SetConsoleTextAttribute(hConsole, 11);
-        printf("///////////////////////////// T H A N K  Y O U ! /////////////////////////////");
+        printf("///////////////////////////// ");
+        SetConsoleTextAttribute(hConsole, 15);
+        printf("T H A N K  Y O U !");
+        SetConsoleTextAttribute(hConsole, 11);
+        printf(" /////////////////////////////");
         gotoligcol(6, 83);
         SetConsoleTextAttribute(hConsole, 15);
         printf("We hope to see you soon %s !", pseudo);
