@@ -25,6 +25,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
     printf("M A I N  M E N U");
     SetConsoleTextAttribute(hConsole, 11);
     printf(" ////////////////////////////////////////");
+    SetConsoleTextAttribute(hConsole, 15);
 
 
     gotoligcol(44, 70);
