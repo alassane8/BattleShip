@@ -63,7 +63,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             gotoligcol(i,31);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp1, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
                     printf("%2c", mat_ia1[i][j]);
                 }
                 else {
@@ -121,7 +121,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             gotoligcol(i,96);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp3, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
                     printf("%2c", mat_ia1[i][j]);
                 }
                 else {
@@ -178,7 +178,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             gotoligcol(i,161);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp5, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'T' || mat_ia1[i][j] == 'E'){
+                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
                     printf("%2c", mat_ia1[i][j]);
                 }
                 else {

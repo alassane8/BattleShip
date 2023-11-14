@@ -156,7 +156,7 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
                     printf("%2c", mat_ia1[i][j]);
                     SetConsoleTextAttribute(hConsole, 15);
                 }
-                if (mat_ia1[i][j] == '0'){
+                if (mat_ia1[i][j] == 'O'){
                     gotoligcol(i, (j * 4 )+ 70);
                     SetConsoleTextAttribute(hConsole, 9);
                     printf("%2c", mat_ia1[i][j]);

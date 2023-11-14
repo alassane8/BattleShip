@@ -10,7 +10,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
+void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int w, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
 
     //Variables Definitions
     int i;
@@ -106,6 +106,9 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         //Load matrices
         charger_partie1(mat_ia1);
         charger_partie(mat);
+        
+        //Appel de la fonction de jeux
+        jouer(mat,  mat_ia1, a, pseudo,w, choix, mat_bis, mat_ia1_bis);
     }
 
     if (s == 2){
@@ -122,6 +125,9 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         //Load matrices
         charger_partie2(mat_ia1);
         charger_partie1_0(mat);
+
+        //Appel de la fonction de jeux
+        jouer(mat,  mat_ia1, a, pseudo,w, choix, mat_bis, mat_ia1_bis);
     }
 
     if (s == 3){
@@ -138,6 +144,10 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         //Load matrices
         charger_partie3(mat_ia1);
         charger_partie2_0(mat);
+
+        
+        //Appel de la fonction de jeux
+        jouer(mat,  mat_ia1, a, pseudo,w, choix, mat_bis, mat_ia1_bis);
     }
     if (s == 4){
         //Clean page

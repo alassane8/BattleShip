@@ -193,8 +193,7 @@ void charger_partie2(unsigned char ** mat_ia1){
         SetConsoleTextAttribute(hConsole, 12);
         printf("Error. File opening problem.\n");
         SetConsoleTextAttribute(hConsole, 15);
-    }
-    else{
+    }else{
         //On scan la matrice et on l'affiche si T ou E
         for (i = 1 ; i < 16 ; i++){
             for (j = 1 ;j < 16 ; j++){

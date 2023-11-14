@@ -32,7 +32,7 @@ void tir_aerien(unsigned char ** mat_ia1);
 void mode_visible(unsigned char ** mat_ia1);
 void mode_visible_desactive(unsigned char ** mat_ia1);
 
-void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
+void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo,int w, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 
 void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1);
 

@@ -240,7 +240,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         }
 
         //Choix de la partie que le joueur peut charger
-        choix_chargement_partie(mat, mat_ia1, a , pseudo, choix, mat_bis, mat_ia1_bis);
+        choix_chargement_partie(mat, mat_ia1, a , pseudo, w,choix, mat_bis, mat_ia1_bis);
 
 
 

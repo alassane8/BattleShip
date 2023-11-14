@@ -29,19 +29,19 @@ void tir_aerien(unsigned char ** mat_ia1){
         //If shot missed
         if (mat_ia1[lig][col] == B) {
             //Display 'O' in the (lig,col)
-            mat_ia1[lig][col] = 'E';
+            mat_ia1[lig][col] = 'O';
             gotoligcol(lig, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 9);
-            printf("%2c", 'E');
+            printf("%2c", 'O');
             SetConsoleTextAttribute(hConsole, 15);
         }
         //Else shot touched a ship
         if (mat_ia1[lig][col] == 'P' || mat_ia1[lig][col] == 'C' || mat_ia1[lig][col] == 'D' || mat_ia1[lig][col] == 'S'){
             //Display 'X' in the (lig,col)
-            mat_ia1[lig][col] = 'T';
+            mat_ia1[lig][col] = 'X';
             gotoligcol(lig, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'T');
+            printf("%2c", 'X');
             SetConsoleTextAttribute(hConsole, 15);
         }
     }
