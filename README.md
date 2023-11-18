@@ -114,6 +114,3 @@ Make sure to add descriptive comments for each function, method, and code sectio
 
 - Sinking ships:
 Add logic to handle shots and the destruction of ships. When a shot hits a ship, mark the square as hit. When all squares of a ship have been hit, the ship is sunk.
-
-- End of the game:
-Implement logic to detect the end of the game. The game can end when all of a player's ships have been sunk. Announce the winner and conclude the game appropriately.
