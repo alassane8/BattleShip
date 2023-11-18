@@ -112,9 +112,6 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - Comment the code more:
 Make sure to add descriptive comments for each function, method, and code section. Explain the purpose of each line of code, the algorithms used, and any complex logic. This will facilitate the understanding of your code by both yourself and other developers.
 
-- Manual placement of ships:
-Add a feature that allows players to manually place their ships on the grid. You can ask players to specify the starting and ending coordinates for each ship, and ensure that the placement is valid.
-
 - Sinking ships:
 Add logic to handle shots and the destruction of ships. When a shot hits a ship, mark the square as hit. When all squares of a ship have been hit, the ship is sunk.
 
