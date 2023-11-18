@@ -376,7 +376,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         gotoligcol(44, 70);
         printf("Copyright 2023 Battleship Alassane Wade");
 
-        gotoligcol(39, 0);
+        gotoligcol(41, 0);
         //Appel du menu
         SetConsoleTextAttribute(hConsole, 11);
         printf("MAIN MENU: \n");
@@ -388,7 +388,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
             SetConsoleTextAttribute(hConsole, 12);
             printf("Error.");
             SetConsoleTextAttribute(hConsole, 15);
-            gotoligcol(41, 0);
+            gotoligcol(43, 0);
             fflush(stdin);
             scanf("%d", &w);
         }
