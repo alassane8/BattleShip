@@ -8,8 +8,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void placement_bateaux_aleatoire(unsigned char ** mat){
 
     //Définitions des variables
@@ -21,7 +19,6 @@ void placement_bateaux_aleatoire(unsigned char ** mat){
     int col;
     int B = 95;
     int direction;
-    int sens;
     int compte_ba = 1;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -55,7 +52,7 @@ void placement_bateaux_aleatoire(unsigned char ** mat){
                             printf("%2c", 'P');
                             SetConsoleTextAttribute(hConsole, 15);
                         }
-                            //On place le bateau vers le haut
+                        //On place le bateau vers le haut
                         else if ((lig - 7) >= 1 && mat[lig - i][col] == B){
                             mat[lig - i][col] = 'P';
                             gotoligcol(lig - i, col * 4);
@@ -65,7 +62,7 @@ void placement_bateaux_aleatoire(unsigned char ** mat){
                         }
                     }
                 }
-                    //Si la direction aléatoire est horizontale
+                //Si la direction aléatoire est horizontale
                 else{
                     mat[lig][col] = 'P';
                     for (int j = 0; j < 7; j++) {
