@@ -175,7 +175,7 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
     else{
         //On scan la matrice et on l'affiche si T ou E
         for (int i = 1 ; i < 16 ; i++){
-            gotoligcol(i,161);
+            gotoligcol(i, 161);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp5, "%2s", &mat_ia1[i][j]);
                 if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){

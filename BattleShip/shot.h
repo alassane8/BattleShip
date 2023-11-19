@@ -78,7 +78,8 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
             mat_ia1[lig - 'a' + 1][col] = 'X';
             gotoligcol(lig - 'a' + 1, (col * 4) + 70);
             SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'X');
+            printf("%2c", 'X');     
+            
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(24, 0);
             printf("                                                   ");
