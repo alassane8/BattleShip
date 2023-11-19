@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
@@ -39,7 +38,24 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             for (int j = 1 ;j < 16 ; j++){
                 //On scan la matrice
                 fscanf(fp0, "%2s", &mat[i][j]);
-                printf("%2c", mat[i][j]);
+                if (mat[i][j] == 'P' || mat[i][j] == 'C' || mat[i][j] == 'D' || mat[i][j] == 'S'){
+                    SetConsoleTextAttribute(hConsole, 10);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == 'X'){
+                    SetConsoleTextAttribute(hConsole, 12);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == 'O'){
+                    SetConsoleTextAttribute(hConsole, 9);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == B){
+                    printf("%2c", mat[i][j]);
+                }
             }
             printf("\n");
         }
@@ -63,11 +79,21 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             gotoligcol(i,31);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp1, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
-                    printf("%2c", mat_ia1[i][j]);
-                }
-                else {
+                if (mat_ia1[i][j] == 'P' || mat_ia1[i][j] == 'C' || mat_ia1[i][j] == 'D' || mat_ia1[i][j] == 'S'){
                     printf("%2c", B);
+                }
+                if (mat_ia1[i][j] == 'X'){
+                    SetConsoleTextAttribute(hConsole, 12);
+                    printf("%2c", mat_ia1[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat_ia1[i][j] == 'O'){
+                    SetConsoleTextAttribute(hConsole, 9);
+                    printf("%2c", mat_ia1[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat_ia1[i][j] == B){
+                    printf("%2c", mat_ia1[i][j]);
                 }
             }
         }
@@ -97,7 +123,24 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             for (int j = 1 ;j < 16 ; j++){
                 //On scan la matrice
                 fscanf(fp2, "%2s", &mat[i][j]);
-                printf("%2c", mat[i][j]);
+                if (mat[i][j] == 'P' || mat[i][j] == 'C' || mat[i][j] == 'D' || mat[i][j] == 'S'){
+                    SetConsoleTextAttribute(hConsole, 10);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == 'X'){
+                    SetConsoleTextAttribute(hConsole, 12);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == 'O'){
+                    SetConsoleTextAttribute(hConsole, 9);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == B){
+                    printf("%2c", mat[i][j]);
+                }
             }
         }
         //Fermeture du fichier.
@@ -121,11 +164,21 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             gotoligcol(i,96);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp3, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
-                    printf("%2c", mat_ia1[i][j]);
-                }
-                else {
+                if (mat_ia1[i][j] == 'P' || mat_ia1[i][j] == 'C' || mat_ia1[i][j] == 'D' || mat_ia1[i][j] == 'S'){
                     printf("%2c", B);
+                }
+                if (mat_ia1[i][j] == 'X'){
+                    SetConsoleTextAttribute(hConsole, 12);
+                    printf("%2c", mat_ia1[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat_ia1[i][j] == 'O'){
+                    SetConsoleTextAttribute(hConsole, 9);
+                    printf("%2c", mat_ia1[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat_ia1[i][j] == B){
+                    printf("%2c", mat_ia1[i][j]);
                 }
             }
         }
@@ -155,7 +208,24 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             for (int j = 1 ;j < 16 ; j++){
                 //On scan la matrice
                 fscanf(fp4, "%2s", &mat[i][j]);
-                printf("%2c", mat[i][j]);
+                if (mat[i][j] == 'P' || mat[i][j] == 'C' || mat[i][j] == 'D' || mat[i][j] == 'S'){
+                    SetConsoleTextAttribute(hConsole, 10);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == 'X'){
+                    SetConsoleTextAttribute(hConsole, 12);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == 'O'){
+                    SetConsoleTextAttribute(hConsole, 9);
+                    printf("%2c", mat[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat[i][j] == B){
+                    printf("%2c", mat[i][j]);
+                }
             }
         }
         //Fermeture du fichier.
@@ -178,11 +248,21 @@ void affichage_matrices_fichiers(unsigned char ** mat, unsigned char ** mat_ia1)
             gotoligcol(i, 161);
             for (int j = 1 ;j < 16 ; j++){
                 fscanf(fp5, "%2s", &mat_ia1[i][j]);
-                if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O'){
-                    printf("%2c", mat_ia1[i][j]);
-                }
-                else {
+                if (mat_ia1[i][j] == 'P' || mat_ia1[i][j] == 'C' || mat_ia1[i][j] == 'D' || mat_ia1[i][j] == 'S'){
                     printf("%2c", B);
+                }
+                if (mat_ia1[i][j] == 'X'){
+                    SetConsoleTextAttribute(hConsole, 12);
+                    printf("%2c", mat_ia1[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat_ia1[i][j] == 'O'){
+                    SetConsoleTextAttribute(hConsole, 9);
+                    printf("%2c", mat_ia1[i][j]);
+                    SetConsoleTextAttribute(hConsole, 15);
+                }
+                if (mat_ia1[i][j] == B){
+                    printf("%2c", mat_ia1[i][j]);
                 }
             }
         }
