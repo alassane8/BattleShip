@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -47,215 +46,211 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
     printf("Copyright 2023 Battleship Alassane Wade");
 
     while(1){
-        for (i = 1 ; i < 16 ; i++){
-            for (j = 1 ;j < 16 ; j++){
-                if (mat_ia1[i][j] == B){
-                }
-                else if (mat_ia1[i][j] != 'X' && mat_ia1[i][j] != 'O'){
-                    gotoligcol(16, 70);
-                    SetConsoleTextAttribute(hConsole, 11);
-                    printf("/////////////////////////// ");
-                    SetConsoleTextAttribute(hConsole, 15);
-                    printf("AI's grid", pseudo);
-                    SetConsoleTextAttribute(hConsole, 11);
-                    printf(" //////////////////////////");
-                    gotoligcol(17, 70);
-                    fflush(stdin);
-                    SetConsoleTextAttribute(hConsole, 11);
-                    printf("///////////////////////// ");
-                    SetConsoleTextAttribute(hConsole, 15);
-                    printf("R O U N D  %d ", compteur_tour);
-                    SetConsoleTextAttribute(hConsole, 11);
-                    printf("/////////////////////////");
-                    SetConsoleTextAttribute(hConsole, 15);
-                    gotoligcol(19, 70);
-                    printf("1. Shoot");
-                    gotoligcol(20, 70);
-                    printf("2. Flare");
-                    gotoligcol(21, 70);
-                    printf("3. Satellite view");
-                    gotoligcol(22, 70);
-                    printf("4. Air support");
-                    gotoligcol(23, 70);
-                    printf("5. Save");
-                    gotoligcol(24, 70);
-                    printf("6. Main menu");
-                    gotoligcol(25, 70);
-                    fflush(stdin);
-                    scanf("%d", &g);
+        gotoligcol(16, 70);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf("/////////////////////////// ");
+        SetConsoleTextAttribute(hConsole, 15);
+        printf("AI's grid", pseudo);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf(" //////////////////////////");
+        gotoligcol(17, 70);
+        fflush(stdin);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf("///////////////////////// ");
+        SetConsoleTextAttribute(hConsole, 15);
+        printf("R O U N D  %d ", compteur_tour);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf("/////////////////////////");
+        SetConsoleTextAttribute(hConsole, 15);
+        gotoligcol(19, 70);
+        printf("1. Shoot");
+        gotoligcol(20, 70);
+        printf("2. Flare");
+        gotoligcol(21, 70);
+        printf("3. Satellite view");
+        gotoligcol(22, 70);
+        printf("4. Air support");
+        gotoligcol(23, 70);
+        printf("5. Save");
+        gotoligcol(24, 70);
+        printf("6. Main menu");
+        gotoligcol(25, 70);
+        fflush(stdin);
+        scanf("%d", &g);
 
-                    //Gestions des erreurs
-                    while (g != 1 && g != 2 && g!= 3 && g != 4 && g != 5 && g != 6) {
-                        gotoligcol(25,140);
-                        SetConsoleTextAttribute(hConsole, 12);
-                        printf("Error.");
-                        SetConsoleTextAttribute(hConsole, 15);
-                        gotoligcol(25, 70);
-                        fflush(stdin);
-                        scanf("%d", &g);
-                    }
-                    if (g == 1){
-                        //Appel de la fonction Tirer et tirer aleatoirement pour l'IA
-                        tirer( mat_ia1, pseudo);
-                        if (w == 1){
-                            tirer_aleatoirement_matelot(mat,  compteur_tour);
-                            compteur_tour++;
-                        }
-                        if (w == 2){
-                            tirer_aleatoirement_caporal_chef(mat,  compteur_tour);
-                            compteur_tour++;
-                        }
-                        if (w == 3){
-                            tirer_aleatoirement_amiral(mat,  compteur_tour);
-                            compteur_tour++;
-                        }
-                    }
-                    else if (g == 2){
-                        //Appel de la fonction fumigene
-                        //Si on a plus de fumigene on en peux plus en tirer
-                        if (nombre_fumigene == 0) {
-                            gotoligcol(21, 140);
-                            printf("                                       ");
-                            gotoligcol(21, 140);
-                            printf("Total number of flares exhausted !");
-                            gotoligcol(25, 70);
-                            fflush(stdin);
-                            scanf("%d", &g);
-                        }
-                            //Si il nous reste des fumigènes on rentre dans le else
-                        else {
-                            nombre_fumigene --;
-                            fumigene(mat_ia1);
-                            gotoligcol(21, 140);
-                            printf("                                       ");
-                            gotoligcol(21, 140);
-                            printf("Flare lit for    seconds !");
-                            for(int k = 6; k >= 0; k --){
-                                gotoligcol(21, 154);
-                                printf("%2d", k);
-                                if (k == 1 || k == 0){
-                                    gotoligcol(21, 163);
-                                    printf(" ");
-                                }
-                                sleep(1);
-                            }
-                            gotoligcol(21, 140);
-                            printf("                                       ");
-                            gotoligcol(21, 140);
-                            printf("Number of flare remaining: %d", nombre_fumigene);
-                            mode_visible_desactive(mat_ia1);
-                        }
-                        if (w == 1){
-                            tirer_aleatoirement_matelot(mat,  compteur_tour);
-                            compteur_tour++;
-                        }
-                        if (w == 2){
-                            tirer_aleatoirement_caporal_chef(mat,  compteur_tour);
-                            compteur_tour++;
-                        }
-                        if (w == 3){
-                            tirer_aleatoirement_amiral(mat,  compteur_tour);
-                            compteur_tour++;
-                        }
-                    }
-                    while (g == 5){
-                        sauvegarde(mat, mat_ia1, a, pseudo, w, mat_bis, mat_ia1_bis);
-                        gotoligcol(20, 140);
-                        printf("Saved game!");
-                        gotoligcol(25, 70);
-                        fflush(stdin);
-                        scanf("%d", &g);
-                    }
-                    if (g == 4){
-                        if (tir_air == 0){
-                            gotoligcol(21, 140);
-                            printf("                                       ");
-                            gotoligcol(21, 140);
-                            printf("Air support not available !");
-                            gotoligcol(25, 70);
-                            fflush(stdin);
-                            scanf("%d", &g);
-                        }
-                        else {
-                            tir_air --;
-                            gotoligcol(21, 140);
-                            printf("                                       ");
-                            gotoligcol(21, 140);
-                            printf("Aerial bombardment remaining: %d", tir_air);
-                            tir_aerien(mat_ia1);
-                            if (w == 1){
-                                tirer_aleatoirement_matelot(mat,  compteur_tour);
-                                compteur_tour++;
-                            }
-                            if (w == 2){
-                                tirer_aleatoirement_caporal_chef(mat,  compteur_tour);
-                                compteur_tour++;
-                            }
-                            if (w == 3){
-                                tirer_aleatoirement_amiral(mat,  compteur_tour);
-                                compteur_tour++;
-                            }
-                        }
-                    }
-                    else if(g == 6){
-                        //On efface l'ecran
-                        system("cls");
-
-                        //On retourne au menu principale
-                        menu(mat, mat_ia1,a ,pseudo, choix, mat_bis,mat_ia1_bis);
-                    }
-                    else if (g == 3){
-                        if (satellite == 0){
-                            gotoligcol(21, 140);
-                            printf("                                       ");
-                            gotoligcol(21, 140);
-                            printf("Satellite view not available !");
-                            gotoligcol(25, 70);
-                            fflush(stdin);
-                            scanf("%d", &g);
-                        }
-                        else {
-                            satellite --;
-                            mode_visible(mat_ia1);
-                            gotoligcol(21, 140);
-                            printf("                                       ");
-                            gotoligcol(21, 140);
-                            printf("Satellite view enabled for   seconds !");
-                            for(int k = 9; k >= 0; k --){
-                                gotoligcol(21, 166);
-                                printf("%2d", k);
-                                if (k == 1 || k == 0){
-                                    gotoligcol(21, 175);
-                                    printf(" ");
-                                }
-                                sleep(1);
-                            }
-                            gotoligcol(21, 140);
-                            printf("                                       ");
-                            gotoligcol(21, 140);
-                            printf("Satellite view remaining : %d", satellite);
-                            mode_visible_desactive(mat_ia1);
-                            if (w == 1){
-                                tirer_aleatoirement_matelot(mat,  compteur_tour);
-                                compteur_tour++;
-                            }
-                            if (w == 2){
-                                tirer_aleatoirement_caporal_chef(mat,  compteur_tour);
-                                compteur_tour++;
-                            }
-                            if (w == 3){
-                                tirer_aleatoirement_amiral(mat,  compteur_tour);
-                                compteur_tour++;
-                            }
-                        }
-                    }
+        // Gestions des erreurs
+        while (g != 1 && g != 2 && g != 3 && g != 4 && g != 5 && g != 6){
+            gotoligcol(25, 140);
+            SetConsoleTextAttribute(hConsole, 12);
+            printf("Error.");
+            SetConsoleTextAttribute(hConsole, 15);
+            gotoligcol(25, 70);
+            fflush(stdin);
+            scanf("%d", &g);
+        }
+        if (g == 1){
+            // Appel de la fonction Tirer et tirer aleatoirement pour l'IA
+            tirer(mat_ia1, pseudo);
+            if (game_over(mat, mat_ia1, a , pseudo, choix, mat_bis, mat_ia1_bis)){
+                vainqueur_joueur(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+            }
+            else {
+                if (w == 1){
+                    tirer_aleatoirement_matelot(mat, compteur_tour);
+                    compteur_tour++;
                 }
-                else if (mat_ia1[i][j] == 'X' || mat_ia1[i][j] == 'O' || mat_ia1[i][j] != B){
-                    vainqueur_joueur(mat, mat_ia1, a , pseudo, choix, mat_bis,mat_ia1_bis);
+                if (w == 2){
+                    tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                    compteur_tour++;
+                }
+                if (w == 3){
+                    tirer_aleatoirement_amiral(mat, compteur_tour);
+                    compteur_tour++;
+                }
+            }
+        }
+        else if (g == 2){
+            // Appel de la fonction fumigene
+            // Si on a plus de fumigene on en peux plus en tirer
+            if (nombre_fumigene == 0){
+                gotoligcol(21, 140);
+                printf("                                       ");
+                gotoligcol(21, 140);
+                printf("Total number of flares exhausted !");
+                gotoligcol(25, 70);
+                fflush(stdin);
+                scanf("%d", &g);
+            }
+            // Si il nous reste des fumigènes on rentre dans le else
+            else{
+                nombre_fumigene--;
+                fumigene(mat_ia1);
+                gotoligcol(21, 140);
+                printf("                                       ");
+                gotoligcol(21, 140);
+                printf("Flare lit for    seconds !");
+                for (int k = 6; k >= 0; k--){
+                    gotoligcol(21, 154);
+                    printf("%2d", k);
+                    if (k == 1 || k == 0){
+                        gotoligcol(21, 163);
+                        printf(" ");
+                    }
+                    sleep(1);
+                }
+                gotoligcol(21, 140);
+                printf("                                       ");
+                gotoligcol(21, 140);
+                printf("Number of flare remaining: %d", nombre_fumigene);
+                mode_visible_desactive(mat_ia1);
+            }
+            if (w == 1){
+                tirer_aleatoirement_matelot(mat, compteur_tour);
+                compteur_tour++;
+            }
+            if (w == 2){
+                tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                compteur_tour++;
+            }
+            if (w == 3){
+                tirer_aleatoirement_amiral(mat, compteur_tour);
+                compteur_tour++;
+            }
+        }
+        while (g == 5){
+            sauvegarde(mat, mat_ia1, a, pseudo, w, mat_bis, mat_ia1_bis);
+            gotoligcol(20, 140);
+            printf("Saved game!");
+            gotoligcol(25, 70);
+            fflush(stdin);
+            scanf("%d", &g);
+        }
+        if (g == 4){
+            if (tir_air == 0){
+                gotoligcol(21, 140);
+                printf("                                       ");
+                gotoligcol(21, 140);
+                printf("Air support not available !");
+                gotoligcol(25, 70);
+                fflush(stdin);
+                scanf("%d", &g);
+            }
+            else{
+                tir_air--;
+                gotoligcol(21, 140);
+                printf("                                       ");
+                gotoligcol(21, 140);
+                printf("Aerial bombardment remaining: %d", tir_air);
+                tir_aerien(mat_ia1);
+                if (w == 1)
+                {
+                    tirer_aleatoirement_matelot(mat, compteur_tour);
+                    compteur_tour++;
+                }
+                if (w == 2)
+                {
+                    tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                    compteur_tour++;
+                }
+                if (w == 3)
+                {
+                    tirer_aleatoirement_amiral(mat, compteur_tour);
+                    compteur_tour++;
+                }
+            }
+        }
+        else if (g == 6){
+            // On efface l'ecran
+            system("cls");
+
+            // On retourne au menu principale
+            menu(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+        }
+        else if (g == 3){
+            if (satellite == 0){
+                gotoligcol(21, 140);
+                printf("                                       ");
+                gotoligcol(21, 140);
+                printf("Satellite view not available !");
+                gotoligcol(25, 70);
+                fflush(stdin);
+                scanf("%d", &g);
+            }
+            else{
+                satellite--;
+                mode_visible(mat_ia1);
+                gotoligcol(21, 140);
+                printf("                                       ");
+                gotoligcol(21, 140);
+                printf("Satellite view enabled for   seconds !");
+                for (int k = 9; k >= 0; k--){
+                    gotoligcol(21, 166);
+                    printf("%2d", k);
+                    if (k == 1 || k == 0){
+                        gotoligcol(21, 175);
+                        printf(" ");
+                    }
+                    sleep(1);
+                }
+                gotoligcol(21, 140);
+                printf("                                       ");
+                gotoligcol(21, 140);
+                printf("Satellite view remaining : %d", satellite);
+                mode_visible_desactive(mat_ia1);
+                if (w == 1){
+                    tirer_aleatoirement_matelot(mat, compteur_tour);
+                    compteur_tour++;
+                }
+                if (w == 2){
+                    tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                    compteur_tour++;
+                }
+                if (w == 3){
+                    tirer_aleatoirement_amiral(mat, compteur_tour);
+                    compteur_tour++;
                 }
             }
         }
     }
 }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
