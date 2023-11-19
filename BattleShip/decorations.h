@@ -25,7 +25,7 @@ void decors(){
             else if(j == 0 && i > 0){
                 printf("\n");
                 printf("%2c |", k);
-                k++;
+                k ++;
             }
             else{
                 printf("%2c |",' ');
