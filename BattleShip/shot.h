@@ -149,10 +149,14 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 
+
     gotoligcol(28, 0);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("Enemy's Level : Sailor");
+    printf("Enemy's Level: ");
+    SetConsoleTextAttribute(hConsole, 15);
+    printf("Sailor");
     gotoligcol(19, 0);
+    SetConsoleTextAttribute(hConsole, 11);
     printf("Traces of enemy's fire:");
     SetConsoleTextAttribute(hConsole, 15);
 
@@ -234,10 +238,14 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 
+
     gotoligcol(28, 0);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("Enemy's Level : Master Corporal");
+    printf("Enemy's Level: ");
+    SetConsoleTextAttribute(hConsole, 15);
+    printf("Master Corporal");
     gotoligcol(19, 0);
+    SetConsoleTextAttribute(hConsole, 11);
     printf("Traces of enemy's fire:");
     SetConsoleTextAttribute(hConsole, 15);
 
@@ -311,7 +319,7 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
+void tirer_aleatoirement_amiral(unsigned char ** mat, int compteur_tour){
 
     //Variables definition
     int i;
@@ -331,8 +339,11 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
 
     gotoligcol(28, 0);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("Enemy's Level : Admiral");
+    printf("Enemy's Level: ");
+    SetConsoleTextAttribute(hConsole, 15);
+    printf("Admiral");
     gotoligcol(19, 0);
+    SetConsoleTextAttribute(hConsole, 11);
     printf("Traces of enemy's fire:");
     SetConsoleTextAttribute(hConsole, 15);
 

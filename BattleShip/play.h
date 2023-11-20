@@ -48,11 +48,11 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
     while(1){
         gotoligcol(16, 70);
         SetConsoleTextAttribute(hConsole, 11);
-        printf("/////////////////////////// ");
+        printf("///////////////////////// ");
         SetConsoleTextAttribute(hConsole, 15);
         printf("Enemy's grid", pseudo);
         SetConsoleTextAttribute(hConsole, 11);
-        printf(" //////////////////////////");
+        printf(" /////////////////////////");
         gotoligcol(17, 70);
         fflush(stdin);
         SetConsoleTextAttribute(hConsole, 11);

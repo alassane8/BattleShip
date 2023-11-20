@@ -15,6 +15,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
     int k;
     int x;
     int w;
+    int choice_placement;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     //Acceuil du joueur 1
@@ -124,9 +125,9 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         printf("2. Randomly");
         gotoligcol(23, 70);
         fflush(stdin);
-        scanf("%d",&w);
+        scanf("%d",&choice_placement);
 
-        while (w != 1 && w != 2) {
+        while (choice_placement != 1 && choice_placement != 2) {
             gotoligcol(25,140);
             SetConsoleTextAttribute(hConsole, 12);
             printf("Error.");
@@ -135,7 +136,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
             fflush(stdin);
             scanf("%d", &w);
         }
-        if (w == 1){
+        if (choice_placement == 1){
             //On efface la page
             system("cls");
 
@@ -153,7 +154,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
             //Appel de la fonction de jeux
             jouer(mat,  mat_ia1, a, pseudo,w, choix, mat_bis, mat_ia1_bis);
             }
-        else if (w == 2){
+        else if (choice_placement == 2){
             //On efface la page
             system("cls");
 
