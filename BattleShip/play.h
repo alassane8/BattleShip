@@ -50,7 +50,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
         SetConsoleTextAttribute(hConsole, 11);
         printf("/////////////////////////// ");
         SetConsoleTextAttribute(hConsole, 15);
-        printf("AI's grid", pseudo);
+        printf("Enemy's grid", pseudo);
         SetConsoleTextAttribute(hConsole, 11);
         printf(" //////////////////////////");
         gotoligcol(17, 70);

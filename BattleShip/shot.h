@@ -69,7 +69,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
         gotoligcol(23, 0);
         printf("                                                   ");
         gotoligcol(23,0);
-        printf("%s fire in water (%c,%d)", pseudo,  lig, col);
+        printf("%s fires in water (%c,%d)", pseudo,  lig, col);
     }
 
     //Success shot
@@ -84,7 +84,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
             gotoligcol(24, 0);
             printf("                                                   ");
             gotoligcol(24, 0);
-            printf("%s fire on ship (%c,%d)",pseudo , lig, col);
+            printf("%s fires on ship (%c,%d)",pseudo , lig, col);
             gotoligcol(31, 70);
             printf("Row :\n");
             gotoligcol(32, 70);
@@ -125,7 +125,7 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
                 gotoligcol(23, 0);
                 printf("                                                   ");
                 gotoligcol(23,0);
-                printf("%s fire in water (%c,%d)", pseudo , lig, col);
+                printf("%s fires in water (%c,%d)", pseudo , lig, col);
             }
         }
         while (mat_ia1[lig - 'a' + 1][col] == 'P' || mat_ia1[lig - 'a' + 1][col] == 'C' || mat_ia1[lig - 'a' + 1][col] == 'D' || mat_ia1[lig - 'a' + 1][col] == 'S');
@@ -151,14 +151,14 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
 
     gotoligcol(28, 0);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("AI Level : Sailor");
+    printf("Enemy's Level : Sailor");
     gotoligcol(19, 0);
-    printf("Traces of enemy fire :");
+    printf("Traces of enemy's fire:");
     SetConsoleTextAttribute(hConsole, 15);
 
     gotoligcol(18, 0);
     SetConsoleTextAttribute(hConsole, 12);
-    printf("Enemy fire incoming !");
+    printf("Enemy's fire incoming !");
     SetConsoleTextAttribute(hConsole, 15);
     sleep(3);
     gotoligcol(18, 0);
@@ -179,7 +179,7 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
         gotoligcol(20, 0);
         printf("                                                   ");
         gotoligcol(20, 0);
-        printf("Enemy fire in water (%c,%d)",lig + 64, col);
+        printf("Enemy fires in water (%c,%d)",lig + 64, col);
     }
     //Success shot
     if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
@@ -193,7 +193,7 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
             gotoligcol(21, 0);
             printf("                                                   ");
             gotoligcol(21, 0);
-            printf("Enemy fire on ship (%c,%d)",lig + 64, col);
+            printf("Enemy fires on ship (%c,%d)",lig + 64, col);
 
             //2nd shot
             srand(time(NULL));
@@ -209,7 +209,7 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
                 gotoligcol(20, 0);
                 printf("                                                   ");
                 gotoligcol(20, 0);
-                printf("Enemy fire in water (%c,%d)",lig + 64, col);
+                printf("Enemy fires in water (%c,%d)",lig + 64, col);
             }
         }
         while (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S');
@@ -236,14 +236,14 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
 
     gotoligcol(28, 0);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("AI Level : Master Corporal");
+    printf("Enemy's Level : Master Corporal");
     gotoligcol(19, 0);
-    printf("Traces of enemy fire :");
+    printf("Traces of enemy's fire:");
     SetConsoleTextAttribute(hConsole, 15);
 
     gotoligcol(18, 0);
     SetConsoleTextAttribute(hConsole, 12);
-    printf("Enemy fire incoming !");
+    printf("Enemy's fire incoming !");
     SetConsoleTextAttribute(hConsole, 15);
     sleep(3);
     gotoligcol(18, 0);
@@ -264,7 +264,7 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
         gotoligcol(20, 0);
         printf("                                                   ");
         gotoligcol(20, 0);
-        printf("Enemy fire in water (%c,%d)",lig + 64, col);
+        printf("Enemy fires in water (%c,%d)",lig + 64, col);
     }
 
     if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
@@ -277,7 +277,7 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
             gotoligcol(21, 0);
             printf("                                                   ");
             gotoligcol(21, 0);
-            printf("Enemy fire on ship  (%c,%d)",lig + 64, col);
+            printf("Enemy fires on ship  (%c,%d)",lig + 64, col);
 
 
             choix = rand() % (4) + 1;
@@ -304,7 +304,7 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
                 gotoligcol(20, 0);
                 printf("                                                   ");
                 gotoligcol(20, 0);
-                printf("Enemy fire in water (%c,%d)",lig + 64, col);
+                printf("Enemy fires in water (%c,%d)",lig + 64, col);
             }
         }
         while (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S');
@@ -331,9 +331,9 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
 
     gotoligcol(28, 0);
     SetConsoleTextAttribute(hConsole, 11);
-    printf("AI Level : Admiral");
+    printf("Enemy's Level : Admiral");
     gotoligcol(19, 0);
-    printf("Traces of enemy fire :");
+    printf("Traces of enemy's fire:");
     SetConsoleTextAttribute(hConsole, 15);
 
     srand(time(NULL));
@@ -343,7 +343,7 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
 
         gotoligcol(18, 0);
         SetConsoleTextAttribute(hConsole, 12);
-        printf("Enemy fire incoming !");
+        printf("Enemy's shot incoming !");
         SetConsoleTextAttribute(hConsole, 15);
         sleep(3);
         gotoligcol(18, 0);
@@ -361,7 +361,7 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
             gotoligcol(20, 0);
             printf("                                                   ");
             gotoligcol(20, 0);
-            printf("Enemy fire in water (%c,%d)",lig + 64, col);
+            printf("Enemy fires in water (%c,%d)",lig + 64, col);
         }
         if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
 
@@ -374,7 +374,7 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
                 gotoligcol(21, 0);
                 printf("                                                   ");
                 gotoligcol(21, 0);
-                printf("Enemy fire on ship (%c,%d)",lig + 64, col);
+                printf("Enemy fires on ship (%c,%d)",lig + 64, col);
 
 
                 choix = rand() % (4) + 1;
@@ -401,7 +401,7 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
                     gotoligcol(20, 0);
                     printf("                                                   ");
                     gotoligcol(20, 0);
-                    printf("Enemy fire in water (%c,%d)",lig + 64, col);
+                    printf("Enemy fires in water (%c,%d)",lig + 64, col);
                 }
             }
             while (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S');
@@ -411,7 +411,7 @@ void tirer_aleatoirement_amiral(unsigned char **  mat, int compteur_tour){
         srand(time(NULL));
         gotoligcol(18, 0);
         SetConsoleTextAttribute(hConsole, 12);
-        printf("Air support enemy incoming !");
+        printf("Enemy's air support incoming !");
         SetConsoleTextAttribute(hConsole, 15);
         sleep(3);
         gotoligcol(18, 0);
