@@ -113,7 +113,10 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 Add logic to handle shots and the destruction of ships. When a shot hits a ship, mark the square as hit. When all squares of a ship have been hit, the ship is sunk.
 
 - Shielding:
-Add some features in order to improve shielding in the random placements of the boats. No boat can be placed above another. 
+Add some features in order to improve shielding in the random placements of the boats. No boat can be placed above another.
+
+- Choose AI level:
+The choice of AI's level should be displayed after you decided wich game you want to load not before.
 
 - AI Admiral:
 Make the AI Admiral level more complex so that it can be a match against Player 1.
