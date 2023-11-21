@@ -13,6 +13,15 @@ void initialisation_matrice(unsigned char** mat, unsigned char** mat_ia1);
 
 void decors();
 void decors1();
+void display_boat_decoration();
+void boat_decoration_main();
+void boat_decoration_rules();
+void boat_decoration_load();
+void boat_decoration_menu();
+void boats_decoration_exit();
+void boats_decoration_winner();
+void boats_decoration_save1();
+void boats_decoration_save2();
 
 void placement_bateaux(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo);
 void placement_bateaux_aleatoire(unsigned char ** mat);
