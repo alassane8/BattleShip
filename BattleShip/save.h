@@ -30,40 +30,8 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
     //Les matrices reprennent les valeurs des matrices bis
     chargement_matrices(mat,mat_ia1,mat_bis,mat_ia1_bis);
     SetConsoleTextAttribute(hConsole, 11);
-    gotoligcol(28, 125);
-    printf("           ,_:_,\n");
-    gotoligcol(29, 125);
-    printf("             |\n");
-    gotoligcol(30, 125);
-    printf("         -*T_##_:-\n");
-    gotoligcol(31, 125);
-    printf("        i____||____i\n");
-    gotoligcol(32, 125);
-    printf("       #|==========|@\n");
-    gotoligcol(33, 125);
-    printf("       -|==========|-\n");
-    gotoligcol(34, 125);
-    printf("        |          |\n");
-    gotoligcol(35, 125);
-    printf("        |_        _|\n");
-    gotoligcol(36, 125);
-    printf("        |          |\n");
-    gotoligcol(37, 125);
-    printf("     ______________________________________________________________\n");
-    gotoligcol(38, 125);
-    printf("    |___  __   |________________  USS WADE _____________|  __  ___|\n");
-    gotoligcol(39, 125);
-    printf("        l        '-,               -   -             ,-'        /\n");
-    gotoligcol(40, 125);
-    printf("          l         l        l      ___       /      /         /\n");
-    gotoligcol(41, 125);
-    printf("            l     (l  l       l____     ____/       /  /)     /\n");
-    gotoligcol(42, 125);
-    printf("              |    V   |           l---/           |   V     |\n");
-    gotoligcol(43, 125);
-    printf("              |        |             Y             |         |\n");
-    SetConsoleTextAttribute(hConsole, 15);
-
+    
+    boats_decoration_save1();
 
     //Deamnde a l'utilisateur ou sauvegarder sa partie en cours
     gotoligcol(20, 70);
@@ -97,44 +65,7 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
     //On efface l'écran
     system("cls");
 
-    SetConsoleTextAttribute(hConsole, 11);
-    gotoligcol(28, 125);
-    printf("                                 __..||..__\n");
-    gotoligcol(29, 125);
-    printf("                             -==|__.----.__|==-\n");
-    gotoligcol(30, 125);
-    printf("                                 __l|  |/__\n");
-    gotoligcol(31, 125);
-    printf("                            --==|__.----.__|==--\n");
-    gotoligcol(32, 125);
-    printf("                                __/       l__\n");
-    gotoligcol(33, 125);
-    printf("                            __'{             }'__\n");
-    gotoligcol(34, 125);
-    printf("                       ___'{  ! 8     8     8 !  }'___\n");
-    gotoligcol(35, 125);
-    printf("                 ====={                               }=====\n");
-    gotoligcol(36, 125);
-    printf("                _____________________________________________\n");
-    gotoligcol(37, 125);
-    printf("               |             /   .  -- . --  .  l            |\n");
-    gotoligcol(38, 125);
-    printf("               | '--_______/    +      !      +   l______--' |\n");
-    gotoligcol(39, 125);
-    printf("               |                !             !              |\n");
-    gotoligcol(40, 125);
-    printf("               |                                             |\n");
-    gotoligcol(41, 125);
-    printf("                 l                     |                     /");
-    gotoligcol(42, 125);
-    printf("                  l_                   |                  _/");
-    gotoligcol(43, 125);
-    printf("                     l_                |               _/");
-    gotoligcol(44, 125);
-    printf("                        l_             |            _/");
-    gotoligcol(45, 125);
-    printf("                           l_          |         _/");
-    SetConsoleTextAttribute(hConsole, 15);
+    boats_decoration_save2();
 
     //Sauvegarder partie dans l'endroit indiqué
     if (choix == 1){

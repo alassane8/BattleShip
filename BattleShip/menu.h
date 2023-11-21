@@ -14,7 +14,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
     //DDV
     int k;
     int x;
-    int w;
+    int w = 1;
     int choice_placement;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -31,40 +31,8 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
 
     gotoligcol(44, 70);
     printf("Copyright 2023 Battleship Alassane Wade");
-    SetConsoleTextAttribute(hConsole, 11);
-    gotoligcol(9, 125);
-    printf("           ,_:_,\n");
-    gotoligcol(10, 125);
-    printf("             |\n");
-    gotoligcol(11, 125);
-    printf("         -*T_##_:-\n");
-    gotoligcol(12, 125);
-    printf("        i____||____i\n");
-    gotoligcol(13, 125);
-    printf("       #|==========|@\n");
-    gotoligcol(14, 125);
-    printf("       -|==========|-\n");
-    gotoligcol(15, 125);
-    printf("        |          |\n");
-    gotoligcol(16, 125);
-    printf("        |_        _|\n");
-    gotoligcol(17, 125);
-    printf("        |          |\n");
-    gotoligcol(18, 125);
-    printf("     ______________________________________________________________\n");
-    gotoligcol(19, 125);
-    printf("    |___  __   |________________  USS WADE _____________|   __ ___|\n");
-    gotoligcol(20, 125);
-    printf("        l        '-,               -   -             ,-'        /\n");
-    gotoligcol(21, 125);
-    printf("          l         l        l      ___       /      /         /\n");
-    gotoligcol(22, 125);
-    printf("            l     (l  l       l____     ____/       /  /)     /\n");
-    gotoligcol(23, 125);
-    printf("              |    V   |           l---/           |   V     |\n");
-    gotoligcol(24, 125);
-    printf("              |        |             Y             |         |\n");
-    SetConsoleTextAttribute(hConsole, 15);
+    
+    boat_decoration_menu();
 
     gotoligcol(10, 70);
     printf("1. P1 VS AI");
@@ -169,44 +137,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
             placement_bateaux_aleatoire(mat);
             placement_bateaux_aleatoire1(mat_ia1);
 
-            SetConsoleTextAttribute(hConsole, 11);
-            gotoligcol(28, 125);
-            printf("                                 __..||..__\n");
-            gotoligcol(29, 125);
-            printf("                             -==|__.----.__|==-\n");
-            gotoligcol(30, 125);
-            printf("                                 __l|  |/__\n");
-            gotoligcol(31, 125);
-            printf("                            --==|__.----.__|==--\n");
-            gotoligcol(32, 125);
-            printf("                                __/       l__\n");
-            gotoligcol(33, 125);
-            printf("                            __'{             }'__\n");
-            gotoligcol(34, 125);
-            printf("                       ___'{  ! 8     8     8 !  }'___\n");
-            gotoligcol(35, 125);
-            printf("                 ====={                               }=====\n");
-            gotoligcol(36, 125);
-            printf("                _____________________________________________\n");
-            gotoligcol(37, 125);
-            printf("               |             /   .  -- . --  .  l            |\n");
-            gotoligcol(38, 125);
-            printf("               | '--_______/    +      !      +   l______--' |\n");
-            gotoligcol(39, 125);
-            printf("               |                !             !              |\n");
-            gotoligcol(40, 125);
-            printf("               |                                             |\n");
-            gotoligcol(41, 125);
-            printf("                l                     |                     /");
-            gotoligcol(42, 125);
-            printf("                  l_                   |                  _/");
-            gotoligcol(43, 125);
-            printf("                     l_                |               _/");
-            gotoligcol(44, 125);
-            printf("                        l_             |            _/");
-            gotoligcol(45, 125);
-            printf("                           l_          |         _/");
-            SetConsoleTextAttribute(hConsole, 15);
+            boat_decoration_load();
 
             //Appel de la fonction de jeux
             jouer(mat,  mat_ia1, a, pseudo,w, choix, mat_bis, mat_ia1_bis);
@@ -215,75 +146,9 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         //Chargement d'une partie
     else if (*a == 2){
 
-        //Choix du niveau de l'ia
-        gotoligcol(15, 70);
-        SetConsoleTextAttribute(hConsole, 11);
-        printf("Choose AI level:");
-        SetConsoleTextAttribute(hConsole, 15);
-        gotoligcol(16, 70);
-        printf("1. Sailor");
-        gotoligcol(17, 70);
-        printf("2. Master Corporal");
-        gotoligcol(18, 70);
-        printf("3. Admiral");
-        gotoligcol(19, 70);
-        fflush(stdin);
-        scanf("%d",&w);
-
-        //Gestion des erreurs
-        while (w != 1 && w != 2 && w != 3) {
-            gotoligcol(25,140);
-            SetConsoleTextAttribute(hConsole, 12);
-            printf("Error.");
-            SetConsoleTextAttribute(hConsole, 15);
-            gotoligcol(19, 70);
-            fflush(stdin);
-            scanf("%d", &w);
-        }
-
         //Choix de la partie que le joueur peut charger
         choix_chargement_partie(mat, mat_ia1, a , pseudo, w,choix, mat_bis, mat_ia1_bis);
-
-
-
-        SetConsoleTextAttribute(hConsole, 11);
-        gotoligcol(28, 125);
-        printf("                                 __..||..__\n");
-        gotoligcol(29, 125);
-        printf("                             -==|__.----.__|==-\n");
-        gotoligcol(30, 125);
-        printf("                                 __l|  |/__\n");
-        gotoligcol(31, 125);
-        printf("                            --==|__.----.__|==--\n");
-        gotoligcol(32, 125);
-        printf("                                __/       l__\n");
-        gotoligcol(33, 125);
-        printf("                            __'{             }'__\n");
-        gotoligcol(34, 125);
-        printf("                       ___'{  ! 8     8     8 !  }'___\n");
-        gotoligcol(35, 125);
-        printf("                 ====={                               }=====\n");
-        gotoligcol(36, 125);
-        printf("                _____________________________________________\n");
-        gotoligcol(37, 125);
-        printf("               |             /   .  -- . --  .  l            |\n");
-        gotoligcol(38, 125);
-        printf("               | '--_______/    +      !      +   l______--' |\n");
-        gotoligcol(39, 125);
-        printf("               |                !             !              |\n");
-        gotoligcol(40, 125);
-        printf("               |                                             |\n");
-        gotoligcol(41, 125);
-        printf("                 l                     |                     /");
-        gotoligcol(42, 125);
-        printf("                  l_                   |                  _/");
-        gotoligcol(43, 125);
-        printf("                     l_                |               _/");
-        gotoligcol(44, 125);
-        printf("                        l_             |            _/");
-        gotoligcol(45, 125);
-        printf("                           l_          |         _/");
-        SetConsoleTextAttribute(hConsole, 15);
+        boat_decoration_load();
         //Appel de la fonction jouer
         jouer(mat, mat_ia1, a, pseudo,w, choix,mat_bis,mat_ia1_bis);
     }
@@ -334,46 +199,9 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
                "- 3 Destroyers with symbol D take 3 spaces.\n"
                "- 4 Submarines with symbol S take up 1 space.\n\n\n");
         SetConsoleTextAttribute(hConsole, 11);
-        gotoligcol(8, 125);
-        printf("                                 __..||..__\n");
-        gotoligcol(9, 125);
-        printf("                             -==|__.----.__|==-\n");
-        gotoligcol(10, 125);
-        printf("                                 __l|  |/__\n");
-        gotoligcol(11, 125);
-        printf("                            --==|__.----.__|==--\n");
-        gotoligcol(12, 125);
-        printf("                                __/       l__\n");
-        gotoligcol(13, 125);
-        printf("                            __'{             }'__\n");
-        gotoligcol(14, 125);
-        printf("                       ___'{  ! 8     8     8 !  }'___\n");
-        gotoligcol(15, 125);
-        printf("                 ====={                               }=====\n");
-        gotoligcol(16, 125);
-        printf("                _____________________________________________\n");
-        gotoligcol(17, 125);
-        printf("               |             /   .  -- . --  .  l            |\n");
-        gotoligcol(18, 125);
-        printf("               | '--_______/    +      !      +   l______--' |\n");
-        gotoligcol(19, 125);
-        printf("               |                !             !              |\n");
-        gotoligcol(20, 125);
-        printf("               |                                             |\n");
-        gotoligcol(21, 125);
-        printf("                 l                     |                     /");
-        gotoligcol(22, 125);
-        printf("                  l_                   |                  _/");
-        gotoligcol(23, 125);
-        printf("                     l_                |               _/");
-        gotoligcol(24, 125);
-        printf("                        l_             |            _/");
-        gotoligcol(25, 125);
-        printf("                           l_          |         _/");
-        SetConsoleTextAttribute(hConsole, 15);
 
+        boat_decoration_rules();
 
-        
         gotoligcol(44, 70);
         printf("Copyright 2023 Battleship Alassane Wade");
 
@@ -413,78 +241,8 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         SetConsoleTextAttribute(hConsole, 15);
         printf("We hope to see you soon %s !", pseudo);
 
-        SetConsoleTextAttribute(hConsole, 11);
-        gotoligcol(8, 125);
-        printf("                                 __..||..__\n");
-        gotoligcol(9, 125);
-        printf("                             -==|__.----.__|==-\n");
-        gotoligcol(10, 125);
-        printf("                                 __l|  |/__\n");
-        gotoligcol(11, 125);
-        printf("                            --==|__.----.__|==--\n");
-        gotoligcol(12, 125);
-        printf("                                __/       l__\n");
-        gotoligcol(13, 125);
-        printf("                            __'{             }'__\n");
-        gotoligcol(14, 125);
-        printf("                       ___'{  ! 8     8     8 !  }'___\n");
-        gotoligcol(15, 125);
-        printf("                 ====={                               }=====\n");
-        gotoligcol(16, 125);
-        printf("                _____________________________________________\n");
-        gotoligcol(17, 125);
-        printf("               |             /   .  -- . --  .  l            |\n");
-        gotoligcol(18, 125);
-        printf("               | '--_______/    +      !      +   l______--' |\n");
-        gotoligcol(19, 125);
-        printf("               |                !             !              |\n");
-        gotoligcol(20, 125);
-        printf("               |                                             |\n");
-        gotoligcol(21, 125);
-        printf("                 l                     |                     /");
-        gotoligcol(22, 125);
-        printf("                  l_                   |                  _/");
-        gotoligcol(23, 125);
-        printf("                     l_                |               _/");
-        gotoligcol(24, 125);
-        printf("                        l_             |            _/");
-        gotoligcol(25, 125);
-        printf("                           l_          |         _/");
-
-        gotoligcol(9, 0);
-        printf("           ,_:_,\n");
-        gotoligcol(10,0);
-        printf("             |\n");
-        gotoligcol(11, 0);
-        printf("         -*T_##_:-\n");
-        gotoligcol(12, 0);
-        printf("        i____||____i\n");
-        gotoligcol(13, 0);
-        printf("       #|==========|@\n");
-        gotoligcol(14, 0);
-        printf("       -|==========|-\n");
-        gotoligcol(15, 0);
-        printf("        |          |\n");
-        gotoligcol(16, 0);
-        printf("        |_        _|\n");
-        gotoligcol(17, 0);
-        printf("        |          |\n");
-        gotoligcol(18, 0);
-        printf("     ______________________________________________________________\n");
-        gotoligcol(19, 0);
-        printf("    |___  __   |________________  USS WADE _____________|   __  ___|\n");
-        gotoligcol(20, 0);
-        printf("        l        '-,               -   -             ,-'        /\n");
-        gotoligcol(21, 0);
-        printf("          l         l        l      ___       /      /         /\n");
-        gotoligcol(22, 0);
-        printf("            l     (l  l       l____     ____/       /  /)     /\n");
-        gotoligcol(23, 0);
-        printf("              |    V   |           l---/           |   V     |\n");
-        gotoligcol(24, 0);
-        printf("              |        |             Y             |         |\n");
-        SetConsoleTextAttribute(hConsole, 15);
-
+        boats_decoration_exit();
+        
         gotoligcol(44, 70);
         printf("Copyright 2023 Battleship Alassane Wade");
         sleep(6);

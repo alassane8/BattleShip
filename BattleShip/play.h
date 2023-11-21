@@ -91,6 +91,16 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
         if (g == 1){
             // Appel de la fonction Tirer et tirer aleatoirement pour l'IA
             tirer(mat_ia1, pseudo);
+            gotoligcol(30, 70);
+            printf("                                                   ");
+            gotoligcol(31, 70);
+            printf("                                                   ");
+            gotoligcol(32, 70);
+            printf("                                                   ");
+            gotoligcol(33, 70);
+            printf("                                                   ");
+            gotoligcol(34, 70);
+            printf("                                                   ");
             if (game_over(mat, mat_ia1, a , pseudo, choix, mat_bis, mat_ia1_bis)){
                 vainqueur_joueur(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
             }
@@ -125,6 +135,16 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
             else{
                 nombre_fumigene--;
                 fumigene(mat_ia1);
+                gotoligcol(30, 70);
+                printf("                                                   ");
+                gotoligcol(31, 70);
+                printf("                                                   ");
+                gotoligcol(32, 70);
+                printf("                                                   ");
+                gotoligcol(33, 70);
+                printf("                                                   ");
+                gotoligcol(34, 70);
+                printf("                                                   ");
                 gotoligcol(21, 140);
                 printf("                                       ");
                 gotoligcol(21, 140);

@@ -94,6 +94,30 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
     }
 
     if (s == 1){
+        gotoligcol(26, 70);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf("Choose AI level:");
+        SetConsoleTextAttribute(hConsole, 15);
+        gotoligcol(27, 70);
+        printf("1. Sailor");
+        gotoligcol(28, 70);
+        printf("2. Master Corporal");
+        gotoligcol(29, 70);
+        printf("3. Admiral");
+        gotoligcol(30, 70);
+        fflush(stdin);
+        scanf("%d", &w);
+
+        // Gestion des erreurs
+        while (w != 1 && w != 2 && w != 3){
+            gotoligcol(25, 140);
+            SetConsoleTextAttribute(hConsole, 12);
+            printf("Error.");
+            SetConsoleTextAttribute(hConsole, 15);
+            gotoligcol(30, 70);
+            fflush(stdin);
+            scanf("%d", &w);
+        }
         //Display decorations
         system("cls");
         decors();
@@ -130,6 +154,30 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
     }
 
     if (s == 2){
+        gotoligcol(26, 70);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf("Choose AI level:");
+        SetConsoleTextAttribute(hConsole, 15);
+        gotoligcol(27, 70);
+        printf("1. Sailor");
+        gotoligcol(28, 70);
+        printf("2. Master Corporal");
+        gotoligcol(29, 70);
+        printf("3. Admiral");
+        gotoligcol(30, 70);
+        fflush(stdin);
+        scanf("%d", &w);
+
+        // Gestion des erreurs
+        while (w != 1 && w != 2 && w != 3){
+            gotoligcol(25, 140);
+            SetConsoleTextAttribute(hConsole, 12);
+            printf("Error.");
+            SetConsoleTextAttribute(hConsole, 15);
+            gotoligcol(30, 70);
+            fflush(stdin);
+            scanf("%d", &w);
+        }
         //Display decorations
         system("cls");
         decors();
@@ -166,6 +214,30 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
     }
 
     if (s == 3){
+        gotoligcol(26, 70);
+        SetConsoleTextAttribute(hConsole, 11);
+        printf("Choose AI level:");
+        SetConsoleTextAttribute(hConsole, 15);
+        gotoligcol(27, 70);
+        printf("1. Sailor");
+        gotoligcol(28, 70);
+        printf("2. Master Corporal");
+        gotoligcol(29, 70);
+        printf("3. Admiral");
+        gotoligcol(30, 70);
+        fflush(stdin);
+        scanf("%d", &w);
+
+        // Gestion des erreurs
+        while (w != 1 && w != 2 && w != 3){
+            gotoligcol(25, 140);
+            SetConsoleTextAttribute(hConsole, 12);
+            printf("Error.");
+            SetConsoleTextAttribute(hConsole, 15);
+            gotoligcol(30, 70);
+            fflush(stdin);
+            scanf("%d", &w);
+        }
         //Display decorations
         system("cls");
         decors();
