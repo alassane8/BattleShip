@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -26,44 +25,7 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
     //Display files matrices
     affichage_matrices_fichiers(mat,mat_ia1);
 
-    SetConsoleTextAttribute(hConsole, 11);
-    gotoligcol(28, 125);
-    printf("                                 __..||..__\n");
-    gotoligcol(29, 125);
-    printf("                             -==|__.----.__|==-\n");
-    gotoligcol(30, 125);
-    printf("                                 __l|  |/__\n");
-    gotoligcol(31, 125);
-    printf("                            --==|__.----.__|==--\n");
-    gotoligcol(32, 125);
-    printf("                                __/       l__\n");
-    gotoligcol(33, 125);
-    printf("                            __'{             }'__\n");
-    gotoligcol(34, 125);
-    printf("                       ___'{  ! 8     8     8 !  }'___\n");
-    gotoligcol(35, 125);
-    printf("                 ====={                               }=====\n");
-    gotoligcol(36, 125);
-    printf("                _____________________________________________\n");
-    gotoligcol(37, 125);
-    printf("               |             /   .  -- . --  .  l            |\n");
-    gotoligcol(38, 125);
-    printf("               | '--_______/    +      !      +   l______--' |\n");
-    gotoligcol(39, 125);
-    printf("               |                !             !              |\n");
-    gotoligcol(40, 125);
-    printf("               |                                             |\n");
-    gotoligcol(41, 125);
-    printf("                 l                     |                     /");
-    gotoligcol(42, 125);
-    printf("                  l_                   |                  _/");
-    gotoligcol(43, 125);
-    printf("                     l_                |               _/");
-    gotoligcol(44, 125);
-    printf("                        l_             |            _/");
-    gotoligcol(45, 125);
-    printf("                           l_          |         _/");
-    SetConsoleTextAttribute(hConsole, 15);
+    boat_decoration_load();
 
     gotoligcol(20, 70);
     SetConsoleTextAttribute(hConsole, 11);
