@@ -60,7 +60,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         //Choix du niveau de l'ia
         gotoligcol(15, 70);
         SetConsoleTextAttribute(hConsole, 11);
-        printf("Choose AI level :");
+        printf("Choose AI level:");
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(16, 70);
         printf("1. Sailor");
@@ -84,7 +84,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
 
         gotoligcol(20, 70);
         SetConsoleTextAttribute(hConsole, 11);
-        printf("How do you want to place your boats");
+        printf("How do you want to place your boats ?");
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(21, 70);
         printf("1. Manually");
@@ -229,14 +229,14 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         //Quitter
     else if (*a == 4) {
         system("cls");
-        gotoligcol(4, 60);
+        gotoligcol(4, 45);
         SetConsoleTextAttribute(hConsole, 11);
         printf("///////////////////////////// ");
         SetConsoleTextAttribute(hConsole, 15);
         printf("T H A N K  Y O U !");
         SetConsoleTextAttribute(hConsole, 11);
         printf(" /////////////////////////////");
-        gotoligcol(6, 83);
+        gotoligcol(6, 70);
         SetConsoleTextAttribute(hConsole, 15);
         printf("We hope to see you soon %s !", pseudo);
 
