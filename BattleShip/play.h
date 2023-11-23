@@ -90,7 +90,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
         }
         if (g == 1){
             // Appel de la fonction Tirer et tirer aleatoirement pour l'IA
-            tirer(mat_ia1, pseudo);
+            tirer(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
             gotoligcol(30, 70);
             printf("                                                   ");
             gotoligcol(31, 70);
@@ -101,22 +101,17 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
             printf("                                                   ");
             gotoligcol(34, 70);
             printf("                                                   ");
-            if (game_over(mat, mat_ia1, a , pseudo, choix, mat_bis, mat_ia1_bis)){
-                vainqueur_joueur(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+            if (w == 1){
+                tirer_aleatoirement_matelot(mat, compteur_tour);
+                compteur_tour++;
             }
-            else {
-                if (w == 1){
-                    tirer_aleatoirement_matelot(mat, compteur_tour);
-                    compteur_tour++;
-                }
-                if (w == 2){
-                    tirer_aleatoirement_caporal_chef(mat, compteur_tour);
-                    compteur_tour++;
-                }
-                if (w == 3){
-                    tirer_aleatoirement_amiral(mat, compteur_tour);
-                    compteur_tour++;
-                }
+            if (w == 2){
+                tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                compteur_tour++;
+            }
+            if (w == 3){
+                tirer_aleatoirement_amiral(mat, compteur_tour);
+                compteur_tour++;
             }
         }
         else if (g == 2){
