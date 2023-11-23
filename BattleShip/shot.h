@@ -7,7 +7,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tirer (unsigned char ** mat_ia1, char *pseudo){
+void tirer (unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
 
     //Variables definitions
     int col = 0;
@@ -74,57 +74,62 @@ void tirer (unsigned char ** mat_ia1, char *pseudo){
     //Success shot
     if (mat_ia1[lig - 'a' + 1][col] == 'P' || mat_ia1[lig - 'a' + 1][col] == 'C' || mat_ia1[lig - 'a' + 1][col] == 'D' || mat_ia1[lig - 'a' + 1][col] == 'S'){
         do {
-            mat_ia1[lig - 'a' + 1][col] = 'X';
-            gotoligcol(lig - 'a' + 1, (col * 4) + 70);
-            SetConsoleTextAttribute(hConsole, 12);
-            printf("%2c", 'X');     
-            
-            SetConsoleTextAttribute(hConsole, 15);
-            gotoligcol(24, 0);
-            printf("                                                   ");
-            gotoligcol(24, 0);
-            printf("%s fires on ship (%c,%d)",pseudo , lig, col);
-            gotoligcol(31, 70);
-            printf("Row :\n");
-            gotoligcol(32, 70);
-            fflush(stdin);
-            scanf("%c", &lig);
-
-            while (lig - 'a' + 1 > 15 || lig - 'a' + 1 < 1){
-                gotoligcol(25,140);
+            if (game_over(mat, mat_ia1, a , pseudo, choix, mat_bis, mat_ia1_bis)){
+                vainqueur_joueur(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+            }
+            else{
+                mat_ia1[lig - 'a' + 1][col] = 'X';
+                gotoligcol(lig - 'a' + 1, (col * 4) + 70);
                 SetConsoleTextAttribute(hConsole, 12);
-                printf("Error.");
+                printf("%2c", 'X');     
+                
                 SetConsoleTextAttribute(hConsole, 15);
+                gotoligcol(24, 0);
+                printf("                                                   ");
+                gotoligcol(24, 0);
+                printf("%s fires on ship (%c,%d)",pseudo , lig, col);
+                gotoligcol(31, 70);
+                printf("Row :\n");
                 gotoligcol(32, 70);
                 fflush(stdin);
                 scanf("%c", &lig);
-            }
-            gotoligcol(33, 70);
-            printf("Column :\n");
-            gotoligcol(34, 70);
-            fflush(stdin);
-            scanf("%d", &col);
 
-            while (col > 15 || col < 1){
-                gotoligcol(25,140);
-                SetConsoleTextAttribute(hConsole, 12);
-                printf("Error.");
-                SetConsoleTextAttribute(hConsole, 15);
+                while (lig - 'a' + 1 > 15 || lig - 'a' + 1 < 1){
+                    gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
+                    printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
+                    gotoligcol(32, 70);
+                    fflush(stdin);
+                    scanf("%c", &lig);
+                }
+                gotoligcol(33, 70);
+                printf("Column :\n");
                 gotoligcol(34, 70);
                 fflush(stdin);
                 scanf("%d", &col);
-            }
-            //Failed shot
-            if (mat_ia1[lig - 'a' + 1][col] == B){
-                mat_ia1[lig - 'a' + 1][col] = 'O';
-                gotoligcol(lig - 'a' + 1, (col * 4) + 70);
-                SetConsoleTextAttribute(hConsole, 9);
-                printf("%2c", 'O');
-                SetConsoleTextAttribute(hConsole, 15);
-                gotoligcol(23, 0);
-                printf("                                                   ");
-                gotoligcol(23,0);
-                printf("%s fires in water (%c,%d)", pseudo , lig, col);
+
+                while (col > 15 || col < 1){
+                    gotoligcol(25,140);
+                    SetConsoleTextAttribute(hConsole, 12);
+                    printf("Error.");
+                    SetConsoleTextAttribute(hConsole, 15);
+                    gotoligcol(34, 70);
+                    fflush(stdin);
+                    scanf("%d", &col);
+                }
+                //Failed shot
+                if (mat_ia1[lig - 'a' + 1][col] == B){
+                    mat_ia1[lig - 'a' + 1][col] = 'O';
+                    gotoligcol(lig - 'a' + 1, (col * 4) + 70);
+                    SetConsoleTextAttribute(hConsole, 9);
+                    printf("%2c", 'O');
+                    SetConsoleTextAttribute(hConsole, 15);
+                    gotoligcol(23, 0);
+                    printf("                                                   ");
+                    gotoligcol(23,0);
+                    printf("%s fires in water (%c,%d)", pseudo , lig, col);
+                }
             }
         }
         while (mat_ia1[lig - 'a' + 1][col] == 'P' || mat_ia1[lig - 'a' + 1][col] == 'C' || mat_ia1[lig - 'a' + 1][col] == 'D' || mat_ia1[lig - 'a' + 1][col] == 'S');
