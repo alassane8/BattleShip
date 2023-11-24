@@ -109,9 +109,6 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - 4 Submarines with the letter S take up 1 space.
 
 ## Area for improvement
-- Sinking ships:
-Add logic to handle shots and the destruction of ships. When a shot hits a ship, mark the square as hit. When all squares of a ship have been hit, the ship is sunk.
-
 - Shielding:
 Add some features in order to improve shielding in the random placements of the boats. No boat can be placed above another. 
 
