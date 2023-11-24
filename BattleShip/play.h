@@ -19,8 +19,8 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
     int x;
     int b = 0;
     int B = 95;
-    int tir_air = 2;
-    int satellite = 3;
+    int tir_air = 4;
+    int satellite = 2;
     int nombre_fumigene = 4;
     int compteur_tour = 1;
     HANDLE hConsole;
@@ -238,7 +238,7 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 printf("                                       ");
                 gotoligcol(21, 140);
                 printf("Satellite view enabled for   seconds !");
-                for (int k = 9; k >= 0; k--){
+                for (int k = 5; k >= 0; k--){
                     gotoligcol(21, 166);
                     printf("%2d", k);
                     if (k == 1 || k == 0){
