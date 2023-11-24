@@ -164,39 +164,34 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         SetConsoleTextAttribute(hConsole, 11);
         printf(" /////////////////////////////");
         SetConsoleTextAttribute(hConsole, 10);
-        printf("\n\nBefore playing, here are some explanations about the rules of the game:");
+        gotoligcol(5, 0);
+        printf("Before playing, here are some explanations about the rules of the game:");
         SetConsoleTextAttribute(hConsole, 15);
-        printf("\n\nAt the start of the game, player 1 randomly or manually places all his ships \n"
-               "on its grid.\nThe goal being to complicate the task of the AI as much as possible,\n"
-               "that is to say\n"
-               "destroy all your ships. Of course, the player does not see the AI grid.\n"
-               "Once all the boats are in play, the game can begin... One by one, player 1 and the AI shoot\n"
-               "to destroy enemy ships.\n"
-               "\n");
+        printf("\n\nAt the start of the game, Player 1 randomly or manually places all its boats on its grid.\n"
+               "Of course, Player 1 doesn't see AI's grid.\n"
+               "Once all the boats are in play, the game can begin... One by one, Player 1 and AI fire to destroy enemy boats.\n\n");
         SetConsoleTextAttribute(hConsole, 10);
         printf("Example:\n\n");
         SetConsoleTextAttribute(hConsole, 15);
-        printf("Player 1 shoots at (h,7), corresponding to the square of the enemy grid at the crossing of the letter h\n"
-               "and of number 7.\n"
-               "If player 1 or the AI fires at an enemy ship, the letter 'T' will appear on the hit space.\n"
+        printf("Player 1 fire in (h,7), corresponding to the square of the enemy's grid at the crossing of the row 'h' and the column '7'.\n"
+               "If Player 1 or AI fire at an enemy boat, the letter 'X' will appear on the hit space.\n"
                "The shooter can play twice in a row to attempt to hit the enemy once more.\n"
-               "If player 1 or the AI does not hit a ship, the message 'E' will appear on the failed space.\n\n"
-               "The 'T' and 'E' marks are used to remember missed shots ('E') and hits ('T').\n"
-               "It is essential to use them so as not to shoot twice at the same place and therefore\n"
-               "don't lose turns unnecessarily.\n"
-               "A naval battle game ends when one of the players has no more ships.\n\n"
-               "Each turn, Player 1 can either fire into the enemy's grid, activate air support"
-               "\nwhich fire 5 shots in the enemy's grid or launch a flare.\n"
-               "He has the possibility in one turn to save the game, activate satellite view\n"
-               "in order to see enemy's ships and return to the main menu.\n");
+               "If Player 1 or AI does not hit a boat, the letter 'O' will appear on the failed space.\n\n"
+               "The 'X' and 'O' marks are used to remember missed shots ('O') and hits ('X').\n"
+               "It is essential to use them so as not to shoot twice at the same place.\n"
+               "A Battleship game ends when one of the players has no more ships on it's grid.\n\n"
+               "Each turn, Player 1 can either fire into the enemy's grid, activate air support which fires 5 shots in the\n"
+               "enemy's grid or launch a flare wich illuminates a small part of the enemy's grid.\n"
+               "He has the possibility in one turn to save the current game, activate satellite view wich reveal\n"
+               "the enemy grid for a short period and return to the main menu.\n");
         SetConsoleTextAttribute(hConsole, 10);
-        printf("\n\nHere are the ships you can place:\n\n");
+        printf("\n\nHere are the boats you can place:\n\n");
         SetConsoleTextAttribute(hConsole, 15);
         printf("Aircraft Carrier, Cruiser, Destroyer and Submarine.\n"
-               "- The unique Aircraft Carrier with symbol P takes up 7 spaces.\n"
-               "- 2 Cruisers with symbol C take up 5 spaces.\n"
-               "- 3 Destroyers with symbol D take 3 spaces.\n"
-               "- 4 Submarines with symbol S take up 1 space.\n\n\n");
+               "- 1 Aircraft Carrier with symbol P takes 7 spaces.\n"
+               "- 2 Cruisers with symbol C takes 5 spaces.\n"
+               "- 3 Destroyers with symbol D takes 3 spaces.\n"
+               "- 4 Submarines with symbol S takes 1 space.\n\n\n");
         SetConsoleTextAttribute(hConsole, 11);
 
         boat_decoration_rules();
@@ -207,7 +202,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         gotoligcol(41, 0);
         //Appel du menu
         SetConsoleTextAttribute(hConsole, 11);
-        printf("MAIN MENU: \n");
+        printf("Main menu: \n");
         SetConsoleTextAttribute(hConsole, 15);
         printf("1. Yes\n");
         scanf("%d", &w);
