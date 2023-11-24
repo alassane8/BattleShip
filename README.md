@@ -15,46 +15,8 @@ boats.
 # Instructions
 To play the Battleship follow the following instructions :
 
-## 1. Download and Install GCC (GNU Compiler Collection) :
-The process may vary depending on your operating system. Here are instructions for some common operating systems:
-
-- Installing GCC on Linux (Ubuntu/Debian):
-GCC is often pre-installed on most Linux distributions, but if it's not, you can easily install it using the package manager.
-Open a terminal and run the following command to install GCC:
-```bash
-sudo apt update
-sudo apt install gcc
-```
-
-- Installing GCC on Linux (Fedora):
-For Fedora or other Red Hat-based distributions, use the following commands:
-```bash
-sudo dnf install gcc
-``` 
-
-- Installing GCC on Linux (openSUSE):
-For openSUSE, use the following commands:
-```bash
-sudo zypper install gcc
-```
-
-- Installing GCC on macOS:
-On macOS, you can install GCC using the package manager called Homebrew. If you don't have Homebrew installed, you can install it first by running the following command:
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
-Once Homebrew is installed, you can install GCC:
-```bash
-brew install gcc
-```
-
-- Installing GCC on Windows:
-On Windows, you can use the MinGW (Minimalist GNU for Windows) distribution to get GCC. 
-You can follow these steps: https://dev.to/gamegods3/how-to-install-gcc-in-windows-10-the-easier-way-422j
-
-## 2. Compile code :
 ### Open a terminal in full screen.
-- Clone this github repository on the path of your choice: 
+- Clone this github repository in the path of your choice: 
 ```bash
 git clone https://github.com/alassane8/BattleShip.git
 ```
@@ -65,10 +27,6 @@ cd BattleShip/
 - Go to the BattleShip folder :
 ```bash
 cd BattleShip/
-```
-- Run the following commands: 
-```bash
-gcc -o BattleshipColor.exe main.c
 ```
 - Run the Executable: 
 ```bash
