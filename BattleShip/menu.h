@@ -239,7 +239,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         
         gotoligcol(44, 70);
         printf("Copyright 2023 Battleship Alassane Wade");
-        sleep(6);
+        sleep(4);
         system("cls");
         exit(0);
     }
