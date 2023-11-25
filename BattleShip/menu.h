@@ -63,9 +63,9 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         printf("Choose AI level:");
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(16, 70);
-        printf("1. Sailor");
+        printf("1. Private");
         gotoligcol(17, 70);
-        printf("2. Master Corporal");
+        printf("2. Lieutenant");
         gotoligcol(18, 70);
         printf("3. Admiral");
         gotoligcol(19, 70);
