@@ -102,15 +102,15 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
             gotoligcol(34, 70);
             printf("                                                   ");
             if (w == 1){
-                tirer_aleatoirement_matelot(mat, compteur_tour);
+                tirer_aleatoirement_matelot(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
             if (w == 2){
-                tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                tirer_aleatoirement_caporal_chef(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
             if (w == 3){
-                tirer_aleatoirement_amiral(mat, compteur_tour);
+                tirer_aleatoirement_amiral(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
         }
@@ -160,15 +160,15 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 mode_visible_desactive(mat_ia1);
             }
             if (w == 1){
-                tirer_aleatoirement_matelot(mat, compteur_tour);
+                tirer_aleatoirement_matelot(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
             if (w == 2){
-                tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                tirer_aleatoirement_caporal_chef(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
             if (w == 3){
-                tirer_aleatoirement_amiral(mat, compteur_tour);
+                tirer_aleatoirement_amiral(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
         }
@@ -199,17 +199,17 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 tir_aerien(mat_ia1);
                 if (w == 1)
                 {
-                    tirer_aleatoirement_matelot(mat, compteur_tour);
+                    tirer_aleatoirement_matelot(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
                 if (w == 2)
                 {
-                    tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                    tirer_aleatoirement_caporal_chef(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
                 if (w == 3)
                 {
-                    tirer_aleatoirement_amiral(mat, compteur_tour);
+                    tirer_aleatoirement_amiral(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
             }
@@ -253,15 +253,15 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 printf("Satellite view remaining : %d", satellite);
                 mode_visible_desactive(mat_ia1);
                 if (w == 1){
-                    tirer_aleatoirement_matelot(mat, compteur_tour);
+                    tirer_aleatoirement_matelot(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
                 if (w == 2){
-                    tirer_aleatoirement_caporal_chef(mat, compteur_tour);
+                    tirer_aleatoirement_caporal_chef(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
                 if (w == 3){
-                    tirer_aleatoirement_amiral(mat, compteur_tour);
+                    tirer_aleatoirement_amiral(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
             }
