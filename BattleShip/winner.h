@@ -14,16 +14,16 @@ int vainqueur_joueur(unsigned char ** mat, unsigned char ** mat_ia1, int *a , ch
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     system("cls");
-    gotoligcol(1, 25);
+    gotoligcol(1, 30);
     //Affichage de la victoire du joueur
     SetConsoleTextAttribute(hConsole, 11);
     printf("//////////////////////////////////////////// ");
     SetConsoleTextAttribute(hConsole, 15);
     printf("Y O U  W I N !");
     SetConsoleTextAttribute(hConsole, 11);
-    printf("////////////////////////////////////////////");
+    printf(" ////////////////////////////////////////////");
     gotoligcol(3, 70);
-    printf("%s won the battle", pseudo);
+    printf("%s wins the battle !", pseudo);
 
     boats_decoration_winner();
 
@@ -45,15 +45,15 @@ int vainqueur_ia(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *p
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     //Affichage de la défaite du joueur
-    gotoligcol(1, 25);
+    gotoligcol(1, 30);
     SetConsoleTextAttribute(hConsole, 11);
     printf("//////////////////////////////////////////// ");
     SetConsoleTextAttribute(hConsole, 15);
     printf("Y O U  L O O S E !");
     SetConsoleTextAttribute(hConsole, 11);
-    printf("////////////////////////////////////////////");
+    printf(" ////////////////////////////////////////////");
     gotoligcol(3, 70);
-    printf("%s lost the battle", pseudo);
+    printf("%s lost the battle...", pseudo);
     
     boats_decoration_winner();
     
