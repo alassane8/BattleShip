@@ -30,9 +30,9 @@ void placement_bateaux_aleatoire1(unsigned char ** mat_ia1);
 void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo, int w, int choix,unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 
 void tirer(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
-void tirer_aleatoirement_matelot(unsigned char **  mat ,int compteur_tour);
-void tirer_aleatoirement_caporal_chef(unsigned char **  mat ,int compteur_tour);
-void tirer_aleatoirement_amiral(unsigned char **  mat ,int compteur_tour);
+void tirer_aleatoirement_matelot(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
+void tirer_aleatoirement_caporal_chef(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
+void tirer_aleatoirement_amiral(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 
 void fumigene(unsigned char ** mat_ia1);
 
@@ -61,7 +61,7 @@ void charger_partie3(unsigned char ** mat_ia1);
 int vainqueur_joueur(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 int vainqueur_ia(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 int game_over(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
-
+int game_over_ia(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
