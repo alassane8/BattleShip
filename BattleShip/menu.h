@@ -238,7 +238,11 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
         boats_decoration_exit();
         
         gotoligcol(44, 70);
-        printf("Copyright 2023 Battleship Alassane Wade");
+        printf("Copyright 2023 Battleship Alassane Wade");    //On libère l'espace occupé par les matrices
+        free(mat_ia1);
+        free(mat);
+        free(mat_ia1_bis);
+        free(mat_bis);
         sleep(4);
         system("cls");
         exit(0);

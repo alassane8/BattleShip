@@ -119,12 +119,6 @@ int main(){
     //Appel du Menu Principale
     menu(mat,mat_ia1, &a, pseudo, choix, mat_bis,mat_ia1_bis);
 
-    //On libère l'espace occupé par les matrices
-    free(mat_ia1);
-    free(mat);
-    free(mat_ia1_bis);
-    free(mat_bis);
-
     //Fin du programme
     return 0;
 }
