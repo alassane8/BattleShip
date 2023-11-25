@@ -74,62 +74,63 @@ void tirer (unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseud
     //Success shot
     if (mat_ia1[lig - 'a' + 1][col] == 'P' || mat_ia1[lig - 'a' + 1][col] == 'C' || mat_ia1[lig - 'a' + 1][col] == 'D' || mat_ia1[lig - 'a' + 1][col] == 'S'){
         do {
-            if (game_over(mat, mat_ia1, a , pseudo, choix, mat_bis, mat_ia1_bis)){
+            mat_ia1[lig - 'a' + 1][col] = 'X';
+            gotoligcol(lig - 'a' + 1, (col * 4) + 70);
+            SetConsoleTextAttribute(hConsole, 12);
+            printf("%2c", 'X');
+            SetConsoleTextAttribute(hConsole, 15);
+            gotoligcol(24, 0);
+            printf("                                                   ");
+            gotoligcol(24, 0);
+            printf("%s fires on ship (%c,%d)", pseudo, lig, col);
+            
+            if (game_over(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis)){
                 vainqueur_joueur(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
             }
-            else{
-                mat_ia1[lig - 'a' + 1][col] = 'X';
-                gotoligcol(lig - 'a' + 1, (col * 4) + 70);
+            gotoligcol(31, 70);
+            printf("Row :\n");
+            gotoligcol(32, 70);
+            fflush(stdin);
+            scanf("%c", &lig);
+
+            while (lig - 'a' + 1 > 15 || lig - 'a' + 1 < 1)
+            {
+                gotoligcol(25, 140);
                 SetConsoleTextAttribute(hConsole, 12);
-                printf("%2c", 'X');     
-                
+                printf("Error.");
                 SetConsoleTextAttribute(hConsole, 15);
-                gotoligcol(24, 0);
-                printf("                                                   ");
-                gotoligcol(24, 0);
-                printf("%s fires on ship (%c,%d)",pseudo , lig, col);
-                gotoligcol(31, 70);
-                printf("Row :\n");
                 gotoligcol(32, 70);
                 fflush(stdin);
                 scanf("%c", &lig);
+            }
+            gotoligcol(33, 70);
+            printf("Column :\n");
+            gotoligcol(34, 70);
+            fflush(stdin);
+            scanf("%d", &col);
 
-                while (lig - 'a' + 1 > 15 || lig - 'a' + 1 < 1){
-                    gotoligcol(25,140);
-                    SetConsoleTextAttribute(hConsole, 12);
-                    printf("Error.");
-                    SetConsoleTextAttribute(hConsole, 15);
-                    gotoligcol(32, 70);
-                    fflush(stdin);
-                    scanf("%c", &lig);
-                }
-                gotoligcol(33, 70);
-                printf("Column :\n");
+            while (col > 15 || col < 1)
+            {
+                gotoligcol(25, 140);
+                SetConsoleTextAttribute(hConsole, 12);
+                printf("Error.");
+                SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(34, 70);
                 fflush(stdin);
                 scanf("%d", &col);
-
-                while (col > 15 || col < 1){
-                    gotoligcol(25,140);
-                    SetConsoleTextAttribute(hConsole, 12);
-                    printf("Error.");
-                    SetConsoleTextAttribute(hConsole, 15);
-                    gotoligcol(34, 70);
-                    fflush(stdin);
-                    scanf("%d", &col);
-                }
-                //Failed shot
-                if (mat_ia1[lig - 'a' + 1][col] == B){
-                    mat_ia1[lig - 'a' + 1][col] = 'O';
-                    gotoligcol(lig - 'a' + 1, (col * 4) + 70);
-                    SetConsoleTextAttribute(hConsole, 9);
-                    printf("%2c", 'O');
-                    SetConsoleTextAttribute(hConsole, 15);
-                    gotoligcol(23, 0);
-                    printf("                                                   ");
-                    gotoligcol(23,0);
-                    printf("%s fires in water (%c,%d)", pseudo , lig, col);
-                }
+            }
+            // Failed shot
+            if (mat_ia1[lig - 'a' + 1][col] == B)
+            {
+                mat_ia1[lig - 'a' + 1][col] = 'O';
+                gotoligcol(lig - 'a' + 1, (col * 4) + 70);
+                SetConsoleTextAttribute(hConsole, 9);
+                printf("%2c", 'O');
+                SetConsoleTextAttribute(hConsole, 15);
+                gotoligcol(23, 0);
+                printf("                                                   ");
+                gotoligcol(23, 0);
+                printf("%s fires in water (%c,%d)", pseudo, lig, col);
             }
         }
         while (mat_ia1[lig - 'a' + 1][col] == 'P' || mat_ia1[lig - 'a' + 1][col] == 'C' || mat_ia1[lig - 'a' + 1][col] == 'D' || mat_ia1[lig - 'a' + 1][col] == 'S');
@@ -138,7 +139,7 @@ void tirer (unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseud
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
+void tirer_aleatoirement_matelot(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis) {
 
     //Variables definition
     int i;
@@ -146,9 +147,6 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
     int B = 95;
     int lig = 0;
     int col = 0;
-    int choix;
-    int const compte = compteur_tour;
-    int compte_bateau_touche;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -202,6 +200,9 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
             printf("                                                   ");
             gotoligcol(21, 0);
             printf("Enemy fires on ship (%c,%d)",lig + 64, col);
+            if (game_over_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis)){
+                vainqueur_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+            }
 
             //2nd shot
             srand(time(NULL));
@@ -224,7 +225,7 @@ void tirer_aleatoirement_matelot(unsigned char **mat, int compteur_tour) {
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
+void tirer_aleatoirement_caporal_chef(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
 
     //Variables definition
     int i;
@@ -234,10 +235,6 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
     int B = 95;
     int lig = 0;
     int col = 0;
-    int choix;
-    int compte = compteur_tour;
-    int a = compte;
-    int compte_bateau_touche;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -290,6 +287,9 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
             printf("                                                   ");
             gotoligcol(21, 0);
             printf("Enemy fires on ship  (%c,%d)",lig + 64, col);
+            if (game_over_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis)){
+                vainqueur_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+            }
 
 
             choix = rand() % (4) + 1;
@@ -323,7 +323,7 @@ void tirer_aleatoirement_caporal_chef(unsigned char **  mat, int compteur_tour){
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void tirer_aleatoirement_amiral(unsigned char ** mat, int compteur_tour){
+void tirer_aleatoirement_amiral(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
 
     //Variables definition
     int i;
@@ -334,10 +334,6 @@ void tirer_aleatoirement_amiral(unsigned char ** mat, int compteur_tour){
     int B = 95;
     int lig = 0;
     int col = 0;
-    int choix;
-    int compte = compteur_tour;
-    int a = compte;
-    int compte_bateau_touche;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -390,6 +386,9 @@ void tirer_aleatoirement_amiral(unsigned char ** mat, int compteur_tour){
                 printf("                                                   ");
                 gotoligcol(21, 0);
                 printf("Enemy fires on ship (%c,%d)",lig + 64, col);
+                if (game_over_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis)){
+                    vainqueur_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+                }
 
 
                 choix = rand() % (4) + 1;
@@ -450,6 +449,9 @@ void tirer_aleatoirement_amiral(unsigned char ** mat, int compteur_tour){
                 SetConsoleTextAttribute(hConsole, 12);
                 printf("%2c", 'X');
                 SetConsoleTextAttribute(hConsole, 15);
+                if (game_over_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis)){
+                    vainqueur_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+                }
             }
         }
     }
