@@ -61,9 +61,9 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         printf("Choose AI level:");
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(27, 70);
-        printf("1. Private");
+        printf("1. Sailor");
         gotoligcol(28, 70);
-        printf("2. Lieutenant");
+        printf("2. Master Corporal");
         gotoligcol(29, 70);
         printf("3. Admiral");
         gotoligcol(30, 70);
@@ -121,9 +121,9 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         printf("Choose AI level:");
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(27, 70);
-        printf("1. Private");
+        printf("1. Sailor");
         gotoligcol(28, 70);
-        printf("2. Lieutenant");
+        printf("2. Master Corporal");
         gotoligcol(29, 70);
         printf("3. Admiral");
         gotoligcol(30, 70);
@@ -181,9 +181,9 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         printf("Choose AI level:");
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(27, 70);
-        printf("1. Private");
+        printf("1. Sailor");
         gotoligcol(28, 70);
-        printf("2. Lieutenant");
+        printf("2. Master Corporal");
         gotoligcol(29, 70);
         printf("3. Admiral");
         gotoligcol(30, 70);
