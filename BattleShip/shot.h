@@ -331,7 +331,6 @@ void tirer_aleatoirement_amiral(unsigned char ** mat, unsigned char ** mat_ia1, 
     int l;
     int c;
     int z;
-    int lastInt;
     int B = 95;
     int lig = 0;
     int col = 0;
@@ -352,178 +351,79 @@ void tirer_aleatoirement_amiral(unsigned char ** mat, unsigned char ** mat_ia1, 
     z = rand() % (2) + 1;
 
     if (z == 1){
-        for (int i = 1; i < 16; i++){
-            for (int j = 1; j < 16; j++){
-                if (mat[i][j] != 'X'){
-                    FILE *fp = NULL;
-                    fp = fopen("admiralshots.txt", "w");
+        gotoligcol(18, 0);
+        SetConsoleTextAttribute(hConsole, 12);
+        printf("Enemy's shot incoming !");
+        SetConsoleTextAttribute(hConsole, 15);
+        sleep(3);
+        gotoligcol(18, 0);
+        printf("                                  ");
+        srand(time(NULL));
+        lig = rand() % (15) + 1;
+        col = rand() % (15) + 1;
 
-                    // Gestions des erreurs d'ouverture du fichier
-                    if (fp == NULL){
-                        gotoligcol(48, 70);
-                        SetConsoleTextAttribute(hConsole, 12);
-                        printf("Error. File opening problem.\n");
-                        SetConsoleTextAttribute(hConsole, 15);
-                    }
-                    else{
-                        lastInt = 0;
-                        fprintf(fp, "%d", lastInt);
-                        fclose(fp);
-                    }
+        if (mat[lig][col] == B)
+        {
+            mat[lig][col] = 'O';
+            gotoligcol(lig, (col * 4));
+            SetConsoleTextAttribute(hConsole, 9);
+            printf("%2c", 'O');
+            SetConsoleTextAttribute(hConsole, 15);
+            gotoligcol(20, 0);
+            printf("                                                   ");
+            gotoligcol(20, 0);
+            printf("Enemy fires in water (%c,%d)", lig + 64, col);
+        }
+        if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S')
+        {
+            do
+            {
+                mat[lig][col] = 'X';
+                gotoligcol(lig, (col * 4));
+                SetConsoleTextAttribute(hConsole, 12);
+                printf("%2c", 'X');
+                SetConsoleTextAttribute(hConsole, 15);
+                gotoligcol(21, 0);
+                printf("                                                   ");
+                gotoligcol(21, 0);
+                printf("Enemy fires on ship (%c,%d)", lig + 64, col);
+                if (game_over_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis))
+                {
+                    vainqueur_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
+                }
+                choix = rand() % (4) + 1;
 
-                    gotoligcol(18, 0);
-                    SetConsoleTextAttribute(hConsole, 12);
-                    printf("Enemy's shot incoming !");
+                if (choix == 1)
+                {
+                    lig = lig - 1;
+                }
+                if (choix == 2)
+                {
+                    lig = lig + 1;
+                }
+                if (choix == 3)
+                {
+                    col = col - 1;
+                }
+                if (choix == 4)
+                {
+                    col = col + 1;
+                }
+
+                if (mat[lig][col] == B)
+                {
+                    mat[lig][col] = 'O';
+                    gotoligcol(lig, (col * 4));
+                    SetConsoleTextAttribute(hConsole, 9);
+                    printf("%2c", 'O');
                     SetConsoleTextAttribute(hConsole, 15);
-                    sleep(3);
-                    gotoligcol(18, 0);
-                    printf("                                  ");
-                    srand(time(NULL));
-                    lig = rand() % (15) + 1;
-                    col = rand() % (15) + 1;
-
-                    if (mat[lig][col] == B){
-                        mat[lig][col] = 'O';
-                        gotoligcol(lig, (col * 4));
-                        SetConsoleTextAttribute(hConsole, 9);
-                        printf("%2c", 'O');
-                        SetConsoleTextAttribute(hConsole, 15);
-                        gotoligcol(20, 0);
-                        printf("                                                   ");
-                        gotoligcol(20, 0);
-                        printf("Enemy fires in water (%c,%d)", lig + 64, col);
-                    }
-                    if (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S'){
-                        do{
-                            mat[lig][col] = 'X';
-                            gotoligcol(lig, (col * 4));
-                            SetConsoleTextAttribute(hConsole, 12);
-                            printf("%2c", 'X');
-                            SetConsoleTextAttribute(hConsole, 15);
-                            gotoligcol(21, 0);
-                            printf("                                                   ");
-                            gotoligcol(21, 0);
-                            printf("Enemy fires on ship (%c,%d)", lig + 64, col);
-                            if (game_over_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis))
-                            {
-                                vainqueur_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
-                            }
-                            choix = rand() % (4) + 1;
-
-                            if (choix == 1)
-                            {
-                                lig = lig - 1;
-                            }
-                            if (choix == 2)
-                            {
-                                lig = lig + 1;
-                            }
-                            if (choix == 3)
-                            {
-                                col = col - 1;
-                            }
-                            if (choix == 4)
-                            {
-                                col = col + 1;
-                            }
-
-                            if (mat[lig][col] == B)
-                            {
-                                mat[lig][col] = 'O';
-                                gotoligcol(lig, (col * 4));
-                                SetConsoleTextAttribute(hConsole, 9);
-                                printf("%2c", 'O');
-                                SetConsoleTextAttribute(hConsole, 15);
-                                gotoligcol(20, 0);
-                                printf("                                                   ");
-                                gotoligcol(20, 0);
-                                printf("Enemy fires in water (%c,%d)", lig + 64, col);
-                            }
-
-                        } while (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S');
-                    }
+                    gotoligcol(20, 0);
+                    printf("                                                   ");
+                    gotoligcol(20, 0);
+                    printf("Enemy fires in water (%c,%d)", lig + 64, col);
                 }
-                if (mat[i][j] == 'X'){
-                    FILE *fp = NULL;
-                    fp = fopen("admiralshots.txt", "r+");
 
-                    //Gestions des erreurs d'ouverture du fichier
-                    if (fp == NULL){
-                        gotoligcol(48,70);
-                        SetConsoleTextAttribute(hConsole, 12);
-                        printf("Error. File opening problem.\n");
-                        SetConsoleTextAttribute(hConsole, 15);
-                    }
-                    else{
-                        fscanf(fp, "%d", &lastInt);
-                        if (lastInt == 0){
-                            lastInt = 1;
-                            fprintf(fp, "%d", lastInt);
-                            gotoligcol(18, 0);
-                            SetConsoleTextAttribute(hConsole, 12);
-                            printf("Enemy's shot incoming !");
-                            SetConsoleTextAttribute(hConsole, 15);
-                            sleep(3);
-                            gotoligcol(18, 0);
-                            printf("                                  ");
-                            if (mat[i][j - 1] == B) {
-                                mat[i][j - 1] = 'O';
-                                gotoligcol(i, (j - 1) * 4);
-                                SetConsoleTextAttribute(hConsole, 9);
-                                printf("%2c", 'O');
-                                SetConsoleTextAttribute(hConsole, 15);
-                                gotoligcol(20, 0);
-                                printf("                                                   ");
-                                gotoligcol(20, 0);
-                                printf("Enemy fires in water (%c,%d)", lig + 64, col);
-                            }
-                            if (mat[i][j] == 'P' || mat[i][j] == 'C' || mat[i][j] == 'D' || mat[i][j] == 'S'){
-                                mat[i][j - 1] = 'X';
-                                gotoligcol(i, (j - 1) * 4);
-                                SetConsoleTextAttribute(hConsole, 9);
-                                printf("%2c", 'X');
-                                SetConsoleTextAttribute(hConsole, 15);
-                                gotoligcol(21, 0);
-                                printf("                                                   ");
-                                gotoligcol(21, 0);
-                                printf("Enemy fires on ship (%c,%d)",lig + 64, col);
-                                if (game_over_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis)){
-                                    vainqueur_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
-                                }
-
-                                for (int l = 2; l < 10; l ++ ){
-                                    while(mat[i][j - l] == 'P' || mat[i][j - l] == 'C' || mat[i][j - l] == 'D' || mat[i][j - l] == 'S'){
-                                        mat[i][j - l] = 'X';
-                                        gotoligcol(i, (j - l) * 4);
-                                        SetConsoleTextAttribute(hConsole, 9);
-                                        printf("%2c", 'X');
-                                        SetConsoleTextAttribute(hConsole, 15);
-                                        gotoligcol(21, 0);
-                                        printf("                                                   ");
-                                        gotoligcol(21, 0);
-                                        printf("Enemy fires on ship (%c,%d)",lig + 64, col);
-                                        if (game_over_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis)){
-                                            vainqueur_ia(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
-                                        }
-                                    }
-                                    if (mat[i][j - l] == B){
-                                        gotoligcol(i, (j - l) * 4);
-                                        SetConsoleTextAttribute(hConsole, 9);
-                                        printf("%2c", 'O');
-                                        SetConsoleTextAttribute(hConsole, 15);
-                                        gotoligcol(20, 0);
-                                        printf("                                                   ");
-                                        gotoligcol(20, 0);
-                                        printf("Enemy fires in water (%c,%d)", lig + 64, col);
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    fclose(fp);
-                    }
-                }
-            }
+            } while (mat[lig][col] == 'P' || mat[lig][col] == 'C' || mat[lig][col] == 'D' || mat[lig][col] == 'S');
         }
     }
     if (z == 2){
