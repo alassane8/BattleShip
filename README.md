@@ -68,7 +68,7 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 
 ## Area for improvement
 - Shielding:
-Add some features in order to improve shielding in the random placements of the boats. No boat can be placed above another. 
+Add some features in order to improve shielding in the random placements of the boats. No boat can be placed above another.
 
-- AI Admiral:
-Make the AI Admiral level more complex so that it can be a match against Player 1.
+- Update Manual Placement
+Make the manual placement user-friendly.
