@@ -14,7 +14,6 @@ void placement_bateaux(unsigned char ** mat ,unsigned char ** mat_ia1, int *a, c
     int r;
     int z;
     int x;
-    int delete;
     int P = 0;
     int C = 0;
     int D = 0;
