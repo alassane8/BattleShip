@@ -20,13 +20,9 @@ To play the Battleship follow the following instructions :
 ```bash
 git clone https://github.com/alassane8/BattleShip.git
 ```
-- Go to the BattleShip repository :
-```bash
-cd BattleShip/
-```
 - Go to the BattleShip folder :
 ```bash
-cd BattleShip/
+cd BattleShip/BattleShip/
 ```
 - Run the Executable: 
 ```bash
