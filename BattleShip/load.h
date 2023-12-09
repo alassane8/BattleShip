@@ -59,7 +59,9 @@ void charger_partie(unsigned char ** mat){
         gotoligcol(17,0);
         printf("                                                      ");
         gotoligcol(17,0);
+        SetConsoleTextAttribute(hConsole, 11);
         printf("Loading completed !\n");
+        SetConsoleTextAttribute(hConsole, 15);
         sleep(2);
         gotoligcol(17,0);
         printf("                                                      ");
@@ -164,7 +166,9 @@ void charger_partie1_0(unsigned char ** mat){
         gotoligcol(17,0);
         printf("                                                      ");
         gotoligcol(17,0);
+        SetConsoleTextAttribute(hConsole, 11);
         printf("Loading completed !\n");
+        SetConsoleTextAttribute(hConsole, 15);
         sleep(2);
         gotoligcol(17,0);
         printf("                                                      ");
@@ -269,7 +273,9 @@ void charger_partie2_0(unsigned char ** mat){
         gotoligcol(17,0);
         printf("                                                      ");
         gotoligcol(17,0);
+        SetConsoleTextAttribute(hConsole, 11);
         printf("Loading completed !\n");
+        SetConsoleTextAttribute(hConsole, 15);
         sleep(2);
         gotoligcol(17,0);
         printf("                                                      ");
