@@ -85,10 +85,12 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         decors();
         decors1();
 
-        //begin loading
+        //Begin loading
         gotoligcol(17,0);
+        SetConsoleTextAttribute(hConsole, 11);
         printf("Game loading in progress, please wait...\n");
-        sleep(1);
+        SetConsoleTextAttribute(hConsole, 15);
+        sleep(2);
 
         //Load matrices
         charger_partie1(mat_ia1);
@@ -104,10 +106,12 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         }
         gotoligcol(16,70);
         SetConsoleTextAttribute(hConsole, 12);
-        printf("Error: You loaded an empty game.");
+        printf("Error :");
         gotoligcol(17,70);
-        printf("You will be redirected to the menu.");
         SetConsoleTextAttribute(hConsole, 15);
+        printf("You loaded an empty game.");
+        gotoligcol(18,70);
+        printf("You will be redirected to the menu.");
         sleep(4);
         //Clean page
         system("cls");
@@ -147,8 +151,10 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
 
         //Begin loading
         gotoligcol(17,0);
+        SetConsoleTextAttribute(hConsole, 11);
         printf("Game loading in progress, please wait...\n");
-        sleep(1);
+        SetConsoleTextAttribute(hConsole, 15);
+        sleep(2);
 
         //Load matrices
         charger_partie2(mat_ia1);
@@ -164,10 +170,12 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         }
         gotoligcol(16,70);
         SetConsoleTextAttribute(hConsole, 12);
-        printf("Error: You loaded an empty game.");
+        printf("Error :");
         gotoligcol(17,70);
-        printf("You will be redirected to the menu.");
         SetConsoleTextAttribute(hConsole, 15);
+        printf("You loaded an empty game.");
+        gotoligcol(18,70);
+        printf("You will be redirected to the menu.");
         sleep(4);
         //Clean page
         system("cls");
@@ -207,8 +215,10 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
 
         //Begin loading
         gotoligcol(17,0);
+        SetConsoleTextAttribute(hConsole, 11);
         printf("Game loading in progress, please wait...\n");
-        sleep(1);
+        SetConsoleTextAttribute(hConsole, 15);
+        sleep(2);
 
         //Load matrices
         charger_partie3(mat_ia1);
@@ -224,10 +234,12 @@ void choix_chargement_partie(unsigned char ** mat, unsigned char ** mat_ia1, int
         }
         gotoligcol(16,70);
         SetConsoleTextAttribute(hConsole, 12);
-        printf("Error: You loaded an empty game.");
+        printf("Error :");
         gotoligcol(17,70);
-        printf("You will be redirected to the menu.");
         SetConsoleTextAttribute(hConsole, 15);
+        printf("You loaded an empty game.");
+        gotoligcol(18,70);
+        printf("You will be redirected to the menu.");
         sleep(4);
         //Clean page
         system("cls");
