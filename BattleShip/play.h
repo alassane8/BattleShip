@@ -215,9 +215,6 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
             }
         }
         else if (g == 6){
-            // On efface l'ecran
-            system("cls");
-
             // On retourne au menu principale
             menu(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
         }
