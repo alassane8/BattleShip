@@ -65,5 +65,3 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 ## Area for improvement
 - Shielding:
 Add some features in order to improve shielding in the random placements of the boats. No boat can be placed above another.
-- Update Manual Placement
-Make the manual placement user-friendly.
