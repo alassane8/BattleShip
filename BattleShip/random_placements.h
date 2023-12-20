@@ -7,396 +7,608 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void placement_bateaux_aleatoire(unsigned char ** mat){
+void placement_bateaux_aleatoire(unsigned char **mat)
+{
 
-    //Définitions des variables
+    // Définitions des variables
     int P = 1;
     int C = 1;
     int D = 1;
     int S = 1;
+    int z;
     int lig;
     int col;
     int B = 95;
     int direction;
-    int compte_ba = 1;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    srand(time(NULL));
-    //Tant que 10 bateaux n'ont pas été posés on reste dans la boucle
-    while (compte_ba <= 10){
-        while (P < 2) {
-            do{
-                lig = rand() % (15) + 1;
-                col = rand() % (15) + 1;
-                direction = rand() % (2) + 1;
-            }
-            while (mat[lig][col] != B);
+    do
+    {
+        lig = rand() % (15) + 1;
+        col = rand() % (15) + 1;
+    } while (mat[lig][col] != B);
 
-            if (mat[lig][col] == B){
-                mat[lig][col] = 'P';
-                gotoligcol(lig, col * 4);
-                SetConsoleTextAttribute(hConsole, 10);
-                printf("%2c", 'P');
-                SetConsoleTextAttribute(hConsole, 15);
+    mat[lig][col] = 'P';
 
-                //Si la direction aléatoire est Verticale
-                if (direction == 1){
-                    for (int i = 0; i < 7; i++){
-                        //On place le bateau vers le bas
-                        if ((lig + 7) <= 15 && mat[lig + i][col] == B){
-                            mat[lig + i][col] = 'P';
-                            gotoligcol(lig + i, col * 4);
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'P');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                        //On place le bateau vers le haut
-                        else if ((lig - 7) >= 1 && mat[lig - i][col] == B){
-                            mat[lig - i][col] = 'P';
-                            gotoligcol(lig - i, col * 4);
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'P');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                    }
-                }
-                //Si la direction aléatoire est horizontale
-                else{
-                    mat[lig][col] = 'P';
-                    for (int j = 0; j < 7; j++) {
-                        //On place le bateau vers la droite
-                        if ((col + 7) <= 15 && mat[lig][col + j] == B) {
-                            mat[lig][col + j] = 'P';
-                            gotoligcol(lig, (col + j)* 4);
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'P');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                            //On place le bateau vers la gauche
-                        else if ((col - 7) >= 1 && mat[lig][col - j] == B) {
-                            mat[lig][col - j] = 'P';
-                            gotoligcol(lig, (col - j) * 4);
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'P');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                    }
-                }
-            }
-            else{
-                mat[lig][col] = B;
-                gotoligcol(lig, col * 4);
-                printf("%2c", ' ');
-            }
-            P++;
-            compte_ba ++;
+    gotoligcol(lig, col * 4);
+    SetConsoleTextAttribute(hConsole, 10);
+    printf("%2c", 'P');
+
+    direction = rand() % (4) + 1;
+
+    while (direction == 1 && col - 6 < 1)
+    {
+        direction = rand() % (4) + 1;
+    }
+    while (direction == 2 && col + 6 > 15)
+    {
+        direction = rand() % (4) + 1;
+    }
+    for (z = 1; z < 7; z++)
+    {
+        while ((direction == 1 && mat[lig][col - z] != B) || (direction == 2 && mat[lig][col + z] != B))
+        {
+            direction = rand() % (4) + 1;
         }
-        while (C < 3){
-            do {
-                lig = rand() % (15) + 1;
-                col = rand() % (15) + 1;
-                direction = rand() % (2) + 1;
-            }while (mat[lig][col] != B);
-            if (mat[lig][col] == B){
-                mat[lig][col] = 'C';
-                gotoligcol(lig, col * 4);
+    }
+    while (direction == 3 && lig - 6 < 1)
+    {
+        direction = rand() % (4) + 1;
+    }
+    while (direction == 4 && lig + 6 > 15)
+    {
+        direction = rand() % (4) + 1;
+    }
+    for (z = 1; z < 7; z++)
+    {
+        while ((direction == 3 && mat[lig - z][col] != B) || (direction == 4 && mat[lig + z][col] != B))
+        {
+            direction = rand() % (4) + 1;
+        }
+    }
+
+    // Si vers la gauche
+    if (direction == 1 && col - 6 >= 1)
+    {
+        for (z = 1; z < 7; z++)
+        {
+            mat[lig][col - z] = 'P';
+            gotoligcol(lig, ((col - z) * 4));
+            SetConsoleTextAttribute(hConsole, 10);
+            printf("%2c", 'P');
+            SetConsoleTextAttribute(hConsole, 15);
+        }
+    }
+    // Si vers la droite
+    if (direction == 2 && col + 6 <= 15)
+    {
+        for (z = 1; z < 7; z++)
+        {
+            mat[lig][col + z] = 'P';
+            gotoligcol(lig, ((col + z) * 4));
+            SetConsoleTextAttribute(hConsole, 10);
+            printf("%2c", 'P');
+            SetConsoleTextAttribute(hConsole, 15);
+        }
+    }
+    // Si vers le haut
+    if (direction == 3 && lig - 6 >= 1)
+    {
+        for (z = 1; z < 7; z++)
+        {
+            mat[lig - z][col] = 'P';
+            gotoligcol(lig - z, col * 4);
+            SetConsoleTextAttribute(hConsole, 10);
+            printf("%2c", 'P');
+            SetConsoleTextAttribute(hConsole, 15);
+        }
+    }
+    // Si vers le bas
+    if (direction == 4 && lig + 6 <= 15)
+    {
+        for (z = 1; z < 7; z++)
+        {
+            mat[lig + z][col] = 'P';
+            gotoligcol(lig + z, col * 4);
+            SetConsoleTextAttribute(hConsole, 10);
+            printf("%2c", 'P');
+            SetConsoleTextAttribute(hConsole, 15);
+        }
+    }
+    P++;
+
+    while (C < 3)
+    {
+        do
+        {
+            lig = rand() % (15) + 1;
+            col = rand() % (15) + 1;
+        } while (mat[lig][col] != B);
+
+        mat[lig][col] = 'C';
+
+        gotoligcol(lig, col * 4);
+        SetConsoleTextAttribute(hConsole, 10);
+        printf("%2c", 'C');
+
+        direction = rand() % (4) + 1;
+
+        while (direction == 1 && col - 4 < 1)
+        {
+            direction = rand() % (4) + 1;
+        }
+        while (direction == 2 && col + 4 > 15)
+        {
+            direction = rand() % (4) + 1;
+        }
+        for (z = 1; z < 5; z++)
+        {
+            while ((direction == 1 && mat[lig][col - z] != B) || (direction == 2 && mat[lig][col + z] != B))
+            {
+                direction = rand() % (4) + 1;
+            }
+        }
+        while (direction == 3 && lig - 4 < 1)
+        {
+            direction = rand() % (4) + 1;
+        }
+        while (direction == 4 && lig + 4 > 15)
+        {
+            direction = rand() % (4) + 1;
+        }
+        for (z = 1; z < 5; z++)
+        {
+            while ((direction == 3 && mat[lig - z][col] != B) || (direction == 4 && mat[lig + z][col] != B))
+            {
+                direction = rand() % (4) + 1;
+            }
+        }
+
+        // Si vers la gauche
+        if (direction == 1 && col - 4 >= 1)
+        {
+            for (z = 1; z < 5; z++)
+            {
+                mat[lig][col - z] = 'C';
+                gotoligcol(lig, ((col - z) * 4));
                 SetConsoleTextAttribute(hConsole, 10);
                 printf("%2c", 'C');
                 SetConsoleTextAttribute(hConsole, 15);
-                //Si la direction aléatoire est vertical
-                if (direction == 1){
-                    for (int i = 0; i < 5; i++){
-                        //On place le bateau vers le bas
-                        if ((lig + 5) <= 15 && mat[lig + i][col] == B){
-                            mat[lig + i][col] = 'C';
-                            gotoligcol(lig + i, (col * 4));
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'C');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                            //On place le bateau vers le haut
-                        else if ((lig - 5) >= 1 && mat[lig - i][col] == B){
-                            mat[lig - i][col] = 'C';
-                            gotoligcol(lig - i, (col * 4));
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'C');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                    }
-                }
-                    //Si la direction aléatoire est horizontale
-                else{
-                    mat[lig][col] = 'C';
-                    for (int j = 0; j < 5; j++){
-                        //On place le bateau vers la droite
-                        if ((col + 5) <= 15 && mat[lig][col + j] == B) {
-                            mat[lig][col + j] = 'C';
-                            gotoligcol(lig, (col * 4) + j * 4);
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'C');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                            //On place le bateau vers la gauche
-                        else if ((col - 5) >= 1 && mat[lig][col - j] == B){
-                            mat[lig][col - j] = B;
-                            gotoligcol(lig, ((col *4)- j* 4));
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'C');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                    }
-                }
             }
-            else{
-                mat[lig][col] = B;
-                gotoligcol(lig, (col * 4));
-                printf("%2c", ' ');
-            }
-            C++;
-            compte_ba++;
         }
-        while (D < 4){
-            do{
-                lig = rand() % (15) + 1;
-                col = rand() % (15) + 1;
-                direction = rand() % (2) + 1;
+        // Si vers la droite
+        if (direction == 2 && col + 4 <= 15)
+        {
+            for (z = 1; z < 5; z++)
+            {
+                mat[lig][col + z] = 'C';
+                gotoligcol(lig, ((col + z) * 4));
+                SetConsoleTextAttribute(hConsole, 10);
+                printf("%2c", 'C');
+                SetConsoleTextAttribute(hConsole, 15);
             }
-            while (mat[lig][col] != B);
-            if (mat[lig][col] == B){
-                mat[lig][col] = 'D';
-                gotoligcol(lig, col * 4);
+        }
+        // Si vers le haut
+        if (direction == 3 && lig - 4 >= 1)
+        {
+            for (z = 1; z < 5; z++)
+            {
+                mat[lig - z][col] = 'C';
+                gotoligcol(lig - z, col * 4);
+                SetConsoleTextAttribute(hConsole, 10);
+                printf("%2c", 'C');
+                SetConsoleTextAttribute(hConsole, 15);
+            }
+        }
+        // Si vers le bas
+        if (direction == 4 && lig + 4 <= 15)
+        {
+            for (z = 1; z < 5; z++)
+            {
+                mat[lig + z][col] = 'C';
+                gotoligcol(lig + z, col * 4);
+                SetConsoleTextAttribute(hConsole, 10);
+                printf("%2c", 'C');
+                SetConsoleTextAttribute(hConsole, 15);
+            }
+        }
+        C++;
+    }
+
+    while (D < 4)
+    {
+        do
+        {
+            lig = rand() % (15) + 1;
+            col = rand() % (15) + 1;
+        } while (mat[lig][col] != B);
+
+        mat[lig][col] = 'D';
+
+        gotoligcol(lig, col * 4);
+        SetConsoleTextAttribute(hConsole, 10);
+        printf("%2c", 'D');
+
+        direction = rand() % (4) + 1;
+
+        while (direction == 1 && col - 2 < 1)
+        {
+            direction = rand() % (4) + 1;
+        }
+        while (direction == 2 && col + 2 > 15)
+        {
+            direction = rand() % (4) + 1;
+        }
+        for (z = 1; z < 3; z++)
+        {
+            while ((direction == 1 && mat[lig][col - z] != B) || (direction == 2 && mat[lig][col + z] != B))
+            {
+                direction = rand() % (4) + 1;
+            }
+        }
+        while (direction == 3 && lig - 2 < 1)
+        {
+            direction = rand() % (4) + 1;
+        }
+        while (direction == 4 && lig + 2 > 15)
+        {
+            direction = rand() % (4) + 1;
+        }
+        for (z = 1; z < 3; z++)
+        {
+            while ((direction == 3 && mat[lig - z][col] != B) || (direction == 4 && mat[lig + z][col] != B))
+            {
+                direction = rand() % (4) + 1;
+            }
+        }
+
+        // Si vers la gauche
+        if (direction == 1 && col - 2 >= 1)
+        {
+            for (z = 1; z < 3; z++)
+            {
+                mat[lig][col - z] = 'D';
+                gotoligcol(lig, ((col - z) * 4));
                 SetConsoleTextAttribute(hConsole, 10);
                 printf("%2c", 'D');
                 SetConsoleTextAttribute(hConsole, 15);
-                //Si la direction aléatoire est verticale
-                if (direction == 1){
-                    for (int i = 0; i < 3; i++){
-                        //On place le bateau vers  le bas
-                        if ((lig + 3) <= 15 && mat[lig + i][col] == B){
-                            mat[lig + i][col] = 'D';
-                            gotoligcol(lig + i, (col * 4));
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'D');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                            //On place le bateau vers le haut
-                        else if ((lig - 3) >= 1 && mat[lig - i][col] == B){
-                            mat[lig - i][col] = 'D';
-                            gotoligcol(lig - i, (col * 4));
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'D');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                    }
-                }
-                    //Si la direction aléatoire est horizontale
-                else{
-                    mat[lig][col] = 'D';
-                    for (int j = 0; j < 3; j++) {
-                        //On place le bateau vers la droite
-                        if ((col + 3) <= 15 && mat[lig][col + j] == B) {
-                            mat[lig][col + j] = 'D';
-                            gotoligcol(lig, (col * 4) + j * 4);
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'D');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                            //On place le bateau vers la gauche
-                        else if ((col - 3) >= 1 && mat[lig][col - j] == B){
-                            mat[lig][col - j] = 'D';
-                            gotoligcol(lig, ((col - j)* 4));
-                            SetConsoleTextAttribute(hConsole, 10);
-                            printf("%2c", 'D');
-                            SetConsoleTextAttribute(hConsole, 15);
-                        }
-                    }
-                }
             }
-            else{
-                mat[lig][col] = B;
-                gotoligcol(lig, (col * 4));
-                printf("%2c", ' ');
-            }
-            D++;
-            compte_ba++;
         }
-        while (S < 5){
-            do{
-                lig = rand() % (15) + 1;
-                col = rand() % (15) + 1;
-            }
-            while (mat[lig][col] != B);
-            //On place le bateau
-            if (mat[lig][col] == B) {
-                mat[lig][col] = 'S';
-                gotoligcol(lig, col * 4);
+        // Si vers la droite
+        if (direction == 2 && col + 2 <= 15)
+        {
+            for (z = 1; z < 3; z++)
+            {
+                mat[lig][col + z] = 'D';
+                gotoligcol(lig, ((col + z) * 4));
                 SetConsoleTextAttribute(hConsole, 10);
-                printf("%2c", 'S');
+                printf("%2c", 'D');
                 SetConsoleTextAttribute(hConsole, 15);
             }
-            else{
-                mat[lig][col] = B;
-            }
-            S++;
-            compte_ba++;
         }
+        // Si vers le haut
+        if (direction == 3 && lig - 2 >= 1)
+        {
+            for (z = 1; z < 3; z++)
+            {
+                mat[lig - z][col] = 'D';
+                gotoligcol(lig - z, col * 4);
+                SetConsoleTextAttribute(hConsole, 10);
+                printf("%2c", 'D');
+                SetConsoleTextAttribute(hConsole, 15);
+            }
+        }
+        // Si vers le bas
+        if (direction == 4 && lig + 2 <= 15)
+        {
+            for (z = 1; z < 3; z++)
+            {
+                mat[lig + z][col] = 'D';
+                gotoligcol(lig + z, col * 4);
+                SetConsoleTextAttribute(hConsole, 10);
+                printf("%2c", 'D');
+                SetConsoleTextAttribute(hConsole, 15);
+            }
+        }
+        D++;
+    }
+    while (S < 5)
+    {
+        lig = rand() % (15) + 1;
+        col = rand() % (15) + 1;
+        while (mat[lig][col] != B)
+        {
+            lig = rand() % (15) + 1;
+            col = rand() % (15) + 1;
+            direction = rand() % (2) + 1;
+        }
+        if (mat[lig][col] == B)
+        {
+            mat[lig][col] = 'S';
+            gotoligcol(lig + z, col * 4);
+            SetConsoleTextAttribute(hConsole, 10);
+            printf("%2c", 'S');
+            SetConsoleTextAttribute(hConsole, 15);
+        }
+        else
+        {
+            mat[lig][col] = B;
+        }
+        S++;
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void placement_bateaux_aleatoire1(unsigned char ** mat_ia1){
+void placement_bateaux_aleatoire1(unsigned char **mat_ia1)
+{
 
-    //Définitions des variables
+    // Définitions des variables
     int P = 1;
     int C = 1;
     int D = 1;
     int S = 1;
+    int z;
     int lig;
     int col;
     int B = 95;
     int direction;
-    int compte_ba = 1;
+    HANDLE hConsole;
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    //Ces bateau ne seront pas afficher dans les decors
-    while (compte_ba <= 10) {
-        while (P < 2){
+    srand(time(NULL));
+    do
+    {
+        lig = rand() % (15) + 1;
+        col = rand() % (15) + 1;
+    } while (mat_ia1[lig][col] != B);
+
+    mat_ia1[lig][col] = 'P';
+
+    direction = rand() % (4) + 1;
+
+    while (direction == 1 && col - 6 < 1)
+    {
+        direction = rand() % (4) + 1;
+    }
+    while (direction == 2 && col + 6 > 15)
+    {
+        direction = rand() % (4) + 1;
+    }
+    for (z = 1; z < 7; z++)
+    {
+        while ((direction == 1 && mat_ia1[lig][col - z] != B) || (direction == 2 && mat_ia1[lig][col + z] != B))
+        {
+            direction = rand() % (4) + 1;
+        }
+    }
+    while (direction == 3 && lig - 6 < 1)
+    {
+        direction = rand() % (4) + 1;
+    }
+    while (direction == 4 && lig + 6 > 15)
+    {
+        direction = rand() % (4) + 1;
+    }
+    for (z = 1; z < 7; z++)
+    {
+        while ((direction == 3 && mat_ia1[lig - z][col] != B) || (direction == 4 && mat_ia1[lig + z][col] != B))
+        {
+            direction = rand() % (4) + 1;
+        }
+    }
+
+    // Si vers la gauche
+    if (direction == 1 && col - 6 >= 1)
+    {
+        for (z = 1; z < 7; z++)
+        {
+            mat_ia1[lig][col - z] = 'P';
+        }
+    }
+    // Si vers la droite
+    if (direction == 2 && col + 6 <= 15)
+    {
+        for (z = 1; z < 7; z++)
+        {
+            mat_ia1[lig][col + z] = 'P';
+        }
+    }
+    // Si vers le haut
+    if (direction == 3 && lig - 6 >= 1)
+    {
+        for (z = 1; z < 7; z++)
+        {
+            mat_ia1[lig - z][col] = 'P';
+        }
+    }
+    // Si vers le bas
+    if (direction == 4 && lig + 6 <= 15)
+    {
+        for (z = 1; z < 7; z++)
+        {
+            mat_ia1[lig + z][col] = 'P';
+        }
+    }
+    P++;
+
+    while (C < 3)
+    {
+        srand(time(NULL));
+        do
+        {
+            lig = rand() % (15) + 1;
+            col = rand() % (15) + 1;
+        } while (mat_ia1[lig][col] != B);
+
+        mat_ia1[lig][col] = 'C';
+
+        direction = rand() % (4) + 1;
+
+        while (direction == 1 && col - 4 < 1)
+        {
+            direction = rand() % (4) + 1;
+        }
+        while (direction == 2 && col + 4 > 15)
+        {
+            direction = rand() % (4) + 1;
+        }
+        for (z = 1; z < 5; z++)
+        {
+            while ((direction == 1 && mat_ia1[lig][col - z] != B) || (direction == 2 && mat_ia1[lig][col + z] != B))
+            {
+                direction = rand() % (4) + 1;
+            }
+        }
+        while (direction == 3 && lig - 4 < 1)
+        {
+            direction = rand() % (4) + 1;
+        }
+        while (direction == 4 && lig + 4 > 15)
+        {
+            direction = rand() % (4) + 1;
+        }
+        for (z = 1; z < 5; z++)
+        {
+            while ((direction == 3 && mat_ia1[lig - z][col] != B) || (direction == 4 && mat_ia1[lig + z][col] != B))
+            {
+                direction = rand() % (4) + 1;
+            }
+        }
+
+        // Si vers la gauche
+        if (direction == 1 && col - 4 >= 1)
+        {
+            for (z = 1; z < 5; z++)
+            {
+                mat_ia1[lig][col - z] = 'C';
+            }
+        }
+        // Si vers la droite
+        if (direction == 2 && col + 4 <= 15)
+        {
+            for (z = 1; z < 5; z++)
+            {
+                mat_ia1[lig][col + z] = 'C';
+            }
+        }
+        // Si vers le haut
+        if (direction == 3 && lig - 4 >= 1)
+        {
+            for (z = 1; z < 5; z++)
+            {
+                mat_ia1[lig - z][col] = 'C';
+            }
+        }
+        // Si vers le bas
+        if (direction == 4 && lig + 4 <= 15)
+        {
+            for (z = 1; z < 5; z++)
+            {
+                mat_ia1[lig + z][col] = 'C';
+            }
+        }
+        C++;
+    }
+
+    while (D < 4)
+    {
+        srand(time(NULL));
+        do
+        {
+            lig = rand() % (15) + 1;
+            col = rand() % (15) + 1;
+        } while (mat_ia1[lig][col] != B);
+
+        mat_ia1[lig][col] = 'D';
+
+        direction = rand() % (4) + 1;
+
+        while (direction == 1 && col - 2 < 1)
+        {
+            direction = rand() % (4) + 1;
+        }
+        while (direction == 2 && col + 2 > 15)
+        {
+            direction = rand() % (4) + 1;
+        }
+        for (z = 1; z < 3; z++)
+        {
+            while ((direction == 1 && mat_ia1[lig][col - z] != B) || (direction == 2 && mat_ia1[lig][col + z] != B))
+            {
+                direction = rand() % (4) + 1;
+            }
+        }
+        while (direction == 3 && lig - 2 < 1)
+        {
+            direction = rand() % (4) + 1;
+        }
+        while (direction == 4 && lig + 2 > 15)
+        {
+            direction = rand() % (4) + 1;
+        }
+        for (z = 1; z < 3; z++)
+        {
+            while ((direction == 3 && mat_ia1[lig - z][col] != B) || (direction == 4 && mat_ia1[lig + z][col] != B))
+            {
+                direction = rand() % (4) + 1;
+            }
+        }
+
+        // Si vers la gauche
+        if (direction == 1 && col - 2 >= 1)
+        {
+            for (z = 1; z < 3; z++)
+            {
+                mat_ia1[lig][col - z] = 'D';
+            }
+        }
+        // Si vers la droite
+        if (direction == 2 && col + 2 <= 15)
+        {
+            for (z = 1; z < 3; z++)
+            {
+                mat_ia1[lig][col + z] = 'D';
+            }
+        }
+        // Si vers le haut
+        if (direction == 3 && lig - 2 >= 1)
+        {
+            for (z = 1; z < 3; z++)
+            {
+                mat_ia1[lig - z][col] = 'D';
+            }
+        }
+        // Si vers le bas
+        if (direction == 4 && lig + 2 <= 15)
+        {
+            for (z = 1; z < 3; z++)
+            {
+                mat_ia1[lig + z][col] = 'D';
+            }
+        }
+        D++;
+    }
+    while (S < 5)
+    {
+        srand(time(NULL));
+        lig = rand() % (15) + 1;
+        col = rand() % (15) + 1;
+        while (mat_ia1[lig][col] != B)
+        {
             lig = rand() % (15) + 1;
             col = rand() % (15) + 1;
             direction = rand() % (2) + 1;
-            while (mat_ia1[lig][col] != B){
-                lig = rand() % (15) + 1;
-                col = rand() % (15) + 1;
-                direction = rand() % (2) + 1;
-            }
-            if (mat_ia1[lig][col] == B){
-                mat_ia1[lig][col] = 'P';
-                if (direction == 1){
-                    for (int i = 0; i < 7; i++){
-                        if ((lig + 7) <= 15 && mat_ia1[lig + i][col] == B){
-                            mat_ia1[lig + i][col] = 'P';
-                        }
-                        else if ((lig - 7) >= 1 && mat_ia1[lig - i][col] == B){
-                            mat_ia1[lig - i][col] = 'P';
-                        }
-                    }
-                }
-                    //Si la direction aléatoire est horizontale
-                else{
-                    mat_ia1[lig][col] = 'P';
-                    for (int j = 0; j < 7; j++) {
-                        if ((col + 7) < 15 && mat_ia1[lig][col + j] == B){
-                            mat_ia1[lig][col + j] = 'P';
-                        }
-                        else if ((col - 7) >= 1 && mat_ia1[lig][col - j] == B){
-                            mat_ia1[lig][col - j] = 'P';
-                        }
-                    }
-                }
-            }
-            else {
-                mat_ia1[lig][col] = B;
-            }
-            P++;
-            compte_ba ++;
         }
-        while (C < 3){
-            lig = rand() % (15) + 1;
-            col = rand() % (15) + 1;
-            direction = rand() % (2) + 1;
-            while (mat_ia1[lig][col] != B){
-                lig = rand() % (15) + 1;
-                col = rand() % (15) + 1;
-                direction = rand() % (2) + 1;
-            }
-            if (mat_ia1[lig][col] == B){
-                mat_ia1[lig][col] = 'C';
-                if (direction == 1){
-                    for (int i = 0; i < 5; i++){
-                        if ((lig + 5) <= 15 && mat_ia1[lig + i][col] == B){
-                            mat_ia1[lig + i][col] = 'C';
-                        }
-                        else if ((lig - 5) >= 1 && mat_ia1[lig - i][col] == B){
-                            mat_ia1[lig - i][col] = 'C';
-                        }
-                    }
-                }
-                    //Si la direction aléatoire est horizontale
-                else{
-                    mat_ia1[lig][col] = 'C';
-                    for (int j = 0; j < 5; j++) {
-                        if ((col + 5) < 15 && mat_ia1[lig][col + j] == B){
-                            mat_ia1[lig][col + j] = 'C';
-                        }
-                        else if ((col - 5) >= 1 && mat_ia1[lig][col - j] == B){
-                            mat_ia1[lig][col - j] = 'C';
-                        }
-                    }
-                }
-            }
-            else {
-                mat_ia1[lig][col] = B;
-            }
-            C++;
-            compte_ba++;
+        if (mat_ia1[lig][col] == B)
+        {
+            mat_ia1[lig][col] = 'S';
         }
-        while (D < 4){
-            lig = rand() % (15) + 1;
-            col = rand() % (15) + 1;
-            direction = rand() % (2) + 1;
-            while (mat_ia1[lig][col] != B) {
-                lig = rand() % (15) + 1;
-                col = rand() % (15) + 1;
-                direction = rand() % (2) + 1;
-            }
-            if (mat_ia1[lig][col] == B){
-                mat_ia1[lig][col] = 'D';
-                if (direction == 1){
-                    for (int i = 0; i < 3; i++){
-                        if ((lig + 3) <= 15 && mat_ia1[lig + i][col] == B){
-                            mat_ia1[lig + i][col] = 'D';
-                        }
-                        else if ((lig - 3) >= 1 && mat_ia1[lig - i][col] == B){
-                            mat_ia1[lig - i][col] = 'D';
-                        }
-                    }
-                }
-                    //Si la direction aléatoire est horizontale
-                else{
-                    mat_ia1[lig][col] = 'D';
-                    for (int j = 0; j < 3; j++) {
-                        if ((col + 3) <= 15 && mat_ia1[lig][col + j] == B){
-                            mat_ia1[lig][col + j] = 'D';
-                        }
-                        else if ((col - 3) >= 1 && mat_ia1[lig][col - j] == B){
-                            mat_ia1[lig][col - j] = 'D';
-                        }
-                    }
-                }
-            }
-            else{
-                mat_ia1[lig][col] = B;
-            }
-            D++;
-            compte_ba++;
+        else
+        {
+            mat_ia1[lig][col] = B;
         }
-        while (S < 5){
-            lig = rand() % (15) + 1;
-            col = rand() % (15) + 1;
-            while (mat_ia1[lig][col] != B){
-                lig = rand() % (15) + 1;
-                col = rand() % (15) + 1;
-                direction = rand() % (2) + 1;
-            }
-            if (mat_ia1[lig][col] == B) {
-                mat_ia1[lig][col] = 'S';
-            }
-            else{
-                mat_ia1[lig][col] = B;
-            }
-            S++;
-            compte_ba++;
-        }
+        S++;
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
