@@ -33,7 +33,7 @@ cd BattleShip/BattleShip/
 You are now ready to play !
 
 ## Rules
-Here are the rules of the game:
+Here are the rules of the game: 
 
 At the start of the game, Player 1 randomly or manually places all the ships on
 the grid. Player 1 does not see the AI grid.
@@ -63,5 +63,3 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - 4 Submarines with the letter S take up 1 space.
 
 ## Area for improvement
-- Shielding:
-Add some features in order to improve shielding in the random placements of the boats. No boat can be placed above another.
