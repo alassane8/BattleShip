@@ -8,7 +8,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
+void menu(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
 
     //DDV
     int k;
@@ -18,6 +18,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     //Acceuil du joueur 1
+    system("cls");
     gotoligcol(8, 30);
     SetConsoleTextAttribute(hConsole, 11);
     printf("/////////////////////////////////////// ");
@@ -115,7 +116,7 @@ void menu(unsigned char ** mat,unsigned char ** mat_ia1, int *a , char *pseudo, 
             initialisation_matrice(mat,  mat_ia1);
 
             //Placement aléatoire des bateaux
-            placement_bateaux(mat,mat_ia1, a, pseudo);
+            placement_bateaux(mat,mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
             placement_bateaux_aleatoire1(mat_ia1);
             
             //Appel de la fonction de jeux
