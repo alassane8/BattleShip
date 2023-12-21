@@ -7,7 +7,7 @@ void gotoligcol(int lig, int col);
 
 void menu(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 
-void rules(unsigned char ** mat, unsigned char ** mat_ia1, int w, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
+void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo, int choix, unsigned char ** mat_bis, unsigned char ** mat_ia1_bis);
 
 void initialisation_matrice(unsigned char** mat, unsigned char** mat_ia1);
 
