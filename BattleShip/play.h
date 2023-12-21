@@ -5,12 +5,12 @@
 #include <time.h>
 #include <unistd.h>
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo, int w, int choix,unsigned char ** mat_bis, unsigned char ** mat_ia1_bis){
+void jouer(unsigned char **mat, unsigned char **mat_ia1, int *a, char *pseudo, int w, int choix, unsigned char **mat_bis, unsigned char **mat_ia1_bis)
+{
 
-    //Définition des variables
+    // Définition des variables
     int f;
     int g;
     int i;
@@ -45,7 +45,8 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
     gotoligcol(44, 70);
     printf("Copyright 2023 Battleship Alassane Wade");
 
-    while(1){
+    while (1)
+    {
         gotoligcol(16, 70);
         SetConsoleTextAttribute(hConsole, 11);
         printf("///////////////////////// ");
@@ -75,20 +76,26 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
         gotoligcol(24, 70);
         printf("6. Main menu");
         gotoligcol(25, 70);
+        printf("  ");
+        gotoligcol(25, 70);
         fflush(stdin);
         scanf("%d", &g);
 
         // Gestions des erreurs
-        while (g != 1 && g != 2 && g != 3 && g != 4 && g != 5 && g != 6){
+        while (g != 1 && g != 2 && g != 3 && g != 4 && g != 5 && g != 6)
+        {
             gotoligcol(25, 140);
             SetConsoleTextAttribute(hConsole, 12);
             printf("Error.");
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(25, 70);
+            printf("  ");
+            gotoligcol(25, 70);
             fflush(stdin);
             scanf("%d", &g);
         }
-        if (g == 1){
+        if (g == 1)
+        {
             // Appel de la fonction Tirer et tirer aleatoirement pour l'IA
             tirer(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
             gotoligcol(30, 70);
@@ -101,33 +108,41 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
             printf("                                                   ");
             gotoligcol(34, 70);
             printf("                                                   ");
-            if (w == 1){
+            if (w == 1)
+            {
                 tirer_aleatoirement_matelot(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
-            if (w == 2){
+            if (w == 2)
+            {
                 tirer_aleatoirement_caporal_chef(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
-            if (w == 3){
+            if (w == 3)
+            {
                 tirer_aleatoirement_amiral(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
         }
-        else if (g == 2){
+        else if (g == 2)
+        {
             // Appel de la fonction fumigene
             // Si on a plus de fumigene on en peux plus en tirer
-            if (nombre_fumigene == 0){
+            if (nombre_fumigene == 0)
+            {
                 gotoligcol(21, 140);
                 printf("                                       ");
                 gotoligcol(21, 140);
                 printf("Total number of flares exhausted !");
                 gotoligcol(25, 70);
+                printf("  ");
+                gotoligcol(25, 70);
                 fflush(stdin);
                 scanf("%d", &g);
             }
             // Si il nous reste des fumigènes on rentre dans le else
-            else{
+            else
+            {
                 nombre_fumigene--;
                 fumigene(mat_ia1);
                 gotoligcol(30, 70);
@@ -144,10 +159,12 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 printf("                                       ");
                 gotoligcol(21, 140);
                 printf("Flare lit for    seconds !");
-                for (int k = 6; k >= 0; k--){
+                for (int k = 6; k >= 0; k--)
+                {
                     gotoligcol(21, 154);
                     printf("%2d", k);
-                    if (k == 1 || k == 0){
+                    if (k == 1 || k == 0)
+                    {
                         gotoligcol(21, 163);
                         printf(" ");
                     }
@@ -159,38 +176,49 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 printf("Number of flare remaining: %d", nombre_fumigene);
                 mode_visible_desactive(mat_ia1);
             }
-            if (w == 1){
+            if (w == 1)
+            {
                 tirer_aleatoirement_matelot(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
-            if (w == 2){
+            if (w == 2)
+            {
                 tirer_aleatoirement_caporal_chef(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
-            if (w == 3){
+            if (w == 3)
+            {
                 tirer_aleatoirement_amiral(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                 compteur_tour++;
             }
         }
-        while (g == 5){
+        while (g == 5)
+        {
             sauvegarde(mat, mat_ia1, a, pseudo, w, mat_bis, mat_ia1_bis);
             gotoligcol(20, 140);
             printf("Saved game!");
             gotoligcol(25, 70);
+            printf("  ");
+            gotoligcol(25, 70);
             fflush(stdin);
             scanf("%d", &g);
         }
-        if (g == 4){
-            if (tir_air == 0){
+        if (g == 4)
+        {
+            if (tir_air == 0)
+            {
                 gotoligcol(21, 140);
                 printf("                                       ");
                 gotoligcol(21, 140);
                 printf("Air support not available !");
                 gotoligcol(25, 70);
+                printf("  ");
+                gotoligcol(25, 70);
                 fflush(stdin);
                 scanf("%d", &g);
             }
-            else{
+            else
+            {
                 tir_air--;
                 gotoligcol(21, 140);
                 printf("                                       ");
@@ -214,31 +242,39 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 }
             }
         }
-        else if (g == 6){
+        else if (g == 6)
+        {
             // On retourne au menu principale
             menu(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
         }
-        else if (g == 3){
-            if (satellite == 0){
+        else if (g == 3)
+        {
+            if (satellite == 0)
+            {
                 gotoligcol(21, 140);
                 printf("                                       ");
                 gotoligcol(21, 140);
                 printf("Satellite view not available !");
                 gotoligcol(25, 70);
+                printf("  ");
+                gotoligcol(25, 70);
                 fflush(stdin);
                 scanf("%d", &g);
             }
-            else{
+            else
+            {
                 satellite--;
                 mode_visible(mat_ia1);
                 gotoligcol(21, 140);
                 printf("                                       ");
                 gotoligcol(21, 140);
                 printf("Satellite view enabled for   seconds !");
-                for (int k = 5; k >= 0; k--){
+                for (int k = 5; k >= 0; k--)
+                {
                     gotoligcol(21, 166);
                     printf("%2d", k);
-                    if (k == 1 || k == 0){
+                    if (k == 1 || k == 0)
+                    {
                         gotoligcol(21, 175);
                         printf(" ");
                     }
@@ -249,15 +285,18 @@ void jouer(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *pseudo,
                 gotoligcol(21, 140);
                 printf("Satellite view remaining : %d", satellite);
                 mode_visible_desactive(mat_ia1);
-                if (w == 1){
+                if (w == 1)
+                {
                     tirer_aleatoirement_matelot(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
-                if (w == 2){
+                if (w == 2)
+                {
                     tirer_aleatoirement_caporal_chef(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
-                if (w == 3){
+                if (w == 3)
+                {
                     tirer_aleatoirement_amiral(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
                     compteur_tour++;
                 }
