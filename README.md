@@ -64,4 +64,4 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 
 ## Area for improvement
 Here, you can find the features I am currently working on in this repository.
-This allows you what changes are to come, what needs to be improved and keep track of the updates that I am making. 
+This allows you to be aware of the changes that are to come and see what needs to be improve. 
