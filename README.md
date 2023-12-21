@@ -63,3 +63,5 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - 4 Submarines with the letter S take up 1 space.
 
 ## Area for improvement
+Here, you can find the features I am currently working on in this repository.
+This allows you what changes are to come, what needs to be improved and keep track of the updates that I am making. 
