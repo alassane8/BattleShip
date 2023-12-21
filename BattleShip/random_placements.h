@@ -43,7 +43,7 @@ void placement_bateaux_aleatoire(unsigned char **mat)
     }
     while (direction == 2 && col + 6 > 15)
     {
-        direction = rand() % (4) + 1;
+        direction = rand() % 5;
     }
     for (z = 1; z < 7; z++)
     {
@@ -134,11 +134,7 @@ void placement_bateaux_aleatoire(unsigned char **mat)
 
         direction = rand() % (4) + 1;
 
-        while (direction == 1 && col - 4 < 1)
-        {
-            direction = rand() % (4) + 1;
-        }
-        while (direction == 2 && col + 4 > 15)
+        while ((direction == 1 && col - 4 < 1) || (direction == 2 && col + 4 > 15))
         {
             direction = rand() % (4) + 1;
         }
@@ -149,11 +145,7 @@ void placement_bateaux_aleatoire(unsigned char **mat)
                 direction = rand() % (4) + 1;
             }
         }
-        while (direction == 3 && lig - 4 < 1)
-        {
-            direction = rand() % (4) + 1;
-        }
-        while (direction == 4 && lig + 4 > 15)
+        while ((direction == 3 && lig - 4 < 1) || (direction == 4 && lig + 4 > 15))
         {
             direction = rand() % (4) + 1;
         }
@@ -315,26 +307,18 @@ void placement_bateaux_aleatoire(unsigned char **mat)
     }
     while (S < 5)
     {
-        lig = rand() % (15) + 1;
-        col = rand() % (15) + 1;
-        while (mat[lig][col] != B)
+        srand(time(NULL));
+        do
         {
             lig = rand() % (15) + 1;
             col = rand() % (15) + 1;
-            direction = rand() % (2) + 1;
-        }
-        if (mat[lig][col] == B)
-        {
-            mat[lig][col] = 'S';
-            gotoligcol(lig + z, col * 4);
-            SetConsoleTextAttribute(hConsole, 10);
-            printf("%2c", 'S');
-            SetConsoleTextAttribute(hConsole, 15);
-        }
-        else
-        {
-            mat[lig][col] = B;
-        }
+        } while (mat[lig][col] != B);
+
+        mat[lig][col] = 'S';
+        gotoligcol(lig, col * 4);
+        SetConsoleTextAttribute(hConsole, 10);
+        printf("%2c", 'S');
+        SetConsoleTextAttribute(hConsole, 15);
         S++;
     }
 }
@@ -592,22 +576,13 @@ void placement_bateaux_aleatoire1(unsigned char **mat_ia1)
     while (S < 5)
     {
         srand(time(NULL));
-        lig = rand() % (15) + 1;
-        col = rand() % (15) + 1;
-        while (mat_ia1[lig][col] != B)
+        do
         {
             lig = rand() % (15) + 1;
             col = rand() % (15) + 1;
-            direction = rand() % (2) + 1;
-        }
-        if (mat_ia1[lig][col] == B)
-        {
-            mat_ia1[lig][col] = 'S';
-        }
-        else
-        {
-            mat_ia1[lig][col] = B;
-        }
+        } while (mat_ia1[lig][col] != B);
+
+        mat_ia1[lig][col] = 'S';
         S++;
     }
 }
