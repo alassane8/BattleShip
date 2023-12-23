@@ -56,8 +56,10 @@ void sauvegarde(unsigned char ** mat, unsigned char ** mat_ia1, int *a, char *ps
         SetConsoleTextAttribute(hConsole, 12);
         printf("Error.");
         SetConsoleTextAttribute(hConsole, 15);
-        fflush(stdin);
         gotoligcol(25, 70);
+        printf("  ");
+        gotoligcol(25, 70);
+        fflush(stdin);
         scanf("%d", &choix);
     }
 

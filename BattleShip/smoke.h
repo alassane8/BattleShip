@@ -36,6 +36,8 @@ void fumigene(unsigned char ** mat_ia1){
         printf("Error.");
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(32, 70);
+        printf("  ");
+        gotoligcol(32, 70);
         fflush(stdin);
         scanf("%c", &lig);
     }
@@ -50,6 +52,8 @@ void fumigene(unsigned char ** mat_ia1){
         SetConsoleTextAttribute(hConsole, 12);
         printf("Error.");
         SetConsoleTextAttribute(hConsole, 15);
+        gotoligcol(34, 70);
+        printf("  ");
         gotoligcol(34, 70);
         fflush(stdin);
         scanf("%d", &col);

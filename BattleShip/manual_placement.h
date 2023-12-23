@@ -6,7 +6,6 @@
 #include <unistd.h>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, char *pseudo, int choix, unsigned char **mat_bis, unsigned char **mat_ia1_bis)
 {
 
@@ -60,6 +59,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(18, 0);
             printf("  ");
+            gotoligcol(18, 0);
             fflush(stdin);
             scanf("%c", &lig);
         }
@@ -76,6 +76,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(20, 0);
             printf("  ");
+            gotoligcol(20, 0);
             fflush(stdin);
             scanf("%d", &col);
         }
@@ -105,6 +106,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(27, 0);
         printf("  ");
+        gotoligcol(27, 0);
         fflush(stdin);
         scanf("%d", &x);
     }
@@ -116,6 +118,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(27, 0);
         printf("  ");
+        gotoligcol(27, 0);
         fflush(stdin);
         scanf("%d", &x);
     }
@@ -127,6 +130,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(27, 0);
         printf("  ");
+        gotoligcol(27, 0);
         fflush(stdin);
         scanf("%d", &x);
     }
@@ -140,6 +144,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -152,6 +157,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(27, 0);
         printf("  ");
+        gotoligcol(27, 0);
         fflush(stdin);
         scanf("%d", &x);
     }
@@ -163,6 +169,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
         SetConsoleTextAttribute(hConsole, 15);
         gotoligcol(27, 0);
         printf("  ");
+        gotoligcol(27, 0);
         fflush(stdin);
         scanf("%d", &x);
     }
@@ -176,6 +183,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -257,6 +265,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(18, 0);
                 printf("  ");
+                gotoligcol(18, 0);
                 fflush(stdin);
                 scanf("%c", &lig);
             }
@@ -273,6 +282,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(20, 0);
                 printf("  ");
+                gotoligcol(20, 0);
                 fflush(stdin);
                 scanf("%d", &col);
             }
@@ -302,6 +312,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -313,6 +324,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -324,6 +336,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -337,6 +350,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(27, 0);
                 printf("  ");
+                gotoligcol(27, 0);
                 fflush(stdin);
                 scanf("%d", &x);
             }
@@ -349,6 +363,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -360,6 +375,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -373,6 +389,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(27, 0);
                 printf("  ");
+                gotoligcol(27, 0);
                 fflush(stdin);
                 scanf("%d", &x);
             }
@@ -453,6 +470,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(18, 0);
                 printf("  ");
+                gotoligcol(18, 0);
                 fflush(stdin);
                 scanf("%c", &lig);
             }
@@ -469,6 +487,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(20, 0);
                 printf("  ");
+                gotoligcol(20, 0);
                 fflush(stdin);
                 scanf("%d", &col);
             }
@@ -498,6 +517,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -509,6 +529,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -520,6 +541,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -533,6 +555,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(27, 0);
                 printf("  ");
+                gotoligcol(27, 0);
                 fflush(stdin);
                 scanf("%d", &x);
             }
@@ -545,6 +568,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -556,6 +580,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
             SetConsoleTextAttribute(hConsole, 15);
             gotoligcol(27, 0);
             printf("  ");
+            gotoligcol(27, 0);
             fflush(stdin);
             scanf("%d", &x);
         }
@@ -569,6 +594,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                 SetConsoleTextAttribute(hConsole, 15);
                 gotoligcol(27, 0);
                 printf("  ");
+                gotoligcol(27, 0);
                 fflush(stdin);
                 scanf("%d", &x);
             }
@@ -652,6 +678,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                     SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(18, 0);
                     printf("  ");
+                    gotoligcol(18, 0);
                     fflush(stdin);
                     scanf("%c", &lig);
                 }
@@ -668,6 +695,7 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
                     SetConsoleTextAttribute(hConsole, 15);
                     gotoligcol(20, 0);
                     printf("  ");
+                    gotoligcol(20, 0);
                     fflush(stdin);
                     scanf("%d", &col);
                 }
