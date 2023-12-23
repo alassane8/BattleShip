@@ -1,7 +1,9 @@
 <h1 align="center">
   Alassane WADE Battleship Game
-</h1>                                         
+</h1>    
+<h2 align="center">
                                        "⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿. "
+</h2>                                      
 
 
 I created the famous game of Battleship in C Language.
