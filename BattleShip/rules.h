@@ -25,13 +25,13 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
     gotoligcol(5, 0);
     printf("Before playing, here are some explanations about the rules of the game:");
     SetConsoleTextAttribute(hConsole, 15);
-    printf("\n\nAt the start of the game, Player 1 randomly or manually places all its boats on its\n"
+    printf("\nAt the start of the game, Player 1 randomly or manually places all its boats on its\n"
            "grid.\n"
            "Of course, Player 1 doesn't see AI's grid.\n"
            "Once all the boats are in play, the game can begin... One by one, Player 1 and AI fire\n" 
            "to destroy enemy boats.\n\n");
     SetConsoleTextAttribute(hConsole, 10);
-    printf("Example:\n\n");
+    printf("Example:\n");
     SetConsoleTextAttribute(hConsole, 15);
     printf("Player 1 fire in (h,7), corresponding to the square of the enemy's grid at the crossing\n" 
            "of the row 'h' and the column '7'.\n"
@@ -48,7 +48,7 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
            "wich reveal\n"
            "the enemy grid for a short period and return to the main menu.\n");
     SetConsoleTextAttribute(hConsole, 10);
-    printf("\n\nHere are the boats you can place:\n\n");
+    printf("\nHere are the boats you can place:\n");
     SetConsoleTextAttribute(hConsole, 15);
     printf("Aircraft Carrier, Cruiser, Destroyer and Submarine.\n"
            "- 1 Aircraft Carrier with symbol P takes 7 spaces.\n"
@@ -62,7 +62,7 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
     gotoligcol(44, 70);
     printf("Copyright 2023 Battleship Alassane Wade");
 
-    gotoligcol(42, 0);
+    gotoligcol(37, 0);
     // Appel du menu
     SetConsoleTextAttribute(hConsole, 11);
     printf("Main menu: \n");
@@ -75,9 +75,9 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
         SetConsoleTextAttribute(hConsole, 12);
         printf("Error.");
         SetConsoleTextAttribute(hConsole, 15);
-        gotoligcol(43, 0);
+        gotoligcol(39, 0);
         printf("  ");
-        gotoligcol(43, 0);
+        gotoligcol(39, 0);
         fflush(stdin);
         scanf("%d", &w);
     }
