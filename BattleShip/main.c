@@ -23,11 +23,11 @@
 #include "random_placements.h"
 #include "save_matrices.h"
 #include "save.h"
-#include "aerial_shot.h"
+#include "strike.h"
 #include "shot.h"
 #include "winner.h"
 #include "game_over.h"
-#include "asciiboats.h"
+#include "boatsascii.h"
 #include "rules.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
