@@ -54,7 +54,7 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
            "- 1 Aircraft Carrier with symbol P takes 7 spaces.\n"
            "- 2 Cruisers with symbol C takes 5 spaces.\n"
            "- 3 Destroyers with symbol D takes 3 spaces.\n"
-           "- 4 Submarines with symbol S takes 1 space.\n\n\n");
+           "- 4 Submarines with symbol S takes 1 space.");
     SetConsoleTextAttribute(hConsole, 11);
 
     boat_decoration_rules();
