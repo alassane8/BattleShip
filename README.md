@@ -12,7 +12,7 @@ This game can be played by using the terminal of your computer.
 As a player, you can place randomly or manually your boat and shoot the IA's
 boats.
 
-<img width="1306" alt="Screen Shot 2021-03-15 at 8 29 18 PM" src="https://github.com/alassane8/BattleShip/blob/main/BattleShip/Capture.PNG">
+<img width="1306" alt="Screen Shot 2021-03-15 at 8 29 18 PM" src="https://github.com/alassane8/BattleShip/blob/main/code/Capture.PNG">
 
 # Instructions
 To play the Battleship follow the following instructions :
