@@ -24,7 +24,7 @@ git clone https://github.com/alassane8/BattleShip.git
 ```
 - Go to the BattleShip folder :
 ```bash
-cd BattleShip/BattleShip/
+cd BattleShip/code
 ```
 - Run the Executable: 
 ```bash
