@@ -128,6 +128,8 @@ void menu(unsigned char **mat, unsigned char **mat_ia1, int *a, char *pseudo, in
             // Placement aléatoire des bateaux
             placement_bateaux(mat, mat_ia1, a, pseudo, choix, mat_bis, mat_ia1_bis);
             placement_bateaux_aleatoire1(mat_ia1);
+            
+            boat_decoration_load();
 
             // Appel de la fonction de jeux
             jouer(mat, mat_ia1, a, pseudo, niveauIA, choix, mat_bis, mat_ia1_bis);
