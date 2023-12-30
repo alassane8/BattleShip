@@ -37,6 +37,8 @@ void placement_bateaux(unsigned char **mat, unsigned char **mat_ia1, int *a, cha
     printf("3 Destroyers with the letter D take 3 spaces.\n");
     gotoligcol(21, 70);
     printf("4 Submarines with the letter S take up 1 space.\n");
+    gotoligcol(44, 70);
+    printf("Copyright 2023 Battleship Alassane Wade");
 
     // Choix du bateau par l'utilisateur
     do

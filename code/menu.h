@@ -184,7 +184,7 @@ void menu(unsigned char **mat, unsigned char **mat_ia1, int *a, char *pseudo, in
         printf("T H A N K  Y O U !");
         SetConsoleTextAttribute(hConsole, 11);
         printf(" /////////////////////////////");
-        gotoligcol(6, 70);
+        gotoligcol(6, 65);
         SetConsoleTextAttribute(hConsole, 15);
         printf("We hope to see you soon %s !", pseudo);
 
