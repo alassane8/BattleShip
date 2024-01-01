@@ -13,7 +13,7 @@ As a player, you can place randomly or manually your boat and fire at the IA's b
 
 <img width="1306" alt="Screen Shot 2021-03-15 at 8 29 18 PM" src="https://github.com/alassane8/BattleShip/blob/main/code/Capture.PNG">
 
-# Instructions
+## Instructions
 To play the Battleship follow the following instructions :
 
 ## Open a terminal in full screen.
@@ -30,10 +30,10 @@ cd BattleShip/code
 ./BattleshipColor.exe
 ```
 
-# Have fun !
+## Have fun !
 You are now ready to play !
 
-# Rules
+## Rules
 Here are the rules of the game: 
 
 At the start of the game, Player 1 randomly or manually places all the ships on
@@ -55,7 +55,7 @@ order to see enemy's shipsor launch a flare.
 Player 1 is able to save the current game and return to the main menu.
 A battleship game ends when one of the players has no ships remaining.
 
-# Informations about the ships
+## Informations about the ships
 Here are the boats you can place:
 Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - The unique Aircraft Carrier with the letter P takes up 7 spaces.
@@ -63,6 +63,6 @@ Aircraft Carrier, Cruiser, Destroyer and Submarine.
 - 3 Destroyers with the letter D take 3 spaces.
 - 4 Submarines with the letter S take up 1 space.
 
-# Area for improvement
+## Area for improvement
 Here, you can find the features I am currently working on in this repository.
 This allows you to be aware of the changes that are to come and see what needs to be improve. 
