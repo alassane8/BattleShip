@@ -1,9 +1,9 @@
 <h1 align="center">
-  Alassane WADE Battleship Game
+Alassane WADE Battleship Game
 </h1>  
 
 <h2 align="center">
-                                       "⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿. "
+ "⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿. "
 </h2>                                      
 
 Game of Battleship in C Language.
