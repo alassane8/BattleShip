@@ -12,17 +12,6 @@
       "compilerArgs": [
         ""
       ]
-    },
-    {
-      "name": "run",
-      "includePath": [
-        "${workspaceFolder}/**"
-      ],
-      "defines": [
-        "_DEBUG",
-        "UNICODE",
-        "_UNICODE"
-      ]
     }
   ],
   "version": 4

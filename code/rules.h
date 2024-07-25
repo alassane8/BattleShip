@@ -60,7 +60,7 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
     boat_decoration_rules();
 
     gotoligcol(44, 70);
-    printf("Copyright &#169 2023 Battleship Alassane Wade");
+    printf("Copyright 2023 Battleship Alassane Wade");
 
     gotoligcol(37, 0);
     // Appel du menu
