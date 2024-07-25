@@ -91,7 +91,7 @@ int main(){
     //Création de la ligne [1][j]
     mat = (unsigned char **)malloc(16* sizeof(unsigned char*));
 
-    //Création des colonnes
+    //Création des colonnesala
     for ( k = 0; k < 16; k++) {
         mat[k] = (unsigned char *)malloc(16 * sizeof(unsigned char));
     }
