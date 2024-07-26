@@ -48,7 +48,6 @@ int main(){
     unsigned char ** mat_ia1_bis = NULL;
     HANDLE hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
     //Bataille navale
     system("cls");
     gotoligcol(0, 30);
