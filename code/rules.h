@@ -21,7 +21,6 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
     printf("R U L E S");
     SetConsoleTextAttribute(hConsole, 11);
     printf(" /////////////////////////////");
-    SetConsoleTextAttribute(hConsole, 10);
     gotoligcol(5, 0);
     printf("Before playing, here are some explanations about the rules of the game:");
     SetConsoleTextAttribute(hConsole, 15);
@@ -30,7 +29,7 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
            "Of course, Player 1 doesn't see AI's grid.\n"
            "Once all the boats are in play, the game can begin... One by one, Player 1 and AI fire\n" 
            "to destroy enemy boats.\n\n");
-    SetConsoleTextAttribute(hConsole, 10);
+    SetConsoleTextAttribute(hConsole, 11);
     printf("Example:\n");
     SetConsoleTextAttribute(hConsole, 15);
     printf("Player 1 fire in (h,7), corresponding to the square of the enemy's grid at the crossing\n" 
@@ -47,7 +46,7 @@ void rules(unsigned char ** mat, unsigned char ** mat_ia1, int *a , char *pseudo
            "He has the possibility in one turn to save the current game, activate satellite view\n"
            "wich reveal\n"
            "the enemy grid for a short period and return to the main menu.\n");
-    SetConsoleTextAttribute(hConsole, 10);
+    SetConsoleTextAttribute(hConsole, 11);
     printf("\nHere are the boats you can place:\n");
     SetConsoleTextAttribute(hConsole, 15);
     printf("Aircraft Carrier, Cruiser, Destroyer and Submarine.\n"

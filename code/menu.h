@@ -19,6 +19,13 @@ void menu(unsigned char **mat, unsigned char **mat_ia1, int *a, char *pseudo, in
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     // Acceuil du joueur 1
     system("cls");
+    gotoligcol(0, 30);
+    SetConsoleTextAttribute(hConsole, 11);
+    printf("/////////////////////////////////////// ");
+    SetConsoleTextAttribute(hConsole, 15);
+    printf("B A T T L E S H I P");
+    SetConsoleTextAttribute(hConsole, 11);
+    printf(" ///////////////////////////////////////\n");
     gotoligcol(8, 30);
     SetConsoleTextAttribute(hConsole, 11);
     printf("/////////////////////////////////////// ");
